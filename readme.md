@@ -38,7 +38,7 @@ Tiene líneas de ropa inspiradas en las tendencias de los últimos meses (selecc
 
 2.	https://www.tiendademascotas.com.ar/
 
-![](https://tiendademascotasar.vtexassets.com/assets/vtex.file-manager-graphql/images/a56e6eb9-938b-45c3-b37e-acb70c4559da___0966d5d4742eaafef5d40a18d4d59384.png)
+![](https://drive.google.com/file/d/1u0Wa6PLFfK4n0KeRgE78jwCVHr11WW-k/view?usp=sharing)
 
 Usa personajes de las redes para promocionarse con comerciales. El menú desplegable es claro y lleva rápidamente a lo que uno busca. Tiene un sistema de filtros para orientar en la elección del tipo y marca de alimento correcto para la mascota. Como desventaja es un poco redundante y puede estar sobrecargada de mensajes e información.
 
