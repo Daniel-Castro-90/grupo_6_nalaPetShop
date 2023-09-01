@@ -27,6 +27,7 @@
 
 ## Integrantes del grupo:
 - **Mauro Ciccazzo**: tengo 33 años y vivo en Santa Fe Capital. Soy Ingeniero Químico y trabajo para una empresa metalúrgica en el sector de ventas e ingeniería. Me inscribí porque poseo pocos conocimientos en cuanto a lenguajes de programación en general y es una buena oportunidad para iniciarme.
+- **Camila Mena**: Tengo 24 años, vivo en Esperanza, soy estudiante de veterinaria. La decisión de arrancar con programación surgió como un proyecto adicional a mis actividades actuales y considero que es muy buena oportunidad para seguir adquiriendo nuevos conocimientos.  
 
 ## Sitios de referencia:
 
