@@ -1,9 +1,9 @@
 # nalaPetShop
 
 ## Descripción:
-- Nuestra tienda para mascotas comercializará productos centrados en solo perros y gatos.
+- Nuestra tienda para mascotas comercializará alimentos solo para perros y gatos. Buscando dar opciones al cliente con un abanico de productos de diferentes calidades, precios, presentaciones y usos.
 ## Orientación
-- Público objetivo: general, dueños de mascotas con interés en ofrecer un diferencial a sus animales a la hora de elegir un alimento, insumo de higiene o accesorio.
+- Público objetivo: general, dueños de mascotas con interés en ofrecer un diferencial a sus animales a la hora de elegir un alimento.
 
 ## Oferta: 
 
@@ -11,19 +11,6 @@
 - Clasificados según animal, edad, tamaño o peso y calidad del producto.
 - Con medicamentos. (https://www.tiendademascotas.com.ar/)
 - Necesidades especiales. (https://www.tiendademascotas.com.ar/)
-
-### Estética e higiene:
-- Shampoo y acondicionador
-- Cepillos, guantes y cardinas.
-- Piedras y arena. 
-- Cortaunñas
-
-### Accesorios:
-- Paseo: correas, collares, bolsos rígidos, pretales y arneses.
-- Ropa.
-- Comederos y bebederos.
-- Juguetes: sogas, pelotas, rascadores y mordillos.
-- Camas/cuchas de exterior.
 
 ## Integrantes del grupo:
 - **Mauro Ciccazzo**: tengo 33 años y vivo en Santa Fe Capital. Soy Ingeniero Químico y trabajo para una empresa metalúrgica en el sector de ventas e ingeniería. Me inscribí porque poseo pocos conocimientos en cuanto a lenguajes de programación en general y es una buena oportunidad para iniciarme.
