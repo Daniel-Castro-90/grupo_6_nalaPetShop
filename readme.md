@@ -16,6 +16,7 @@
 - **Mauro Ciccazzo**: tengo 33 años y vivo en Santa Fe Capital. Soy Ingeniero Químico y trabajo para una empresa metalúrgica en el sector de ventas e ingeniería. Me inscribí porque poseo pocos conocimientos en cuanto a lenguajes de programación en general y es una buena oportunidad para iniciarme.
 - **Camila Mena**: Tengo 24 años, vivo en Esperanza, soy estudiante de veterinaria. La decisión de arrancar con programación surgió como un proyecto adicional a mis actividades actuales y considero que es muy buena oportunidad para seguir adquiriendo nuevos conocimientos.
 - **Eugenia Barros**: tengo 32 años, también estudié Ingeniería Química y vivo en Santa Fe capital aunque soy de Goya, Corrientes. Empecé hace algunos años haciendo cursos muy básicos de programación; el objetivo de éste es fortalecer conocimientos como para aprovechar oportunidades laborales dentro del sector.
+- **Daniel Castro**: tengo 33 años, actualmente vivo en Santa Fe capital. Soy profesor universitario en Física. Siempre me interesó la investigación y resolución de problemas, por lo que encuentro el desarrollo de software y las tecnologías muy importantes para esta actividad.
 
 ## Sitios de referencia:
 
