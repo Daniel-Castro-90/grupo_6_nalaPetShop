@@ -1,0 +1,99 @@
+/*CODIGO DANIEL*/
+
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: "Roboto", sans-serif;
+    background-color: #a49987;
+}
+
+header{
+    background-color: #2f2822;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    padding: 10px;
+}
+
+header div.top{
+    padding: 2%;
+}
+
+header div.top i{
+    font-size: inherit;
+    color:#f19827;
+    margin-bottom: 10px;
+}
+
+header div.top i:hover{
+    color:#ffc962;
+}
+
+header div.top a{
+    padding: 0px 10px 0px;
+}
+
+header div.logo-superior img{
+    width: 50%;
+}
+
+header div.input{
+    color: #2f2822;
+}
+
+header div.submit{
+    color: #f19827;
+    padding: 6px 15px;
+    margin-left: 10px;
+}
+
+header div.submit:hover{
+    color: #ffc962
+}
+
+header div.input{
+    font-size: 12px;
+}
+
+/* Tablets */
+@media (min-width: 481px){
+    header div.buscador {
+        display: flex;
+        align-items: center;
+        background-color: #FFF;
+        border: 2px solid #000;
+        outline: none;
+        color: #666;
+        padding: 6px 15px;
+        border-radius: 7px;
+        flex-grow: 1;
+    }
+
+    header div.submit {
+        color: #f19827;
+        padding: 6px 15px;
+        margin-left: 10px;
+    }
+}
+
+/* Laptops en adelante */
+@media (min-width: 769px){
+    header div.input{
+        display: flex;
+    }
+}
+/*CODIGO CODIGO MARCOS*/
+
+
+/* CODIGO EUGENIA*/
+
+
+/*CODIGO CAMILA*/
+
+
+/*CODIGO MAURO*/
