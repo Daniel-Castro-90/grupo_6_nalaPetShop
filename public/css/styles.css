@@ -17,25 +17,23 @@ header{
     flex-direction: row;
     justify-content: space-around;
     align-items: center;
-    padding: 10px;
 }
 
 header div.top{
-    padding: 2%;
+    padding: 0px;
 }
 
 header div.top i{
     font-size: inherit;
     color:#f19827;
     margin-bottom: 10px;
+    display:none;
 }
 
-header div.top i:hover{
-    color:#ffc962;
-}
-
-header div.top a{
-    padding: 0px 10px 0px;
+header div.menu{
+    font-size: inherit;
+    color:#f19827;
+    margin-bottom: 10px;
 }
 
 header div.logo-superior img{
@@ -62,6 +60,18 @@ header div.input{
 
 /* Tablets */
 @media (min-width: 481px){
+    
+}
+
+/* Laptops en adelante */
+@media (min-width: 769px){
+    header div.input{
+        display: flex;
+    }
+}
+
+/* Computadoras de escritorio */
+@media (min-width: 1280px){
     header div.buscador {
         display: flex;
         align-items: center;
@@ -79,14 +89,24 @@ header div.input{
         padding: 6px 15px;
         margin-left: 10px;
     }
+    
+    header div.top i:hover{
+        color:#ffc962;
+    }
+    
+    header div.top a{
+        padding: 0px 10px 0px;
+    }
+
+    header div.top i{
+        font-size: inherit;
+        color:#f19827;
+        margin-bottom: 10px;
+        display:inline;
+    }
+
 }
 
-/* Laptops en adelante */
-@media (min-width: 769px){
-    header div.input{
-        display: flex;
-    }
-}
 /*CODIGO CODIGO MARCOS*/
 
 
