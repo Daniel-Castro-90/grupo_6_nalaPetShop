@@ -1,10 +1,12 @@
-/*CODIGO DANIEL*/
+/* global */
 
 *{
     margin: 0px;
     padding: 0px;
     box-sizing: border-box;
 }
+
+/* cuerpo del sitio */
 
 body{
     font-family: "Roboto", sans-serif;
@@ -14,8 +16,6 @@ body{
 header{
     background-color: #2f2822;
     display: flex;
-    flex-direction: row;
-    justify-content: space-around;
     align-items: center;
 }
 
@@ -34,27 +34,37 @@ header div.menu{
     font-size: inherit;
     color:#f19827;
     margin-bottom: 10px;
+    cursor: pointer;
 }
 
-header div.logo-superior img{
-    width: 50%;
+header img.logo-superior{
+    width: 10%;
 }
 
-header div.input{
+header div.buscador{
     color: #2f2822;
 }
 
+header div.ingresar,
+header div.carro,
 header div.submit{
     color: #f19827;
     padding: 6px 15px;
     margin-left: 10px;
+    cursor: pointer
 }
 
+header div.ingresar:hover,
+header div.carro:hover,
+header div.menu:hover,
 header div.submit:hover{
     color: #ffc962
+    
 }
 
-header div.input{
+header div
+
+header div.buscador{
     font-size: 12px;
 }
 
@@ -72,6 +82,10 @@ header div.input{
 
 /* Computadoras de escritorio */
 @media (min-width: 1280px){
+    header img.logo-superior{
+        width: 5%;
+    }
+
     header div.buscador {
         display: flex;
         align-items: center;
@@ -79,9 +93,8 @@ header div.input{
         border: 2px solid #000;
         outline: none;
         color: #666;
-        padding: 6px 15px;
         border-radius: 7px;
-        flex-grow: 1;
+        flex-grow: 0.1;
     }
 
     header div.submit {
@@ -94,15 +107,18 @@ header div.input{
         color:#ffc962;
     }
     
-    header div.top a{
-        padding: 0px 10px 0px;
+    header div.menu i:hover{
+        color:#ffc962;
     }
 
+    header div.submit,
+    header div.input,
+    header div.menu i,
     header div.top i{
-        font-size: inherit;
         color:#f19827;
-        margin-bottom: 10px;
-        display:inline;
+        display:flex;
+        padding: 10px;
+        cursor: pointer;
     }
 
 }
