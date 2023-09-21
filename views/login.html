@@ -21,22 +21,22 @@
         <img class="logo-superior" src="/images/logo.png" alt="Logo Nala">
         <input class="buscador" type="text" placeholder="¿Qué estás buscando?">
         <div class="submit"><i class="fas fa-search"></i></div>
-        <div class="ingresar"><a href="login">Ingresar <i class="fa-solid fa-user" ></a></i></div>
+        <div class="ingresar"><a href="login">Ingresar<i class="fa-solid fa-user" ></a></i></div>
         <div class="carro"><i class="fa-solid fa-cart-shopping" href=""></i></div>
     </header>
     <main>
         <div class="contenedor-accesousuario">
             <section class="ingreso-registro">
-                <div class="boton-ingreso">
+                <a class="boton-ingreso">
                     <h4>Ingresá</h4>
-                </div>
-                <div class="boton-registro">
+                </a>
+                <a href="/register" class="boton-registro">
                     <h4>Registrate</h4>
-                </div>
+                </a>
             </section>
             <section>
                 <form class="formulario-ingreso" action="#" method="post">
-                    <div class="contenedor-registro">
+                    <div class="contenedor-login">
                         <div>
                             <div class="items-registro">
                                 <label for="mail">E-MAIL</label>
@@ -47,10 +47,17 @@
                                 <input type="password" id="password" name="password" />
                             </div>
                             <div>
-                                <input type="checkbox" value="on">
-                                <label>Recordar</label>
+                                <div>
+                                    <input type="checkbox" value="on">
+                                    <label>Recordar</label>
+                                </div>
+                                <div>
+                                    <a href="/resetting/request" class="forgot-pass">
+                                        ¿Olvidaste la contraseña?
+                                    </a>
+                                </div>
                             </div>
-                            <div class="boton-submit"><button type="submit">ENTRAR</button></div>
+                            <div class="boton-enter"><button type="submit">ENTRAR</button></div>
                         </div>
                     </div>
                 </form>
