@@ -433,6 +433,15 @@ a {
     justify-content: space-between;
     background-color: #FFFFFF;
 }
+.contenedor-login{
+    border: solid 1px #a49987;
+    height: 540px;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: #FFFFFF;
+}
 .items-registro{
     display: grid;
     color: 	black;
