@@ -19,7 +19,8 @@
 [![linkedin](https://img.shields.io/badge/linkedin-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/eugenia-barros-735719b0/)
 - **Daniel Castro**: tengo 33 años, actualmente vivo en Santa Fe capital. Soy profesor universitario en Física. Siempre me interesó la investigación y resolución de problemas, por lo que encuentro el desarrollo de software y las tecnologías muy importantes para esta actividad. [![Github](https://img.shields.io/badge/Git_Hub-000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/Daniel-Castro-90)
 [![linkedin](https://img.shields.io/badge/linkedin-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/daniel1350208/)
-- **Marcos Ferrero**: tengo 31 años, soy tecnico en informatica y estoy cursando la diplomatura de desarrollo de software, vivo en la ciudad de Rafaela. Siempre me intereso la programacion pero nunca me senti preparado para trabajar en el rubro; el objetivo de tomar este curso es afianzar las bases necesarias y poder desempeñar un perfil en el rubro.
+- **Marcos Ferrero**: tengo 31 años, soy tecnico en informatica y estoy cursando la diplomatura de desarrollo de software, vivo en la ciudad de Rafaela. Siempre me intereso la programacion pero nunca me senti preparado para trabajar en el rubro; el objetivo de tomar este curso es afianzar las bases necesarias y poder desempeñar un perfil en el rubro.[![Github](https://img.shields.io/badge/Git_Hub-000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/MarcoS211)
+[![linkedin](https://img.shields.io/badge/linkedin-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](www.linkedin.com/in/marcos-ferrero-35b4b01a5)
 
 ## Sitios de referencia:
 
