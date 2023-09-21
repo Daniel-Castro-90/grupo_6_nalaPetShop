@@ -1,4 +1,4 @@
-/* GLOBAL*/
+/* GLOBAL */
 
 *{
     margin: 0px;
@@ -35,10 +35,11 @@ header div.menu{
     left: 30px;
 }
 
-header img.logo-superior{
+header a img.logo-superior{
     height: 100%;
     position: absolute;
     left: 33.5%;
+    top:0%;
 }
 
 header input.buscador{
@@ -302,8 +303,8 @@ main{
 .categorias{
     position: absolute;
     width:100%;
-    height: 500px;
-    top: 915%;
+    height: 350px;
+    top: 938%;
 }
 
 @keyframes textoBajo {
@@ -321,8 +322,8 @@ main{
 .gato{
     position:relative;
     top:10%;
-    left:2%;
-    width: 45%;
+    left:5%;
+    width: 30%;
     height: 29%;
     background-image: url('/images/gato-cuerpo.svg');
     background-size: contain;
@@ -339,11 +340,11 @@ main{
     color:#2f2822;
     position: relative;
     bottom: 0%;
-    right:1%;
+    right:0%;
     font-weight: bold;
     font-size: 20px;
     height: 101%;
-    width: 97%;
+    width: 100%;
 }
 
 .contenedor-gato:hover{
@@ -356,7 +357,7 @@ main{
     color:#2f2822;
     position: absolute;
     top:100%;
-    left:30%;
+    left:31%;
     font-weight: bold;
     font-size: 20px;
 }
@@ -365,7 +366,7 @@ main{
     position: absolute;
     left:57%;
     top:10%;
-    width: 40%;
+    width: 30%;
     height: 29%;
     background-image: url('/images/perro-cuerpo.svg');
     background-size: contain;
@@ -386,7 +387,7 @@ main{
     font-weight: bold;
     font-size: 20px;
     height: 101%;
-    width: 97%;
+    width: 100%;
 }
 
 .contenedor-perro:hover{
@@ -398,8 +399,8 @@ main{
 .texto-perro{
     color: #2f2822;
     position: absolute;
-    top:105%;
-    left:30%;
+    top:100%;
+    left:15%;
     font-weight: bold;
     font-size: 20px;
 }
