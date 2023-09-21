@@ -1,4 +1,4 @@
-/* global */
+/* GLOBAL */
 
 *{
     margin: 0px;
@@ -6,7 +6,9 @@
     box-sizing: border-box;
 }
 
-/* cuerpo del sitio */
+/* BODY */
+
+/* HEADER*/
 
 body{
     font-family: "Roboto", sans-serif;
@@ -20,6 +22,7 @@ header{
     position: fixed;
     width: 100%;
     height: 10%;
+    z-index:1000;
 }
 
 header div.top,
@@ -75,11 +78,327 @@ header div.submit:hover{
     
 }
 
-header div
-
 header div.buscador{
     font-size: 12px;
 }
+
+/* END HEADER */
+
+/* MAIN */
+
+main{
+    display:flex;
+    flex-direction: column;
+    padding-top: 76px;
+    position: absolute;
+    width: 100%;
+}
+
+/* Carrusel/Slider */
+.slider{
+    position: absolute;
+    width: 100%;
+    height: 164px;
+    background-color: #a49987;;
+}
+
+.imagen{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    visibility: hidden;
+    opacity: 0;
+}
+
+.imagen img{
+    height: 100%;
+    position: relative;
+    left:50%;
+    transform: translateX(-50%);
+}
+
+.actual{
+    visibility: visible;
+    opacity: 1;
+    transition: visibility 1s, opacity 1s;
+}
+
+.texto {
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    top: 85%;
+    color: white;
+    font-weight: bold;
+}
+
+.slider a{
+    position: absolute;
+    text-decoration: none; 
+    color: #f19827;
+    font-size: 36px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.slider a:hover{
+    color:#ffc962;
+}
+
+.siguiente{
+    left:95%;
+}
+
+.boton {
+    position: absolute;
+    top: 90%;
+    left: 90%;
+}
+
+.boton img{
+    width: 20px;
+    height: auto;
+}
+
+.puntos{
+    position: absolute;
+    top:93%;
+    width: 100%;
+    text-align: center;
+}
+
+.punto{
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    background-color: #f19827;
+    border-radius: 50%;
+    margin-right: 5px;
+}
+
+.activo{
+    background-color: #ffc962;
+}
+
+.punto:hover{
+    cursor: pointer;
+    background-color: #ffc962;
+}
+
+/*Compra segura - Medios de pago - Envíos sin cargo*/
+
+.compra-pagos-envios{
+    background-color:#ffe59e;
+    width: 100%;
+    height: 450px;
+    position: absolute;
+    top:324%;
+}
+
+.compra-segura{
+    height: 150px;
+}
+
+.compra-segura img{
+    position: absolute;
+    width: auto;
+    height: 17%;
+    top:6%;
+    left:3%;
+}
+
+.titulo-cs{
+    position: absolute;
+    top: 6%;
+    left: 28%;
+    color:#196E12;
+    font-weight: bold;
+    font-size: 22px;
+}
+
+.cuerpo-cs{
+    position: absolute;
+    top:14%;
+    left:28%;
+    color:#196E12;
+    font-size: 16px;
+    line-height: 25px;
+}
+
+.medios-de-pago{
+    height: 150px;
+}
+
+.medios-de-pago img{
+    position: absolute;
+    width: auto;
+    height: 17%;
+    top:37%;
+    left:4%;
+}
+
+.titulo-mdp{
+    position: relative;
+    top: 13%;
+    left: 28%;
+    color:#196E12;
+    font-weight: bold;
+    font-size: 22px;
+}
+
+.cuerpo-mdp{
+    position: absolute;
+    top:45%;
+    left:28%;
+    color:#196E12;
+    font-size: 16px;
+    line-height: 25px;
+}
+
+.envios-sin-cargo{
+    height: 164px;
+}
+
+.envios-sin-cargo img{
+    position: absolute;
+    width: auto;
+    height: 18%;
+    top:70%;
+    left:3%;
+}
+
+.titulo-esc{
+    position: relative;
+    top: 13%;
+    left: 28%;
+    color:#196E12;
+    font-weight: bold;
+    font-size: 22px;
+}
+
+.cuerpo-esc{
+    position: absolute;
+    top:79%;
+    left:28%;
+    color:#196E12;
+    font-size: 16px;
+    line-height: 25px;
+}
+
+/* Categorías */
+
+@keyframes cambioImagen{
+    0% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+.categorias{
+    position: absolute;
+    width:100%;
+    height: 500px;
+    top: 916%;
+}
+
+.gato{
+    position:relative;
+    top:3%;
+    left:2%;
+    width: 45%;
+    height: 29%;
+    background-image: url('/images/gato-cuerpo.svg');
+    background-size: contain;
+    transition: background-image 0.3s;
+    background-repeat: no-repeat;
+}
+
+.gato:hover{
+    background-image: url('/images/gato-cara.svg');
+    cursor:pointer;
+}
+
+.contenedor-gato{
+    color:#2f2822;
+    position: relative;
+    bottom: 0%;
+    right:1%;
+    font-weight: bold;
+    font-size: 20px;
+    height: 101%;
+    width: 97%;
+}
+
+.texto-gato{
+    color:#2f2822;
+    position: absolute;
+    bottom: 0%;
+    right:1%;
+    font-weight: bold;
+    font-size: 20px;
+    height: 101%;
+    width: 97%;
+}
+
+@keyframes textoBajo {
+    0% {
+        opacity: 100%;
+    }
+    50% {
+        transform: translateY(20px); opacity: 100%;
+    }
+    100% {
+        opacity: 100%;
+    }
+}
+
+.contenedor-gato:hover{
+        animation: textoBajo 1s ease;
+        animation-iteration-count: 1;
+        animation-direction: reverse;
+}
+
+.texto-perro{
+    color: #2f2822;
+    position: absolute;
+    top:105%;
+    left:30%;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.texto-perro:hover{
+    animation: textoBajo 1s ease;
+    animation-iteration-count: 1;
+    animation-direction: reverse;
+}
+
+.perro {
+    position: absolute;
+    left:57%;
+    top:3%;
+    width: 40%;
+    height: 29%;
+    background-image: url('/images/perro-cuerpo.svg');
+    background-size: contain;
+    transition: background-image 0.3s;
+    background-repeat: no-repeat;
+}
+
+.perro:hover{
+    background-image: url('/images/perro-cara.svg');
+    cursor:pointer;
+}
+
+/* END MAIN */
+
+/* FOOTER */
+
 
 /* Tablets */
 @media (min-width: 481px){ 
@@ -172,14 +491,3 @@ header div.buscador{
     }
 
 }
-
-/*CODIGO CODIGO MARCOS*/
-
-
-/* CODIGO EUGENIA*/
-
-
-/*CODIGO CAMILA*/
-
-
-/*CODIGO MAURO*/
