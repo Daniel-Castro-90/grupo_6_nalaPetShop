@@ -410,6 +410,59 @@ main{
     cursor:pointer;
 }
 
+/* REGISTRO */
+
+a {
+    text-decoration: none;
+    color: #f19827;
+}
+.contenedor-accesousuario{
+    margin: 40px 10px 0;
+}
+
+.ingreso-registro{
+    display: flex;
+    background-color: white;
+}
+.ingreso-registro div{
+    width: 50%;
+    border: solid 1px #a49987;
+    text-align: center;
+    padding: 15px;
+}
+.contenedor-registro{
+    border: solid 1px #a49987;
+    height: 540px;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: #FFFFFF;
+}
+.items-registro{
+    display: grid;
+    color: 	black;
+    font-size: 12px;
+}
+.items-registro input{
+    height: 34px;
+    padding: 6px 12px;
+    margin: 10px 0 15px;
+}
+.boton-submit{
+    display: flex;
+    justify-content: flex-end;
+}
+.boton-submit button{
+    border: solid 2px #f19827;
+    border-radius: 4px;
+    background-color: #f19827;
+    color: 	#FFFFFF;
+    font-size: 15px;
+    font-weight: 600;
+    width: 165px;
+    height: 55px;
+}
 /* END MAIN */
 
 /* FOOTER */
@@ -538,7 +591,13 @@ footer{
 
 /* Laptops en adelante */
 @media (min-width: 769px){
+    .contenedor-accesousuario{
+        width: 540px;
+        margin: 30px auto;
+ }
 }
+
+
 
 /* Computadoras de escritorio */
 @media (min-width: 1280px){
