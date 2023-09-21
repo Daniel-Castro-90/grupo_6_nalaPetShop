@@ -435,7 +435,7 @@ a {
 }
 .contenedor-login{
     border: solid 1px #a49987;
-    height: 540px;
+    height: 300px;
     padding: 30px;
     display: flex;
     flex-direction: column;
