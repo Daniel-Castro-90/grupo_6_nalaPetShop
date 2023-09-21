@@ -442,6 +442,20 @@ a {
     justify-content: space-between;
     background-color: #FFFFFF;
 }
+.boton-enter{
+    display: flex;
+    justify-content: flex-end;
+}
+.boton-enter button{
+    border: solid 2px #f19827;
+    border-radius: 4px;
+    background-color: #f19827;
+    color: 	#FFFFFF;
+    font-size: 15px;
+    font-weight: 600;
+    width: 130px;
+    height: 55px;
+}
 .items-registro{
     display: grid;
     color: 	black;
