@@ -67,3 +67,6 @@ Al igual que el sitio N°1, ofrecen una línea de accesorios inspirada en pelíc
 ![](https://www.per-ros.com/images/logo-circular.png)
 
 Al ingresar a la home lo primero que se ve son fotos de sesiones donde combinan la ropa de las mascotas con la de sus dueños, es algo diferente y atractivo a la vista.
+
+### Link a nuestro Trello:
+[![Trello](https://img.shields.io/badge/trello-000?style=for-the-badge&logo=trello&logoColor=white)](https://trello.com/b/wS9387am/sprint-2)
