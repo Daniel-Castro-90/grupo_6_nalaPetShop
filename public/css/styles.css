@@ -91,16 +91,15 @@ main{
     display:flex;
     flex-direction: column;
     padding-top: 76px;
-    position: absolute;
     width: 100%;
 }
 
 /* Carrusel/Slider */
 .slider{
-    position: absolute;
+    position: relative;
     width: 100%;
-    height: 164px;
-    background-color: #a49987;;
+    height: 160px;
+    background-color: #a49987;
 }
 
 .imagen{
@@ -170,8 +169,8 @@ main{
 
 .punto{
     display: inline-block;
-    width: 16px;
-    height: 16px;
+    width: 8px;
+    height: 8px;
     background-color: #f19827;
     border-radius: 50%;
     margin-right: 5px;
@@ -192,8 +191,8 @@ main{
     background-color:#ffe59e;
     width: 100%;
     height: 450px;
-    position: absolute;
-    top:346%;
+    position: relative;
+    transform: translateY(1%);
 }
 
 .compra-segura{
@@ -286,7 +285,14 @@ main{
     line-height: 25px;
 }
 
-/* Categorías */
+/* Categorías y Publicidad */
+
+.contenedor-categoria-publicidad{
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    background-color: #ff9263;
+}
 
 @keyframes cambioImagen{
     0% {
@@ -301,10 +307,8 @@ main{
 }
 
 .categorias{
-    position: absolute;
     width:100%;
-    height: 350px;
-    top: 938%;
+    height: 28vh;
 }
 
 @keyframes textoBajo {
@@ -321,10 +325,10 @@ main{
 
 .gato{
     position:relative;
-    top:10%;
-    left:5%;
-    width: 30%;
-    height: 29%;
+    top:15%;
+    left:10%;
+    width: 15vh;
+    height: 15vh;
     background-image: url('/images/gato-cuerpo.svg');
     background-size: contain;
     transition: background-image 0.3s;
@@ -363,11 +367,11 @@ main{
 }
 
 .perro {
-    position: absolute;
+    position: relative;
     left:57%;
-    top:10%;
-    width: 30%;
-    height: 29%;
+    top:-39%;
+    width: 15vh;
+    height: 15vh;
     background-image: url('/images/perro-cuerpo.svg');
     background-size: contain;
     transition: background-image 0.3s;
@@ -403,6 +407,12 @@ main{
     left:15%;
     font-weight: bold;
     font-size: 20px;
+}
+
+
+.publicidad{
+    position: relative;
+    width:100%;
 }
 
 /* REGISTRO */
