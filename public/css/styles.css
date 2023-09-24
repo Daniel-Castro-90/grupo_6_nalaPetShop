@@ -13,6 +13,8 @@
 body{
     font-family: "Roboto", sans-serif;
     background-color: #a49987;
+    display:flex;
+    flex-direction: column;
 }
 
 header{
@@ -311,6 +313,7 @@ main{
 .categorias{
     width:100%;
     height: 28vh;
+    z-index: 1;
 }
 
 @keyframes textoBajo {
@@ -558,7 +561,6 @@ footer{
 
 .footer-cuerpo:hover{
     color:#ffc962;
-    font-size: 20px;
 
 }
 
@@ -779,7 +781,7 @@ footer{
         display:flex;
         color: #f19827;
         position: absolute;
-        left: 15.5%;
+        left: 10%;
         font-size: 20px;
     }
 
@@ -787,7 +789,7 @@ footer{
         display:flex;
         color:#f19827;
         position: absolute;
-        left: 17%;
+        left: 12%;
         font-size: 20px;
     }
 
@@ -814,11 +816,11 @@ footer{
     }
 
     header a.qs{
-        left:24%;
+        left:15%;
     }
 
     header a.contacto{
-        left:30%;
+        left:24%;
     }
 
     header div.submit,
@@ -835,17 +837,43 @@ footer{
         display:flex;
     }
 
-    header img.logo-superior{
+    header a img.logo-superior{
         margin-right: 10px;
+        left: 31%;
     }
 
-    footer{
-        background-color: #2f2822;
-        display:flex;
-        width: 100%;
-        height: 120%;
+    
+    .imagen img{
+        height: 103%;
         position: relative;
-        bottom:0%;
+        left:50%;
+        width: auto;
+        object-fit: cover;
+        transform: translateX(-50%);
+    }
+
+    .compra-segura img{
+        position: absolute;
+        width: auto;
+        height: 17%;
+        top:6%;
+        left:18%;
+    }
+
+    .medios-de-pago img{
+        position: absolute;
+        width: auto;
+        height: 17%;
+        top:37%;
+        left:18%;
+    }
+
+    .envios-sin-cargo img{
+        position: absolute;
+        width: auto;
+        height: 18%;
+        top:70%;
+        left:18%;
     }
 
     .categorias{
@@ -890,47 +918,110 @@ footer{
         position: absolute;
         width:70vh;
         display: block;
-        right: 0%;
+        right: -1%;
+    }
+
+    footer{
+        
+        width: auto;
+        height: 40vh;
+        position: relative;
+        bottom:0%;
+
     }
 
     .footer-div{
-        display:flex;
         flex-direction: row;
-        align-items: center;
+        width: 100%;
+    }
+
+    .footer-titulo{
+        color:#f19827;
+        font-weight: bold;
+        font-size: 22px;
+        margin-top: -20vh;
         position: relative;
+        right: 40vh;
+    }
+
+    #mi-cuenta{
+        right: 65vh;
+    }
+
+    #contacto{
+        right: 53vh;
+    }
+
+    #redes{
+        right:57vh;
+    }
+
+    .footer-cuerpo{
+        color:#f19827;
+        font-size: 16px;
+        line-height: 35px;
+        text-decoration: none;
+        position: relative;
+        right: 50vh;
+        top: -5vh;
+    }
+
+    #terminos {
+        top:0vh;
+        right: 66vh;
+    }
+
+    #privacidad {
+        top:5vh;
+        right: 84vh;
+    }
+
+    #ingresar{
+        top:-5vh;
+        right: 74vh;
+    }
+
+    #registrarme{
+        top:0vh;
+        right: 82.6vh;
+    }
+
+    #contacto{
+        top:0vh;
+        right: 66vh;
+    }
+
+    #contacto-cuerpo{
+        top:-5vh;
+        right: 75vh;
     }
 
     .footer-fb {
-        left:45%;
+        left:136vh;
+        top:17vh;
     }
 
     .footer-instagram {
-        right:47%;
+        right:20vh;
+        top:17vh;
     }
 
     .footer-logo {
         position: relative;
         width: 70%;
-        height: 15%;
-        left: 664%;
+        height: auto;
+        left: 73vh;
         top:3%;
     }
 
     .by {
-        left:47%;
+        left:105vh;
+        top:28vh;
     }
 
     .footer-boton {
-        left: 46%;
-    }
-
-    .imagen img{
-        height: 103%;
-        position: relative;
-        left:50%;
-        width: auto;
-        object-fit: cover;
-        transform: translateX(-50%);
+        left: 105vh;
+        top:33vh;
     }
  
 }
