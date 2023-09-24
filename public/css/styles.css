@@ -535,6 +535,29 @@ a {
     color: #f19827;
 }
 
+/* productCart */
+
+/* imagenes de los productos del carrito */
+.carrito .producto img {
+    max-width: 100px; 
+    height: auto; 
+}
+
+/* elementos dentro del carrito */
+.carrito .producto {
+    margin: 10px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    text-align: center;
+}
+
+/* carrito en general */
+.carrito {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+}
 
 /* END MAIN */
 
