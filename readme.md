@@ -14,10 +14,14 @@
 
 ## Integrantes del grupo:
 - **Mauro Ciccazzo**: tengo 33 años y vivo en Santa Fe Capital. Soy Ingeniero Químico y trabajo para una empresa metalúrgica en el sector de ventas e ingeniería. Me inscribí porque poseo pocos conocimientos en cuanto a lenguajes de programación en general y es una buena oportunidad para iniciarme.
-- **Camila Mena**: Tengo 24 años, vivo en Esperanza, soy estudiante de veterinaria. La decisión de arrancar con programación surgió como un proyecto adicional a mis actividades actuales y considero que es muy buena oportunidad para seguir adquiriendo nuevos conocimientos.
-- **Eugenia Barros**: tengo 32 años, también estudié Ingeniería Química y vivo en Santa Fe capital aunque soy de Goya, Corrientes. Empecé hace algunos años haciendo cursos muy básicos de programación; el objetivo de éste es fortalecer conocimientos como para aprovechar oportunidades laborales dentro del sector.
-- **Daniel Castro**: tengo 33 años, actualmente vivo en Santa Fe capital. Soy profesor universitario en Física. Siempre me interesó la investigación y resolución de problemas, por lo que encuentro el desarrollo de software y las tecnologías muy importantes para esta actividad.
-- **Marcos Ferrero**: tengo 31 años, soy tecnico en informatica y estoy cursando la diplomatura de desarrollo de software, vivo en la ciudad de Rafaela. Siempre me intereso la programacion pero nunca me senti preparado para trabajar en el rubro; el objetivo de tomar este curso es afianzar las bases necesarias y poder desempeñar un perfil en el rubro.
+- **Camila Mena**: Tengo 24 años, vivo en Esperanza, soy estudiante de veterinaria. La decisión de arrancar con programación surgió como un proyecto adicional a mis actividades actuales y considero que es muy buena oportunidad para seguir adquiriendo nuevos conocimientos.[![Github](https://img.shields.io/badge/Git_Hub-000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/camimena)
+[![linkedin](https://img.shields.io/badge/linkedin-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/camila-mena-085674250/)
+- **Eugenia Barros**: tengo 32 años, también estudié Ingeniería Química y vivo en Santa Fe capital aunque soy de Goya, Corrientes. Empecé hace algunos años haciendo cursos muy básicos de programación; el objetivo de éste es fortalecer conocimientos como para aprovechar oportunidades laborales dentro del sector.[![Github](https://img.shields.io/badge/git_hub-000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/eugeniab8)
+[![linkedin](https://img.shields.io/badge/linkedin-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/eugenia-barros-735719b0/)
+- **Daniel Castro**: tengo 33 años, actualmente vivo en Santa Fe capital. Soy profesor universitario en Física. Siempre me interesó la investigación y resolución de problemas, por lo que encuentro el desarrollo de software y las tecnologías muy importantes para esta actividad. [![Github](https://img.shields.io/badge/Git_Hub-000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/Daniel-Castro-90)
+[![linkedin](https://img.shields.io/badge/linkedin-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/daniel1350208/)
+- **Marcos Ferrero**: tengo 31 años, soy tecnico en informatica y estoy cursando la diplomatura de desarrollo de software, vivo en la ciudad de Rafaela. Siempre me intereso la programacion pero nunca me senti preparado para trabajar en el rubro; el objetivo de tomar este curso es afianzar las bases necesarias y poder desempeñar un perfil en el rubro.[![Github](https://img.shields.io/badge/Git_Hub-000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/MarcoS211)
+[![linkedin](https://img.shields.io/badge/linkedin-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/marcos-ferrero-35b4b01a5)
 
 ## Sitios de referencia:
 
@@ -63,3 +67,6 @@ Al igual que el sitio N°1, ofrecen una línea de accesorios inspirada en pelíc
 ![](https://www.per-ros.com/images/logo-circular.png)
 
 Al ingresar a la home lo primero que se ve son fotos de sesiones donde combinan la ropa de las mascotas con la de sus dueños, es algo diferente y atractivo a la vista.
+
+## Link a nuestro Trello:
+[![Trello](https://img.shields.io/badge/trello-000?style=for-the-badge&logo=trello&logoColor=white)](https://trello.com/b/wS9387am/sprint-2)

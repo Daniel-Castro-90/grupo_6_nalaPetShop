@@ -1,4 +1,4 @@
-/* GLOBAL*/
+/* GLOBAL */
 
 *{
     margin: 0px;
@@ -12,7 +12,6 @@
 
 body{
     font-family: "Roboto", sans-serif;
-    background-color: #a49987;
 }
 
 header{
@@ -35,10 +34,11 @@ header div.menu{
     left: 30px;
 }
 
-header img.logo-superior{
+header a img.logo-superior{
     height: 100%;
     position: absolute;
     left: 33.5%;
+    top:0%;
 }
 
 header input.buscador{
@@ -90,16 +90,15 @@ main{
     display:flex;
     flex-direction: column;
     padding-top: 76px;
-    position: absolute;
     width: 100%;
 }
 
 /* Carrusel/Slider */
 .slider{
-    position: absolute;
+    position: relative;
     width: 100%;
-    height: 164px;
-    background-color: #a49987;;
+    height: 160px;
+    background-color: #a49987;
 }
 
 .imagen{
@@ -111,9 +110,11 @@ main{
 }
 
 .imagen img{
-    height: 100%;
+    height: 103%;
     position: relative;
     left:50%;
+    width: 100%;
+    object-fit: cover;
     transform: translateX(-50%);
 }
 
@@ -169,8 +170,8 @@ main{
 
 .punto{
     display: inline-block;
-    width: 16px;
-    height: 16px;
+    width: 8px;
+    height: 8px;
     background-color: #f19827;
     border-radius: 50%;
     margin-right: 5px;
@@ -191,8 +192,8 @@ main{
     background-color:#ffe59e;
     width: 100%;
     height: 450px;
-    position: absolute;
-    top:346%;
+    position: relative;
+    transform: translateY(1%);
 }
 
 .compra-segura{
@@ -285,7 +286,14 @@ main{
     line-height: 25px;
 }
 
-/* Categorías */
+/* Categorías y Publicidad */
+
+.contenedor-categoria-publicidad{
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    background-color: #ff9263;
+}
 
 @keyframes cambioImagen{
     0% {
@@ -300,10 +308,9 @@ main{
 }
 
 .categorias{
-    position: absolute;
     width:100%;
-    height: 500px;
-    top: 915%;
+    height: 28vh;
+    z-index: 1;
 }
 
 @keyframes textoBajo {
@@ -320,10 +327,10 @@ main{
 
 .gato{
     position:relative;
-    top:10%;
-    left:2%;
-    width: 45%;
-    height: 29%;
+    top:15%;
+    left:10%;
+    width: 15vh;
+    height: 15vh;
     background-image: url('/images/gato-cuerpo.svg');
     background-size: contain;
     transition: background-image 0.3s;
@@ -339,11 +346,11 @@ main{
     color:#2f2822;
     position: relative;
     bottom: 0%;
-    right:1%;
+    right:0%;
     font-weight: bold;
     font-size: 20px;
     height: 101%;
-    width: 97%;
+    width: 100%;
 }
 
 .contenedor-gato:hover{
@@ -356,17 +363,17 @@ main{
     color:#2f2822;
     position: absolute;
     top:100%;
-    left:30%;
+    left:31%;
     font-weight: bold;
     font-size: 20px;
 }
 
 .perro {
-    position: absolute;
+    position: relative;
     left:57%;
-    top:10%;
-    width: 40%;
-    height: 29%;
+    top:-39%;
+    width: 15vh;
+    height: 15vh;
     background-image: url('/images/perro-cuerpo.svg');
     background-size: contain;
     transition: background-image 0.3s;
@@ -386,7 +393,7 @@ main{
     font-weight: bold;
     font-size: 20px;
     height: 101%;
-    width: 97%;
+    width: 100%;
 }
 
 .contenedor-perro:hover{
@@ -398,10 +405,22 @@ main{
 .texto-perro{
     color: #2f2822;
     position: absolute;
-    top:105%;
-    left:30%;
+    top:100%;
+    left:15%;
     font-weight: bold;
     font-size: 20px;
+}
+
+
+.publicidad{
+    position: relative;
+    width:100%;
+}
+
+.publicidad2{
+    position: relative;
+    width:100%;
+    display: none;
 }
 
 /* REGISTRO */
@@ -441,6 +460,20 @@ a {
     justify-content: space-between;
     background-color: #FFFFFF;
 }
+.boton-enter{
+    display: flex;
+    justify-content: flex-end;
+}
+.boton-enter button{
+    border: solid 2px #f19827;
+    border-radius: 4px;
+    background-color: #f19827;
+    color: 	#FFFFFF;
+    font-size: 15px;
+    font-weight: 600;
+    width: 130px;
+    height: 55px;
+}
 .items-registro{
     display: grid;
     color: 	black;
@@ -465,6 +498,64 @@ a {
     width: 165px;
     height: 55px;
 }
+
+/* productDetail */
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.product {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    margin-bottom: 20px;
+    padding: 10px;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.product img {
+    max-width: 100%;
+    height: auto;
+}
+
+.product-name {
+    font-size: 16px;
+    font-weight: bold;
+    margin: 10px 0;
+}
+
+.product-price {
+    font-size: 14px;
+    color: #f19827;
+}
+
+/* productCart */
+
+/* imagenes de los productos del carrito */
+.carrito .producto img {
+    max-width: 100px; 
+    height: auto; 
+}
+
+/* elementos dentro del carrito */
+.carrito .producto {
+    margin: 10px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    text-align: center;
+}
+
+/* carrito en general */
+.carrito {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+}
+
 /* END MAIN */
 
 /* FOOTER */
@@ -475,8 +566,8 @@ footer{
     width: 100%;
     height: 100%;
     position: absolute;
-    top:158%;
 }
+
 
 .footer-div{
     display:flex;
@@ -525,7 +616,6 @@ footer{
 
 .footer-cuerpo:hover{
     color:#ffc962;
-    font-size: 20px;
 
 }
 
@@ -587,16 +677,175 @@ footer{
         animation-iteration-count: 1;
     }
 
+
+
+
+@media (max-width: 480px) {
+        .product {
+            width: 100%;
+            margin-right: 0;
+            margin-left: 0;
+        }
+    
+        .container {
+            padding: 10px;
+        }
+}
+    
+@media (min-width: 481px) {
+    .product {
+        width: calc(33.33% - 20px);
+        margin-right: 20px;
+        float: left;
+    }
+    
+    .product:nth-child(3n) {
+        margin-right: 0;
+    }
+    
+    .container::after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+}
+
+
+
+
 /* Tablets */
 @media (min-width: 481px){ 
+
+    .imagen img{
+        height: 103%;
+        position: relative;
+        left:50%;
+        width: 100%;
+        transform: translateX(-50%);
+    }
+
+    footer{
+        background-color: #2f2822;
+        display:flex;
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        bottom:-171%;
+    }
+
+    .footer-logo{
+        position: absolute;
+        width: 20%;
+        height: 12%;
+        left:36%;
+        top:6%;
+    }
+
+    .footer-div{
+        display:flex;
+        flex-direction: column;
+        align-items: center;
+        position: absolute;
+        bottom:20%;
+        left:25%;
+    }
+
+    .by{
+        position: absolute;
+        left:38%;
+        bottom:7%;
+        font-size: 18px;
+    }
+
+    .footer-instagram{
+        position: absolute;
+        bottom:12%;
+        right:40%;
+        font-size: 30px;
+        color: #f19827;
+    }
 }
 
 /* Laptops en adelante */
 @media (min-width: 769px){
+
+    footer{
+        background-color: #2f2822;
+        display:flex;
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        bottom:-203%;
+    }
+
+    .gato{
+        position:relative;
+        top:15%;
+        left:24%;
+        width: 15vh;
+        height: 15vh;
+        background-image: url('/images/gato-cuerpo.svg');
+        background-size: contain;
+        transition: background-image 0.3s;
+        background-repeat: no-repeat;
+    }
+
     .contenedor-accesousuario{
         width: 540px;
         margin: 30px auto;
- }
+    }
+
+    .footer-logo{
+        position: absolute;
+        width: 12%;
+        height: 12%;
+        left:43%;
+        top:6%;
+    }
+
+    .footer-div{
+        display:flex;
+        flex-direction: column;
+        align-items: center;
+        position: absolute;
+        bottom:20%;
+        left:36%;
+    }
+
+    .footer-fb{
+        position: absolute;
+        bottom:12%;
+        left:38%;
+        font-size: 30px;
+        color: #f19827;
+    }
+    
+
+    .footer-instagram{
+        position: absolute;
+        bottom:12%;
+        right:40%;
+        font-size: 30px;
+        color: #f19827;
+    }
+    
+    .by{
+        position: absolute;
+        left:43.5%;
+        bottom:7%;
+        font-size: 18px;
+    }
+
+    .footer-boton{
+        cursor:pointer;
+        text-decoration: none;
+        position: absolute;
+        left:41.5%;
+        bottom:2%;
+        font-size: 25px;
+    
+    }
+
 }
 
 
@@ -623,7 +872,7 @@ footer{
         display:flex;
         color: #f19827;
         position: absolute;
-        left: 15.5%;
+        left: 10%;
         font-size: 20px;
     }
 
@@ -631,7 +880,7 @@ footer{
         display:flex;
         color:#f19827;
         position: absolute;
-        left: 17%;
+        left: 12%;
         font-size: 20px;
     }
 
@@ -658,11 +907,11 @@ footer{
     }
 
     header a.qs{
-        left:24%;
+        left:15%;
     }
 
     header a.contacto{
-        left:30%;
+        left:24%;
     }
 
     header div.submit,
@@ -679,17 +928,43 @@ footer{
         display:flex;
     }
 
-    header img.logo-superior{
+    header a img.logo-superior{
         margin-right: 10px;
+        left: 31%;
     }
 
-    footer{
-        background-color: #2f2822;
-        display:flex;
-        width: 100%;
-        height: 120%;
+    
+    .imagen img{
+        height: 103%;
+        position: relative;
+        left:50%;
+        width: auto;
+        object-fit: cover;
+        transform: translateX(-50%);
+    }
+
+    .compra-segura img{
         position: absolute;
-        top:158%;
+        width: auto;
+        height: 17%;
+        top:6%;
+        left:18%;
+    }
+
+    .medios-de-pago img{
+        position: absolute;
+        width: auto;
+        height: 17%;
+        top:37%;
+        left:18%;
+    }
+
+    .envios-sin-cargo img{
+        position: absolute;
+        width: auto;
+        height: 18%;
+        top:70%;
+        left:18%;
     }
 
     .categorias{
@@ -724,39 +999,177 @@ footer{
     background-repeat: no-repeat;
     }
 
-    .footer-div{
-        display:flex;
-        flex-direction: column;
-        align-items: center;
+    
+    .publicidad{
+        position: relative;
+        width: 70vh;
+    }
+
+    .publicidad2{
         position: absolute;
-        bottom:20%;
-        left:44%;
+        width:70vh;
+        display: block;
+        right: -1%;
+    }
+
+    footer{
+        
+        width: auto;
+        height: 40vh;
+        position: relative;
+        bottom:0%;
+
+    }
+
+    .footer-div{
+        flex-direction: row;
+        width: 100%;
+    }
+
+    .footer-titulo{
+        color:#f19827;
+        font-weight: bold;
+        font-size: 22px;
+        margin-top: -20vh;
+        position: relative;
+        right: 40vh;
+    }
+
+    #mi-cuenta{
+        right: 65vh;
+    }
+
+    #contacto{
+        right: 53vh;
+    }
+
+    #redes{
+        right:57vh;
+    }
+
+    .footer-cuerpo{
+        color:#f19827;
+        font-size: 16px;
+        line-height: 35px;
+        text-decoration: none;
+        position: relative;
+        right: 50vh;
+        top: -5vh;
+    }
+
+    #terminos {
+        top:0vh;
+        right: 66vh;
+    }
+
+    #privacidad {
+        top:5vh;
+        right: 84vh;
+    }
+
+    #ingresar{
+        top:-5vh;
+        right: 74vh;
+    }
+
+    #registrarme{
+        top:0vh;
+        right: 82.6vh;
+    }
+
+    #contacto{
+        top:0vh;
+        right: 66vh;
+    }
+
+    #contacto-cuerpo{
+        top:-5vh;
+        right: 75vh;
     }
 
     .footer-fb {
-        left:45%;
+        left:136vh;
+        top:17vh;
     }
 
     .footer-instagram {
-        right:47%;
+        right:20vh;
+        top:17vh;
     }
 
     .footer-logo {
         position: relative;
         width: 70%;
-        height: 15%;
-        left: 664%;
+        height: auto;
+        left: 73vh;
         top:3%;
     }
 
     .by {
-        left:47%;
+        left:105vh;
+        top:28vh;
     }
 
     .footer-boton {
-        left: 46%;
+        left: 105vh;
+        top:33vh;
     }
+    
+}-----------------------------------
+.titulares{
+    font-size: 24px;
+}
+.precio{
+    font-size: 20px;
+    padding-bottom: 15px;
+}
+.precio{
+    font-size: 18px;
+    padding-bottom: 15px;
+}
 
+.main-article p {
+    margin: 0;
+    
+}
+.main-article{
+   display: flex;
+   flex-wrap: wrap;
+   position: relative;
+   flex-direction: column;
+   align-items: center
+}
+.Descripcion{
+    font-size: 20px;
+    color:#000;
+    padding-bottom: 15px;
+    padding-top: 15px;
+}
+main{
+    text-align: center;
+    width: 90%;
+    margin: auto;
+}
+.producto article{
+    border: 1px solid #fcb347;
+    padding: 15px;
+    margin-bottom: 10px;
+}
+.producto{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
 
+}
+.main-article button{
+    max-width: 100px;
 
+}
+.boton-producto{
+    background: orange;
+    width: 125px;
+    font-size: 20px;
+    padding: 5px;
+    border-radius: 15px;
+    color: white;
 }
