@@ -49,3 +49,4 @@ function mostrarProductosEnCarrito() {
 
 // Llama a la función para mostrar los productos en el carrito cuando la página se cargue
 window.addEventListener('load', mostrarProductosEnCarrito);
+

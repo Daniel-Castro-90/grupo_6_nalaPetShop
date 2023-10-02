@@ -1184,6 +1184,9 @@ footer{
         left: 105vh;
         top:33vh;
     }
+    main{
+        padding-top: 134px;
+    }
     
 }-----------------------------------
 .titulares{
@@ -1243,3 +1246,69 @@ main{
     border-radius: 15px;
     color: white;
 }
+
+/* Botones filtros  */
+ /* Dropdown Button */
+ .dropbtn {
+    background-color: orange ;
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    width: -moz-available;
+  }
+  
+  /* Dropdown button on hover & focus */
+  .filtros:hover,.dropbtn:hover {
+    background-color: #db710e;
+  }
+  
+  /* The container <div> - needed to position the dropdown content */
+  .dropdown {
+    position: relative;
+    display: inline-block;
+    width: -moz-available;
+  }
+  
+  /* Dropdown Content (Hidden by Default) */
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    min-width: 100%;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+  }
+  
+  /* Links inside the dropdown */
+  .dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+  }
+  
+  /* Change color of dropdown links on hover */
+  .dropdown-content a:hover {background-color: #ddd;}
+  
+  /* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
+  .show {display:block;} 
+
+  .div-perro{
+    display: flex;
+    background: orange;
+    border: 1px solid rgb(210, 138, 0)
+  }
+  .div-perro a {
+    padding: 10px;
+    color: white;
+  }
+  .filtros-drop{
+    display: flex;
+    background: orange;
+  }
+  .filtros{
+    width: 33.3%;
+    border: 1px solid rgb(210, 138, 0)
+  }
