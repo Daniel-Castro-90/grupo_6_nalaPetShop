@@ -3,28 +3,15 @@ const app = express()
 const path = require('path');
 const port = 3000;
 
-app.get("/", (req, res) => {
-    res.sendFile(path.join(__dirname, "./views/index.html"));
-});
+let routeProducts = require('./routes/products');
+let routeIndex = require('./routes/index');
+let routeUsers = require('./routes/users');
 
-app.get("/login", (req, res) => {
-    res.sendFile(path.join(__dirname, "./views/login.html"));
-});
+app.use('/', routeIndex);
 
-app.get("/register", (req, res) => {
-    res.sendFile(path.join(__dirname, "./views/register.html"));
-});
-app.get("/products", (req, res) => {
-    res.sendFile(path.join(__dirname, "./views/products.html"));
-});
+app.use('/products', routeProducts);
 
-app.get("/productCart", (req, res) => {
-    res.sendFile(path.join(__dirname, "./views/productCart.html"));
-});
-
-app.get("/productDetail", (req, res) => {
-    res.sendFile(path.join(__dirname, "./views/productDetail.html"));
-});
+app.use('/user', routeUsers);
 
 app.use(express.static('public'));
 

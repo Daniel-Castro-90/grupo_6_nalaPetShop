@@ -21,22 +21,22 @@
         <a href="/"><img class="logo-superior" src="/images/logo.png" alt="Logo Nala"></a>
         <input class="buscador" type="text" placeholder="¿Qué estás buscando?">
         <div class="submit"><i class="fas fa-search"></i></div>
-        <div class="ingresar"><a href="login">Ingresar <i class="fa-solid fa-user" ></a></i></div>
-        <div class="carro"><a href="productCart" class="fa-solid fa-cart-shopping" href=""></a></div>
+        <div class="ingresar"><a href="/user">Ingresar <i class="fa-solid fa-user" ></a></i></div>
+        <div class="carro"><a href="products/productCart" class="fa-solid fa-cart-shopping" href=""></a></div>
     </header>
     <main>
         <div class="contenedor-accesousuario">
             <section class="ingreso-registro">
-                <a class="boton-ingreso">
+                <a href="/user" class="boton-ingreso">
                     <h4>Ingresá</h4>
                 </a>
-                <a href="/register" class="boton-registro">
+                <a class="boton-registro">
                     <h4>Registrate</h4>
                 </a>
             </section>
             <section>
-                <form class="formulario-ingreso" action="#" method="post">
-                    <div class="contenedor-login">
+                <form class="formulario-registro" action="#" method="post">
+                    <div class="contenedor-registro">
                         <div>
                             <div class="items-registro">
                                 <label for="mail">E-MAIL</label>
@@ -46,22 +46,26 @@
                                 <label for="password">CONTRASEÑA</label>
                                 <input type="password" id="password" name="password" />
                             </div>
-                            <div>
-                                <div>
-                                    <input type="checkbox" value="on">
-                                    <label>Recordar</label>
-                                </div>
-                                <div>
-                                    <a href="/resetting/request" class="forgot-pass">
-                                        ¿Olvidaste la contraseña?
-                                    </a>
-                                </div>
+                            <div class="items-registro">
+                                <label for="password">REPITA LA CONTRASEÑA</label>
+                                <input type="password" id="password" name="password" />
                             </div>
-                            <div class="boton-enter"><button type="submit">ENTRAR</button></div>
+                            <div class="items-registro">
+                                <label for="dni">DNI</label>
+                                <input type="number" id="dni" name="number" />
+                            </div>
+                            <div class="items-registro">
+                                <label for="telephone">TELEFONO</label>
+                                <input type="number" id="telephone" name="number" />
+                            </div>
+                            <div>
+                                <input type="checkbox">
+                                <label>Acepto los términos y condiciones</label>
+                            </div>
                         </div>
+                        <div class="boton-submit"><button type="submit">REGISTRARME</button></div>
                     </div>
                 </form>
-
             </section>
         </div>
     </main>
@@ -72,8 +76,8 @@
             <a class="footer-cuerpo" id="terminos" href="#">Términos y condiciones</a>
             <a class="footer-cuerpo" id="privacidad" href="#">Privacidad de datos</a>
             <a class="footer-titulo" id="mi-cuenta">Mi Cuenta</a>
-            <a class="footer-cuerpo" id="ingresar" href="login">Ingresar</a>
-            <a class="footer-cuerpo" id="registrarme" href="register">Registrarme</a>
+            <a class="footer-cuerpo" id="ingresar" href="user">Ingresar</a>
+            <a class="footer-cuerpo" id="registrarme" href="user/register">Registrarme</a>
             <a class="footer-titulo" id="contacto">Contacto</a>
             <a class="footer-cuerpo" id="contacto-cuerpo" href="#">Contacto</a>
             <a class="footer-titulo" id="redes">Seguinos en las redes:</a>
