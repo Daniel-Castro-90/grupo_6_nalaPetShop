@@ -1188,7 +1188,8 @@ footer{
         padding-top: 134px;
     }
     
-}-----------------------------------
+}
+/*Parte de products*/
 .titulares{
     font-size: 24px;
 }
@@ -1320,7 +1321,7 @@ main{
     width: 33.3%;
     border: 1px solid rgb(210, 138, 0)
   }
-
+/*Parte de productDetails*/
 .Products-description-main {
     display: flex;
     justify-content: space-around;

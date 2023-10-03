@@ -9,4 +9,7 @@ router.get('/productCart', productsController.productCart);
 
 router.get('/productDetail', productsController.productDetail);
 
+router.get('/product', productsController.product);
+
+
 module.exports = router;
