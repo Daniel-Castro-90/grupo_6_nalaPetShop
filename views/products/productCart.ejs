@@ -1,0 +1,33 @@
+<%- include('../partials/header.ejs') %>
+<main class="cart-menu">
+    <div>
+        <div class="cart-header">
+            <div class="fa-solid fa-cart-shopping"></div>
+            <h5>MI CARRITO</h5>
+        </div>
+        <div class="cart-body">
+            <p><strong>DOG SELECTION CRIADORES ADULTO</strong></p>
+            <P>$11,000</P>
+            <div class="button-number">
+                <button type="submit">+</button>
+                <input type="number" id="numero" name="number" />
+                <button type="submit">-</button>
+            </div>
+        </div>
+        <div class="cart-footer">
+            <div>
+                <ul>
+                    <li>Subtotal</li>
+                    <li>$11,000</li>
+                </ul>
+                <ul>
+                    <li>Total</li>
+                    <li>$11,000</li>
+                </ul>
+            </div>
+            <div class="add-products"><a href="/products/productDetail"><strong>AGREGAR MAS PRODUCTOS</strong></a></div>
+            <div class="button-finish"><button type="submit">FINALIZAR COMPRA</button></div>
+        </div>
+    </div>
+</main>
+<%- include('../partials/footer.ejs') %>

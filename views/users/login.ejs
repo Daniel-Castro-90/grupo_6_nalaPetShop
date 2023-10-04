@@ -1,0 +1,43 @@
+<%- include('../partials/header.ejs') %>
+<main>
+    <div class="contenedor-accesousuario">
+        <section class="ingreso-registro">
+            <a class="boton-ingreso">
+                <h4>Ingresá</h4>
+            </a>
+            <a href="user/register" class="boton-registro">
+                <h4>Registrate</h4>
+            </a>
+        </section>
+        <section>
+            <form class="formulario-ingreso" action="#" method="post">
+                <div class="contenedor-login">
+                    <div>
+                        <div class="items-registro">
+                            <label for="mail">E-MAIL</label>
+                            <input type="email" id="emailAddress" name="email" />
+                        </div>
+                        <div class="items-registro">
+                            <label for="password">CONTRASEÑA</label>
+                            <input type="password" id="password" name="password" />
+                        </div>
+                        <div>
+                            <div>
+                                <input type="checkbox" value="on">
+                                <label>Recordar</label>
+                            </div>
+                            <div>
+                                <a href="/resetting/request" class="forgot-pass">
+                                    ¿Olvidaste la contraseña?
+                                </a>
+                            </div>
+                        </div>
+                        <div class="boton-enter"><button type="submit">ENTRAR</button></div>
+                    </div>
+                </div>
+            </form>
+
+        </section>
+    </div>
+</main>
+<%- include('../partials/footer.ejs') %>

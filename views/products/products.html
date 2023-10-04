@@ -23,8 +23,8 @@
             <a href="/"><img class="logo-superior" src="/images/logo.png" alt="Logo Nala"></a>
             <input class="buscador" type="text" placeholder="¿Qué estás buscando?">
             <div class="submit"><i class="fas fa-search"></i></div>
-            <div class="ingresar"><a href="user">Ingresar <i class="fa-solid fa-user" ></a></i></div>
-            <div class="carro"><a href="products/productCart" class="fa-solid fa-cart-shopping" href=""></a></div>
+            <div class="ingresar"><a href="/user">Ingresar <i class="fa-solid fa-user" ></a></i></div>
+            <div class="carro"><a href="/products/productCart" class="fa-solid fa-cart-shopping" href=""></a></div>
         </header>
         <main>
             <div class="create-product-button"><a href="products/productCreation"><button type="submit"><img src="images/icons8-más.svg">CREAR NUEVO PRODUCTO</button></a></div>
@@ -35,8 +35,8 @@
                 <section class="filtros-drop">
                 <article class="filtros">
                     <div class="dropdown">
-                        <button onclick="myFunction()" class="dropbtn"><i class="fas fa-sliders-h"></i>  FILTRAR</button>
-                        <div id="myDropdown" class="dropdown-content">
+                        <button onclick="myFunction(this)" class="dropbtn" ><i class="fas fa-sliders-h"></i>  FILTRAR</button>
+                        <div id="myDropdown1" class="dropdown-content">
                           <a href="#">Perro</a>
                           <a href="#">Gatos</a>
                         </div>
@@ -44,8 +44,8 @@
                 </article>
                 <article class="filtros">
                     <div class="dropdown">
-                        <button onclick="myFunction()" class="dropbtn"><i class="fas fa-list-ul"></i>  LISTA</button>
-                        <div id="myDropdown" class="dropdown-content">
+                        <button onclick="myFunction(this)" class="dropbtn"><i class="fas fa-list-ul"></i>  LISTA</button>
+                        <div id="myDropdown2" class="dropdown-content">
                           <a href="#">Link 1</a>
                           <a href="#">Link 2</a>
                         </div>
@@ -53,8 +53,8 @@
                 </article>
                 <article class="filtros">
                     <div class="dropdown">
-                        <button onclick="myFunction()" class="dropbtn"><i class="fas fa-filter"></i>  DORDENAR</button>
-                        <div id="myDropdown" class="dropdown-content">
+                        <button onclick="myFunction(this)" class="dropbtn"><i class="fas fa-filter"></i>  DORDENAR</button>
+                        <div id="myDropdown3" class="dropdown-content">
                           <a href="#"><i class="fas fa-sort-amount-down-alt"></i></a>
                           <a href="#"><i class="fas fa-sort-amount-down"></i></a>
                         </div>
@@ -68,7 +68,7 @@
                     <article>
                         <img src="/images/comidaPerro.png" alt="Cafetera" calss="img-producto"width="300px">
                         <div class="main-article">
-                            <h4 class="Descripcion">Wagui Pollo y Arroz</h4>
+                            <a href="/products/productDetail"><h4 class="Descripcion">Wagui Pollo y Arroz</h4></a>
                             <p class="precio">$6.770</p>
                             <a href="/descriptionCart" data-quantity="1" class="boton-producto" rel="nofollow">Comprar</a>
                             <div class="boton-producto"><a href="products/productEditor"><button type="submit">Editar</button></a></div>
@@ -77,7 +77,7 @@
                     <article>
                         <img src="/images/comidaPerro.png" alt="MacBook" calss="img-producto"width="300px">
                         <div class="main-article">
-                            <h4 class="Descripcion">Wagui Pollo y Arroz</h4>
+                            <a href="/products/productDetail"><h4 class="Descripcion">Wagui Pollo y Arroz</h4></a>
                             <p class="precio">$6.770</p>
                             <a href="/descriptionCart" data-quantity="1" class="boton-producto" rel="nofollow">Comprar</a>
                         </div>
@@ -85,7 +85,7 @@
                     <article>
                         <img src="/images/comidaPerro.png" alt="Samsung Galaxy S10" calss="img-producto"width="300px">
                         <div class="main-article">
-                            <h4 class="Descripcion">Wagui Pollo y Arroz</h4>
+                            <a href="/products/productDetail"><h4 class="Descripcion">Wagui Pollo y Arroz</h4></a>
                             <p class="precio">$6.770</p>
                             <a href="/descriptionCart" data-quantity="1" class="boton-producto" rel="nofollow">Comprar</a>
                         </div>
@@ -93,7 +93,7 @@
                     <article>
                         <img src="/images/comidaPerro.png" alt="SmartTv Samsung 43" calss="img-producto"width="300px">
                         <div class="main-article">
-                            <h4 class="Descripcion">Wagui Pollo y Arroz</h4>
+                            <a href="/products/productDetail"><h4 class="Descripcion">Wagui Pollo y Arroz</h4></a>
                             <p class="precio">$6.770</p>
                             <a href="/descriptionCart" data-quantity="1" class="boton-producto" rel="nofollow">Comprar</a>
                         </div>
@@ -106,7 +106,7 @@
                     <article>
                         <img src="/images/comidaGato.png" alt="Cafetera" calss="img-producto"width="300px">
                         <div class="main-article">
-                            <h4 class="Descripcion">Purina Gati</h4>
+                            <a href="/products/productDetail"><h4 class="Descripcion">Purina Gati</h4></a>
                             <p class="precio">$6.770</p>
                             <a href="/descriptionCart" data-quantity="1" class="boton-producto" rel="nofollow">Comprar</a>
                         </div>
@@ -114,7 +114,7 @@
                     <article>
                         <img src="/images/comidaGato.png" alt="MacBook" calss="img-producto"width="300px">
                         <div class="main-article">
-                            <h4 class="Descripcion">Purina Gati</h4>
+                            <a href="/products/productDetail"><h4 class="Descripcion">Purina Gati</h4></a>
                             <p class="precio">$6.770</p>
                             <a href="/descriptionCart" data-quantity="1" class="boton-producto" rel="nofollow">Comprar</a>
                         </div>
@@ -122,7 +122,7 @@
                     <article>
                         <img src="/images/comidaGato.png" alt="Samsung Galaxy S10" calss="img-producto"width="300px">
                         <div class="main-article">
-                            <h4 class="Descripcion">Purina Gati</h4>
+                            <a href="/products/productDetail"><h4 class="Descripcion">Purina Gati</h4></a>
                             <p class="precio">$6.770</p>
                             <a href="/descriptionCart" data-quantity="1" class="boton-producto" rel="nofollow">Comprar</a>
                         </div>
@@ -130,7 +130,7 @@
                     <article>
                         <img src="/images/comidaGato.png" alt="SmartTv Samsung 43" calss="img-producto"width="300px">
                         <div class="main-article">
-                            <h4 class="Descripcion">Purina Gati</h4>
+                            <a href="/products/productDetail"><h4 class="Descripcion">Purina Gati</h4></a>
                             <p class="precio">$6.770</p>
                             <a href="/descriptionCart" data-quantity="1" class="boton-producto" rel="nofollow">Comprar</a>
                         </div>
@@ -147,8 +147,8 @@
             <a class="footer-cuerpo" id="terminos" href="#">Términos y condiciones</a>
             <a class="footer-cuerpo" id="privacidad" href="#">Privacidad de datos</a>
             <a class="footer-titulo" id="mi-cuenta">Mi Cuenta</a>
-            <a class="footer-cuerpo" id="ingresar" href="login">Ingresar</a>
-            <a class="footer-cuerpo" id="registrarme" href="register">Registrarme</a>
+            <a class="footer-cuerpo" id="ingresar" href="/user">Ingresar</a>
+            <a class="footer-cuerpo" id="registrarme" href="/user/register">Registrarme</a>
             <a class="footer-titulo" id="contacto">Contacto</a>
             <a class="footer-cuerpo" id="contacto-cuerpo" href="#">Contacto</a>
             <a class="footer-titulo" id="redes">Seguinos en las redes:</a>
