@@ -9,7 +9,7 @@ const productsController = {
     productDetail: (req, res) => {
         res.render('products/productDetail')
     },
-    product: (req, res) => {
+    products: (req, res) => {
         res.render('products/products')
     },
     productEditor: (req, res) => {

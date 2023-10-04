@@ -13,7 +13,6 @@ router.get('/productEditor', productsController.productEditor);
 
 router.get('/productCreation', productsController.productCreation);
 
-router.get('/product', productsController.product);
 
 
 module.exports = router;
