@@ -445,7 +445,6 @@ a {
 }
 .contenedor-registro{
     border: solid 1px #a49987;
-    height: 540px;
     padding: 30px;
     display: flex;
     flex-direction: column;
@@ -486,8 +485,7 @@ a {
     margin: 10px 0 15px;
 }
 .boton-submit{
-    display: flex;
-    justify-content: flex-end;
+    padding: 10px;
 }
 .boton-submit button{
     border: solid 2px #f19827;
@@ -498,6 +496,7 @@ a {
     font-weight: 600;
     width: 165px;
     height: 55px;
+    cursor:pointer;
 }
 
 /* productDetail */
@@ -745,7 +744,74 @@ footer{
         animation-iteration-count: 1;
     }
 
+/*boton crear productos*/
+.create-product-button{
+    display: flex;
+    justify-content: flex-start;
+}
+.create-product-button button{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    border: solid 2px #f19827;
+    background-color: orange;
+    color: #FFFFFF;
+    font-size: 12px;
+    font-weight: 600;
+    width: 200px;
+    height: 33px;
+    margin-bottom: 5px;
+    cursor:pointer;
+}
+.boton-producto button{
+    color: white;
+    font-size: 20px;
+    background-color: orange;
+    border: none;
+    cursor:pointer;
+}
 
+/* creacion y edicion de producto */
+.container-form-product{
+    border: solid 1px grey;
+    width: 600px;
+    margin: 20px auto;
+}
+.form-product{
+    padding: 20px;
+}
+.items-form-product{
+    margin: 15px auto;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+}
+.items-form-product input{
+    padding: 8px;
+    border-radius: 6px;
+    border: 1px solid grey;
+    cursor:pointer;
+}
+.items-form-product label{
+    padding: 5px;
+    text-align: left;
+}
+.items-form-product-selects{
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+}
+.items-form-product-selects select{
+    border-radius: 6px;
+    padding: 6px;
+    cursor: pointer;
+}
+.button-editor-product{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    cursor:pointer;
+}
 
 
 @media (max-width: 480px) {
@@ -1228,6 +1294,7 @@ main{
     padding: 15px;
     margin-bottom: 10px;
 }
+
 .producto{
     display: flex;
     flex-wrap: wrap;
@@ -1245,7 +1312,9 @@ main{
     padding: 5px;
     border-radius: 15px;
     color: white;
+    margin: 2px;
 }
+
 
 /* Botones filtros  */
  /* Dropdown Button */
@@ -1312,3 +1381,4 @@ main{
     width: 33.3%;
     border: 1px solid rgb(210, 138, 0)
   }
+
