@@ -988,6 +988,9 @@ footer{
 
 /* Computadoras de escritorio */
 @media (min-width: 1280px){
+    header div.menu{
+        display: none;
+    }
     header input.buscador {
         display: flex;
         background-color: #FFF;
