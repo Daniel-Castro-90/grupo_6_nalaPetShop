@@ -8,6 +8,13 @@ let routeIndex = require('./routes/index');
 let routeUsers = require('./routes/users');
 
 
+
+//register form: POST method
+app.use(express.urlencoded({ extended: false}));
+
+app.use(express.json());
+
+
 // routes
 app.use('/', routeIndex);
 
@@ -16,7 +23,7 @@ app.use('/products', routeProducts);
 app.use('/user', routeUsers);
 
 
-//uso de public
+//public
 
 app.use(express.static('public'));
 
@@ -24,7 +31,7 @@ app.use(express.static('public'));
 app.set("view engine", "ejs");
 
 
-//inicio del servidor
+//server start
 app.listen(port, () => {
     console.log(`Servidor iniciado correctamente en el puerto ${port}`);
 });
