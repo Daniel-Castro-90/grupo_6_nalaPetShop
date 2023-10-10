@@ -22,8 +22,8 @@
         <a class="qs-contacto qs" href="#">Quienes Somos</a>
         <a class="qs-contacto contacto" href="#">Contacto</a>
         <a href="/"><img class="logo-superior" src="/images/logo.png" alt="Logo Nala"></a>
-        <input class="buscador" type="text" placeholder="¿Qué estás buscando?">
-        <div class="submit"><i class="fas fa-search"></i></div>
+        <form  action="/products/search" method="GET"><input class="buscador" type="text" name="busqueda" placeholder="¿Qué estás buscando?">
+        <div class="submit"><button value="search" action="/products/search" method="GET" class="submit fas fa-search"></button></div></form>
         <div class="ingresar"><a href="/user">Ingresar <i class="fa-solid fa-user" ></a></i></div>
         <div class="carro"><a href="/products/productCart" class="fa-solid fa-cart-shopping" href=""></a></div>
     </header>

@@ -18,6 +18,10 @@ const productsController = {
     productCreation: (req, res) => {
         res.render("products/productCreation")
     },
+    search: (req, res) => {
+        let search = req.query.busqueda;
+        res.send(search);
+    }
 };
 
 module.exports = productsController;
