@@ -1,22 +1,56 @@
-let path = require('path');
+const path = require('path');
+const fs = require('fs');
+
+const productsFilePath = path.join(__dirname, '../data/products.json');
+const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
+
 
 const productsController = {
 
-    productCart: (req, res) => {
-        res.render('products/productCart')
+    products: (req, res) => {
+        const gato = products.filter(product => product.category === 'gato');
+        const perro = products.filter(product => product.category === 'perro');
+        res.render('products/products', {gato, perro});
     },
-
+    productsCat: (req, res) =>{
+        const gato = products.filter(product => product.category === 'gato');
+        res.render('products/productsCat', {gato});
+    },
+    productsDog: (req, res) =>{
+        const perro = products.filter(product => product.category === 'perro');
+        res.render('products/productsDog', {perro});
+    },
     productDetail: (req, res) => {
         res.render('products/productDetail')
     },
-    products: (req, res) => {
-        res.render('products/products')
+    detail: (req, res) => {
+        const product = products.find(product => product.id == req.params.idProduct);
+        if (!product) {
+            return res.render('partials/error', { 
+                message: 'El producto no existe',
+            error: {
+                status: 404
+            },
+            path: ''
+         });
+        } 
+        res.render('products/productDetail', { product });
     },
     productEditor: (req, res) => {
-        res.render("products/productEditor")
+        let idProduct = req.params.idProduct;
+
+        let productToEdit = products[idProduct];
+        
+        res.render("products/productEditor", {productToEdit: productToEdit});
+
+        //res.send(productToEdit);
+        //res.render("products/productEditor")
     },
     productCreation: (req, res) => {
         res.render("products/productCreation")
+    },
+    productCart: (req, res) => {
+        res.render('products/productCart')
     },
     search: (req, res) => {
         let search = req.query.busqueda;
