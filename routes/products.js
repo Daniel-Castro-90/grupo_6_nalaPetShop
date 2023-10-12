@@ -23,6 +23,8 @@ router.put('/productEditor/:idProduct/update', (req, res) => {
 
 router.get('/productCreation', productsController.productCreation);
 
+router.post('/', productsController.create);
+
 router.get('/productCart', productsController.productCart);
 
 router.get('/search', productsController.search);

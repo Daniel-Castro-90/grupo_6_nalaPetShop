@@ -8,7 +8,7 @@ let routeUsers = require('./routes/users');
 
 
 
-//register form: POST method
+//Middlewares
 app.use(express.urlencoded({ extended: false}));
 app.use(express.json());
 
@@ -18,20 +18,20 @@ const methodOverride = require('method-override');
 app.use(methodOverride('_method'));
 
 
-// routes
-app.use('/', routeIndex);
-
-app.use('/products', routeProducts);
-
-app.use('/user', routeUsers);
+// EJS
+app.set("view engine", "ejs");
 
 
 //public
 app.use(express.static('public'));
 
 
-// EJS
-app.set("view engine", "ejs");
+// routes
+app.use('/', routeIndex);
+
+app.use('/products', routeProducts);
+
+app.use('/user', routeUsers);
 
 
 //server start

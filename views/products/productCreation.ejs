@@ -1,65 +1,38 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <title>Bienvenidxs a Nala PetShop</title>
-    <meta name="viewport" content="width=device-width, initial-scale = 1.0">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
-    <link rel="stylesheet" href="/css/styles.css">
-    <script src="https://kit.fontawesome.com/8a1e4f48aa.js" crossorigin="anonymous"></script>
-    <script src="/js/Dropbutton.js"></script>
-</head>
-
-<body>
+<%- include('../partials/header.ejs') %>
     <main>
-        <form class="container-form-product" action="#" method="post">
+        <form class="container-form-product" action="/products" method="POST">
             <div class="form-product">
                 <h4>CREAR NUEVO PRODUCTO</h4>
                 <div>
+					<div class="items-form-product">
+						<label for="category">CATEGORÍA DEL PRODUCTO:</label>
+						<select name="category" id="category"">
+							<option value="">SELECCIONAR</option>
+							<option value="gato">GATOS</option>
+							<option value="perro">PERROS</option>
+						</select>
+					</div>
                     <div class="items-form-product">
-                        <label for="text">NOMBRE DEL PRODUCTO</label>
-                        <input type="text" id="nombreproducto" name="texto" placeholder="Ingrese nombre"/>
-                    </div>
-                    <div class="items-form-product">
-                        <label for="text">DESCRIPCION</label>
-                        <input type="text" id="descripcion" name="texto" placeholder="Ingrese descripcion"/>
-                    </div>
-
-                    <div class="items-form-product">
-                        <div class="items-form-product-selects">
-                            <div>
-                                <h5>CALIDAD</h5>
-                                <select>
-                                    <option>Baja</option>
-                                    <option>Media</option>
-                                    <option>Alta</option>
-                                </select>
-                            </div>
-                            <div>
-                                <h5>MEDICAMENTO</h5>
-                                <select>
-                                    <option>Con medicamentos</option>
-                                    <option>Necesidades especiales</option>
-                                </select>
-                            </div>
-                        </div>
+                        <label for="name">NOMBRE DEL PRODUCTO</label>
+                        <input type="text" id="name" name="name" placeholder="Ingrese nombre"/>
                     </div>
                     <div class="items-form-product">
-                        <label for="text">CANTIDAD</label>
-                        <input type="texto" id="cantidad" name="texto" placeholder="Ingrese kg"/>
+                        <label for="description">DESCRIPCION</label>
+                        <input type="text" id="description" name="description" placeholder="Ingrese descripcion"/>
                     </div>
                     <div class="items-form-product">
-                        <label for="number">PRECIO</label>
-                        <input type="number" id="precio" name="number" placeholder="Ingrese precio" />
+                        <label for="package">PRESENTACION</label>
+                        <input type="number" id="package" name="package" placeholder="Ingrese cantidad de kg"/>
                     </div>
-                    <div class="items-form-product"><label>Imagen producto:<input type="file" name="imagen"></label>
+                    <div class="items-form-product">
+                        <label for="price">PRECIO</label>
+                        <input type="number" id="price" name="price" placeholder="Ingrese precio" />
                     </div>
+                    <!-- <div class="items-form-product"><label>IMAGEN PRODUCTO:<input type="file" name="image"></label>
+                    </div> -->
                 </div>
                 <div class="boton-submit"><button type="submit">CREAR PRODUCTO</button></div>
             </div>
         </form>
     </main>
-</body>
-</html>
+<%- include('../partials/footer.ejs') %>

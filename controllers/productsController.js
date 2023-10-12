@@ -47,7 +47,17 @@ const productsController = {
         //res.render("products/productEditor")
     },
     productCreation: (req, res) => {
-        res.render("products/productCreation")
+        res.render("products/productCreation");
+    },
+    create: (req, res) => {
+        const productToCreate = {
+            id: products[products.length - 1 ].id + 1,
+            image: 'defaultproduct.png',
+            ...req.body
+        }
+        products.push(productToCreate);
+        fs.writeFileSync(productsFilePath, JSON.stringify(products));
+        res.redirect('/products');
     },
     productCart: (req, res) => {
         res.render('products/productCart')
