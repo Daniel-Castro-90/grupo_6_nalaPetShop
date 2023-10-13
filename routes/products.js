@@ -13,13 +13,11 @@ router.get('/productDetail', productsController.productDetail);
 
 router.get('/productDetail/:idProduct', productsController.detail);
 
-router.get('/productEditor', productsController.productEditor);
+router.get('/:idProduct/productEditor', productsController.editor);
 
-router.get('/productEditor/:idProduct', productsController.productEditor);
+router.put('/:idProduct', productsController.update);
 
-router.put('/productEditor/:idProduct/update', (req, res) => {
-    res.send("Probando")
-});
+//router.get('/:idProduct', )
 
 router.get('/productCreation', productsController.productCreation);
 
