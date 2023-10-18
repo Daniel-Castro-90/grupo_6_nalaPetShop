@@ -49,3 +49,29 @@
 - Reuniones sin temario programado.
 
 ## Dejar de hacer: "prácticas que pasaron de ser -hacer menos- a ser eliminadas"
+
+
+# SPRINT 3
+
+## Hacer más: "prácticas que estamos haciendo y creemos que requiere más refinamiento y que nos gustan mucho por ello hay que darles más"
+
+- Pair programming.
+- Mayor uso de trello.
+- Aumentar el ritmo de reuniones y comunicación por distintos canales (WSP y Discord).
+- División de tareas.
+- Trabajo colaborativo.
+
+## Continuar haciendo: "aquello que venimos haciendo y que nos brinda valor, debemos seguir haciéndolo pero no será preocupación mejorarlo"
+
+- Consultas al equipo docente.
+- Uso de github.
+- Trabajo sobre branchs.
+- Implementación del inglés.
+
+## Hacer menos: "aquello que no generó el valor que esperábamos"
+
+- No mantener la comunicación.
+
+## Dejar de hacer: "prácticas que pasaron de ser -hacer menos- a ser eliminadas"
+
+- Trabajar sobre el main.
