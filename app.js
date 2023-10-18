@@ -5,8 +5,7 @@ const port = 3000;
 let routeProducts = require('./routes/products');
 let routeIndex = require('./routes/index');
 let routeUsers = require('./routes/users');
-//const multer = require('multer');
-
+const multer = require('multer');
 
 
 //Middlewares

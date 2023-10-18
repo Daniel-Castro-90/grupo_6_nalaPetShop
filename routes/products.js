@@ -1,6 +1,7 @@
 let express = require('express');
 let router = express.Router();
-let productsController = require('../controllers/productsController.js')
+let productsController = require('../controllers/productsController.js');
+const upload = require('../middlewares/multerMiddleware.js')
 
 
 router.get('/', productsController.products);
@@ -17,11 +18,9 @@ router.get('/:idProduct/productEditor', productsController.editor);
 
 router.put('/:idProduct', productsController.update);
 
-//router.get('/:idProduct', )
-
 router.get('/productCreation', productsController.productCreation);
 
-router.post('/', productsController.create);
+router.post('/', upload.single('image'), productsController.create);
 
 router.get('/productCart', productsController.productCart);
 

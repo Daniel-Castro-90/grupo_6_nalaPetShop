@@ -1,6 +1,6 @@
 <%- include('../partials/header.ejs') %>
     <main>
-        <form class="container-form-product" action="/products" method="POST">
+        <form class="container-form-product" action="/products" method="POST" enctype="multipart/form-data">
             <div class="form-product">
                 <h4>CREAR NUEVO PRODUCTO</h4>
                 <div>
@@ -28,8 +28,8 @@
                         <label for="price">PRECIO</label>
                         <input type="number" id="price" name="price" placeholder="Ingrese precio" />
                     </div>
-                    <!--<div class="items-form-product"><label>IMAGEN PRODUCTO:<input type="file" name="image"></label>
-                    </div> -->
+                    <div class="items-form-product"><label>IMAGEN PRODUCTO:<input type="file" name="image" id="image"></label>
+                    </div>
                 </div>
                 <div class="boton-submit"><button type="submit">CREAR PRODUCTO</button></div>
             </div>

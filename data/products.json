@@ -164,7 +164,12 @@
   },
   {
     "id": 19,
-    "image": "defaultproduct.png"
+    "image": "defaultproduct.png",
+    "category": "gato",
+    "name": "PRUEBA GATO2",
+    "description": "PRUEBA GATO PRUEBA2",
+    "package": "2",
+    "price": "222"
   },
   {
     "id": 20,
@@ -174,5 +179,14 @@
     "description": "PRUEBA GATO PRUEBA",
     "package": "1",
     "price": "1"
+  },
+  {
+    "id": 21,
+    "image": "product-1697577163803.jpg",
+    "category": "gato",
+    "name": "Alimento Excellent Adult para gato adulto sabor pollo y arroz en bolsa de 15 kg",
+    "description": "El mejor alimento para gatos adultos, en sus tres sabores: pescado, pollo y carne.",
+    "package": "15",
+    "price": "38900"
   }
 ]

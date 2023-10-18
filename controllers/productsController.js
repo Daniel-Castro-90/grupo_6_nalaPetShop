@@ -58,7 +58,7 @@ const productsController = {
         const products = getProducts();
         const productToCreate = {
             id: products[products.length - 1 ].id + 1,
-            image: 'defaultproduct.png',
+            image: req.file.filename,
             ...req.body
         }
         products.push(productToCreate);
