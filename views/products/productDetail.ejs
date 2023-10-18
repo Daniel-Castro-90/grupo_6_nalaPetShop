@@ -1,12 +1,17 @@
 <%- include('../partials/header.ejs') %>
         <main class="Products-description-main">
             <div class="product-image">
-                <img src="/images/comidaPerro.png" alt="Imagen del Producto">
+                <img src="/images/<%= locals.product && product.image %>" alt="Imagen del Producto">
             </div>
             <div class="product-description">
-                <h2>Descripción del Producto</h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla eget efficitur sapien. Curabitur et mi vel purus blandit viverra. Sed facilisis tortor at lacus malesuada.</p>
-                <p>Precio: $99.99</p>
+                <h2><%= locals.product && product.name %></h2>
+                <br>
+                <p>Descripción: <%= locals.product && product.description %></p>
+                <br>
+                <p>En presentación de: <%= locals.product && product.package %>Kg</p>
+                <br>
+                <p>Precio: $<%= locals.product && product.price %></p>
+                <br>
                 <button>Añadir al Carrito</button>
             </div>
         </main>

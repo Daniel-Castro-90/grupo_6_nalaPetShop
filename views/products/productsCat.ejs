@@ -2,23 +2,6 @@
 <main>
     <div class="create-product-button"><a href="/products/productCreation"><button type="submit"><img src="/images/icons8-más.svg">CREAR NUEVO PRODUCTO</button></a></div>
  <%- include('../partials/filter.ejs') %>
-    <section class="Perro">
-        <h3 class="titulares">Seccion Perros</h3>
-        <div class="producto">
-            <% locals.perro && perro.forEach(product => { %>
-            <article>
-                <img src="/images/products/<%= product.image %>" alt="Imagen Producto Perros" class="img-producto"width="300px">
-                <div class="main-article">
-                    <a href="/products/productDetail/<%= product.id %>"><h4 class="Descripcion"><%= product.name %></h4></a>
-                    <p class="precio"> $<%= product.price %> </p>
-                    <p class="package"> Presentación en: <%= product.package %>Kg </p>
-                    <a href="/descriptionCart" data-quantity="1" class="boton-producto" rel="nofollow">Comprar</a>
-                    <div class="boton-producto"><a href="products/productEditor"><button type="submit">Editar</button></a></div>
-                </div>
-            </article>
-            <% }) %>
-        </div>
-    </section>
     <section class="Gatos">
         <h3 class="titulares">Sección Gatos</h3>
         <div class="producto">

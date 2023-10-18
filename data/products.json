@@ -1,0 +1,192 @@
+[
+  {
+    "id": 1,
+    "name": "Alimento para Perros adultos N° 1",
+    "price": 6730,
+    "category": "perro",
+    "package": 5,
+    "description": "Alimento Balanceado",
+    "image": "defaultproduct.png"
+  },
+  {
+    "id": 2,
+    "name": "Alimento para Perros adultos N° 2",
+    "price": 6000,
+    "category": "perro",
+    "package": 5,
+    "description": "Alimento Balanceado",
+    "image": "defaultproduct.png"
+  },
+  {
+    "id": 3,
+    "name": "Alimento para Perros adultos N° 3",
+    "price": 10000,
+    "category": "perro",
+    "package": 5,
+    "description": "Alimento Balanceado",
+    "image": "defaultproduct.png"
+  },
+  {
+    "id": 4,
+    "name": "Alimento para Perros adultos N° 4",
+    "price": 15699,
+    "category": "gato",
+    "package": 5,
+    "description": "Alimento Balanceado",
+    "image": "defaultproduct.png"
+  },
+  {
+    "id": 5,
+    "name": "name5",
+    "price": 0,
+    "category": "gato",
+    "package": 5,
+    "description": "Alimento Balanceado",
+    "image": "defaultproduct.png"
+  },
+  {
+    "id": 6,
+    "name": "name6",
+    "price": 0,
+    "category": "gato",
+    "package": 5,
+    "description": "Alimento Balanceado",
+    "image": "defaultproduct.png"
+  },
+  {
+    "id": 7,
+    "name": "name7",
+    "price": 0,
+    "category": "gato",
+    "package": 5,
+    "description": "Alimento Balanceado",
+    "image": "defaultproduct.png"
+  },
+  {
+    "id": 8,
+    "name": "name8",
+    "price": 0,
+    "category": "gato",
+    "package": 5,
+    "description": "Alimento Balanceado",
+    "image": "defaultproduct.png"
+  },
+  {
+    "id": 9,
+    "name": "Alimento para Perros adultos N° 9",
+    "price": 4120,
+    "category": "perro",
+    "package": 5,
+    "description": "Alimento Balanceado",
+    "image": "defaultproduct.png"
+  },
+  {
+    "id": 10,
+    "name": "Alimento para Perros adultos N° 10",
+    "price": 20499,
+    "category": "perro",
+    "package": 5,
+    "description": "Alimento Balanceado",
+    "image": "defaultproduct.png"
+  },
+  {
+    "id": 11,
+    "name": "ALIMENTO PARA PERROS ADULTOS EDITADO",
+    "price": "2023",
+    "category": "perro",
+    "package": "2023",
+    "description": "EDITE ESTE PRODUCTO PARA PROBAR",
+    "image": "defaultproduct.png",
+    "imagen": ""
+  },
+  {
+    "id": 12,
+    "name": "Alimento para Perros adultos N° 12",
+    "price": 12750,
+    "category": "perro",
+    "package": 5,
+    "description": "Alimento Balanceado",
+    "image": "defaultproduct.png"
+  },
+  {
+    "id": 13,
+    "name": "Alimento para Perros adultos N° 13",
+    "price": 17200,
+    "category": "perro",
+    "package": 5,
+    "description": "Alimento Balanceado",
+    "image": "defaultproduct.png"
+  },
+  {
+    "id": 14,
+    "name": "Alimento para Perros adultos N° 14",
+    "price": 3850,
+    "category": "perro",
+    "package": 5,
+    "description": "Alimento Balanceado",
+    "image": "defaultproduct.png"
+  },
+  {
+    "id": 15,
+    "name": "Alimento para Perros adultos N° 15",
+    "price": 2500,
+    "category": "perro",
+    "package": 5,
+    "description": "Alimento Balanceado",
+    "image": "defaultproduct.png"
+  },
+  {
+    "id": 16,
+    "image": "defaultproduct.png",
+    "name": "Alimento Especial",
+    "description": "Alimento especial para perritos cachorros con problemas urinarios",
+    "package": "3",
+    "price": "12500",
+    "category": "perro"
+  },
+  {
+    "id": 17,
+    "image": "defaultproduct.png",
+    "category": "gato",
+    "name": "Whiskas Adulto",
+    "description": "El mejor alimento para gatos adultos, en sus tres sabores: pescado, pollo y carne.",
+    "package": "3",
+    "price": "15000"
+  },
+  {
+    "id": 18,
+    "image": "defaultproduct.png",
+    "category": "gato",
+    "name": "Excellent Adultos",
+    "description": "Alimento para gatos de la mejor calidad",
+    "package": "3",
+    "price": "21800"
+  },
+  {
+    "id": 19,
+    "image": "defaultproduct.png",
+    "category": "gato",
+    "name": "PRUEBA GATO2",
+    "description": "PRUEBA GATO PRUEBA2",
+    "package": "2",
+    "price": "222"
+  },
+  {
+    "id": 20,
+    "image": "defaultproduct.png",
+    "category": "gato",
+    "name": "PRUEBA GATO",
+    "description": "PRUEBA GATO PRUEBA",
+    "package": "1",
+    "price": "1"
+  },
+  {
+    "id": 21,
+    "image": "product-1697577163803.jpg",
+    "category": "gato",
+    "name": "Alimento Excellent Adult para gato adulto sabor pollo y arroz en bolsa de 15 kg",
+    "description": "El mejor alimento para gatos adultos, en sus tres sabores: pescado, pollo y carne.",
+    "package": "15",
+    "price": "38900"
+  }
+]
