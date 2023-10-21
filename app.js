@@ -5,12 +5,15 @@ const port = 3000;
 let routeProducts = require('./routes/products');
 let routeIndex = require('./routes/index');
 let routeUsers = require('./routes/users');
-const multer = require('multer');
-
+//const logMiddleware = require('./middlewares/logMiddleware');
+const session = require('express-session');
+const cookieParser = require('cookie-parser');
 
 //Middlewares
+//app.use(logMiddleware);
 app.use(express.urlencoded({ extended: false}));
 app.use(express.json());
+app.use(session({ secret: 'Infousers' }));
 
 
 //method Override

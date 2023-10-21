@@ -10,7 +10,7 @@ function getProducts() {
 };
 
 
-const products = getProducts();
+//const products = getProducts();
 const productsController = {
     products: (req, res) => {
         const products = getProducts();
@@ -29,7 +29,7 @@ const productsController = {
         res.render('products/productsDog', {perro});
     },
     productDetail: (req, res) => {
-        res.render('products/productDetail')
+        res.render('products/productDetail');
     },
     detail: (req, res) => {
         const products = getProducts();
@@ -63,14 +63,23 @@ const productsController = {
         }
         products.push(productToCreate);
         fs.writeFileSync(productsFilePath, JSON.stringify(products, null, 2));
-        res.redirect('/products');
+        return res.redirect('/products');
     },
     productCart: (req, res) => {
         res.render('products/productCart')
     },
     search: (req, res) => {
-        let search = req.query.busqueda;
-        res.send(search);
+        const product = getProducts();
+        let search = req.query.busqueda ? req.query.busqueda.toLowerCase() : '';
+        let productResults = [];
+        
+        for (let i = 0; i < product.length; i++){
+            if (product[i].name.toLowerCase().includes(search)){
+                productResults.push(product[i]);
+            }
+
+        }
+        res.render('products/productResults', { productResults });
     }
 };
 
