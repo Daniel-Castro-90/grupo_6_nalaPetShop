@@ -2,7 +2,7 @@ let express = require('express');
 let router = express.Router();
 let productsController = require('../controllers/productsController.js');
 const upload = require('../middlewares/multerMiddleware.js');
-const logNewProducts = require('../middlewares/logNewProducts.js');
+const logNewProducts = require('../middlewares/logNewProductsMiddleware.js');
 const validaciones = require('../middlewares/expressValidator.js');
 
 
