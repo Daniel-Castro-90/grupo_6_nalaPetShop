@@ -48,12 +48,11 @@ const usersController = {
             req.session.usuarioLogeado = usuarioLogin;
             res.send('Logeado!');
         } else {
-            return res.send('usuario invalido o contraseña incorrecta');
+            res.send('usuario invalido o contraseña incorrecta');
         }
     },
 
     userSave: (req, res) => {
-        console.log("llergaeg");
         const {email, password, confirmPassword, dni, tel } = req.body;
 
         if (!email) {

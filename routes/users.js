@@ -12,9 +12,6 @@ usersController.processLogin);
 
 router.get ('/register', usersController.register);
 router.post('/register', usersController.create);
-
-router.post('/edit', usersController.userSave);
-
 router.post('/save', usersController.userSave);
 
 module.exports = router;
