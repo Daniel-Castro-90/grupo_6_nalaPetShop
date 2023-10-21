@@ -69,8 +69,17 @@ const productsController = {
         res.render('products/productCart')
     },
     search: (req, res) => {
-        let search = req.query.busqueda;
-        res.send(search);
+        const product = getProducts();
+        let search = req.query.busqueda ? req.query.busqueda.toLowerCase() : '';
+        let productResults = [];
+        
+        for (let i = 0; i < product.length; i++){
+            if (product[i].name.toLowerCase().includes(search)){
+                productResults.push(product[i]);
+            }
+
+        }
+        res.render('products/productResults', { productResults });
     }
 };
 
