@@ -16,7 +16,7 @@ const usersController = {
         }
         var usersToWrite = [...users,usersToCreate];
         fs.writeFileSync(usersFilePath, JSON.stringify(usersToWrite, null, 2));
-        res.redirect('/users/register');
+        res.redirect('/');
     },
 
     login: (req, res) => {

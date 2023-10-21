@@ -6,5 +6,21 @@
     "confirmPassword": "123",
     "dni": "123",
     "tel": "123"
+  },
+  {
+    "id": 2,
+    "email": "test@test",
+    "password": "123",
+    "confirmPassword": "123",
+    "dni": "5555",
+    "tel": "5555"
+  },
+  {
+    "id": 3,
+    "email": "",
+    "password": "",
+    "confirmPassword": "",
+    "dni": "",
+    "tel": ""
   }
 ]
