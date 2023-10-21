@@ -10,7 +10,7 @@ function getProducts() {
 };
 
 
-const products = getProducts();
+//const products = getProducts();
 const productsController = {
     products: (req, res) => {
         const products = getProducts();
@@ -29,7 +29,7 @@ const productsController = {
         res.render('products/productsDog', {perro});
     },
     productDetail: (req, res) => {
-        res.render('products/productDetail')
+        res.render('products/productDetail');
     },
     detail: (req, res) => {
         const products = getProducts();
@@ -63,7 +63,7 @@ const productsController = {
         }
         products.push(productToCreate);
         fs.writeFileSync(productsFilePath, JSON.stringify(products, null, 2));
-        res.redirect('/products');
+        return res.redirect('/products');
     },
     productCart: (req, res) => {
         res.render('products/productCart')
