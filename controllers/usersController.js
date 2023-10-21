@@ -1,8 +1,22 @@
 const path = require('path');
+const fs = require('fs');
+
+const usersFilePath = path.join(__dirname, '../data/users.json');
+
+const users = JSON.parse(fs.readFileSync(usersFilePath, 'utf-8'));
 
 const usersController = {
     register: (req, res) => {
         res.render('users/register');
+    },
+    create: (req, res) =>{
+        const usersToCreate = {
+            id: users[users.length -1].id +1,
+            ...req.body
+        }
+        var usersToWrite = [...users,usersToCreate];
+        fs.writeFileSync(usersFilePath, JSON.stringify(usersToWrite, null, 2));
+        res.redirect('/users/register');
     },
 
     login: (req, res) => {
@@ -10,6 +24,7 @@ const usersController = {
     },
 
     userSave: (req, res) => {
+        console.log("llergaeg");
         const {email, password, confirmPassword, dni, tel } = req.body;
 
         if (!email) {
