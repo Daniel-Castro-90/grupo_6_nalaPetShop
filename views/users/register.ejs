@@ -2,7 +2,7 @@
 <main>
     <div class="contenedor-accesousuario">
         <section class="ingreso-registro">
-            <a href="/user/login" class="boton-ingreso">
+            <a href="/users" class="boton-ingreso">
                 <h4>Ingresá</h4>
             </a>
             <a class="boton-registro">
@@ -10,35 +10,35 @@
             </a>
         </section>
         <section>
-            <form class="formulario-registro" action="/user/save" method="POST">
+            <form class="formulario-registro" action="/users/register" method="POST">
                 <div class="contenedor-registro">
                     <div>
                         <div class="items-registro">
                             <label for="email">E-MAIL</label>
-                            <input type="email" name="email" />
+                            <input type="email" id="name" name="email" />
                         </div>
                         <div class="items-registro">
                             <label for="password">CONTRASEÑA</label>
-                            <input type="password" name="password" />
+                            <input type="password" id="password" name="password" />
                         </div>
                         <div class="items-registro">
                             <label for="password">REPITA LA CONTRASEÑA</label>
-                            <input type="password" name="confirmPassword" />
+                            <input type="password" id="confirmPassword" name="confirmPassword" />
                         </div>
                         <div class="items-registro">
                             <label for="dni">DNI</label>
-                            <input type="number" name="dni" />
+                            <input type="number" id="dni" name="dni" />
                         </div>
                         <div class="items-registro">
                             <label for="telephone">TELEFONO</label>
-                            <input type="number" name="tel" />
+                            <input type="number" id="tel" name="tel" />
                         </div>
                         <div>
                             <input type="checkbox">
                             <label>Acepto los términos y condiciones</label>
                         </div>
                     </div>
-                    <div class="boton-submit"><button type="submit">REGISTRARME</button></div>
+                    <div class="boton-submit"><button type="submit" value="registrarme">REGISTRARME</button></div>
                 </div>
             </form>
         </section>

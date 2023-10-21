@@ -1,16 +1,26 @@
 [
-    {
-        "email": "daniel@prueba.com",
-        "password": "daniel1234",
-        "confirmPassword": "daniel1234",
-        "dni": 12345678,
-        "tel": 34421234567
-    },
-    {
-        "email": "usuarionuevo@prueba.com",
-        "password": "usuario1234",
-        "confirmPassword": "usuario1234",
-        "dni": 87654321,
-        "tel": 34427654321
-    }
+  {
+    "id": 1,
+    "email": "test@test",
+    "password": "123",
+    "confirmPassword": "123",
+    "dni": "123",
+    "tel": "123"
+  },
+  {
+    "id": 2,
+    "email": "",
+    "password": "",
+    "confirmPassword": "",
+    "dni": "",
+    "tel": ""
+  },
+  {
+    "id": 3,
+    "email": "asd@asd.com",
+    "password": "123",
+    "confirmPassword": "123",
+    "dni": "1234",
+    "tel": "12345"
+  }
 ]
