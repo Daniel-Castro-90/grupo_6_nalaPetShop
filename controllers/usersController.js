@@ -42,7 +42,6 @@ const usersController = {
         if(userRegister){
             return res.status(400).json({mensaje: "Usuario ya existente."})
         }
-        console.log(validator.errors);
         if(!validator.isEmpty()){
             //El  validator.errors[0].msg muestra el primer error
             return res.status(400).json({mensaje: validator.errors[0].msg})
@@ -55,7 +54,6 @@ const usersController = {
             dni:dni,
             tel:tel
         }
-        console.log();
         var usersToWrite = [...users,usersToCreate];
         fs.writeFileSync(usersFilePath, JSON.stringify(usersToWrite, null, 2));
         res.redirect('/');
@@ -78,36 +76,7 @@ const usersController = {
     },
 
     userSave: (req, res) => {
-        const {email, password, confirmPassword, dni, tel } = req.body;
-
-        if (!email) {
-            return res.status(400).json({ mensaje: "Por favor completar todos los campos. Falta el email."});
-        }
-        if (!password) {
-            return res.status(400).json({ mensaje: "Por favor completar todos los campos. Falta la contraseña."});
-        }
-        if (!confirmPassword) {
-            return res.status(400).json({ mensaje: "Por favor completar todos los campos. Falta repetir la contraseña."})
-        }
-        if (!dni) {
-            return res.status(400).json({ mensaje: "Por favor completar todos los campos. Falta el DNI."});
-        }
-        if (!tel) {
-            return res.status(400).json({ mensaje: "Por favor completar todos los campos. Falta el teléfono."});
-        }
-        if(password !== confirmPassword){
-            return res.status(400).json({mensaje: "Por favor verificar las contraseñas. Deben coincidir exactamente."})
-        }
-
-        const newUser = {
-            email,
-            password,
-            confirmPassword,
-            dni,
-            tel,
-        };
-
-        res.send(newUser)
+        res.redirect('/')
     },
 };
 
