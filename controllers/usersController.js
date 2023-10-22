@@ -16,46 +16,8 @@ const usersController = {
     },
     create: (req, res) =>{
         const users = getUsers();
-        const usersToCreate = {
-            id: users[users.length -1].id +1,
-            ...req.body
-        }
-        var usersToWrite = [...users,usersToCreate];
-        fs.writeFileSync(usersFilePath, JSON.stringify(usersToWrite, null, 2));
-        res.redirect('/');
-    },
-
-    login: (req, res) => {
-        res.render('users/login');
-    },
-
-    processLogin: (req, res) => {
-        let errors = validationResult(req);
-    
-        if (errors.isEmpty()) {
-            let users = getUsers();
-            let usuarioLogin;
-    
-            for(let i = 0; i < users.length; i++) {
-                if (users[i].email == req.body.email) {
-                    if (bcrypt.compareSync(req.body.password, users[i].password)) {
-                        usuarioLogin = users[i];
-                        break;
-                    }
-                }
-            }
-    
-            req.session.usuarioLogeado = usuarioLogin;
-            res.send('Logeado!');
-        } else {
-            return res.send('usuario invalido o contraseña incorrecta');
-        }
-    },
-
-    userSave: (req, res) => {
-        console.log("llergaeg");
-        const {email, password, confirmPassword, dni, tel } = req.body;
-
+        let validator = validationResult(req);
+        const {email, password, confirmPassword, dni, tel} = req.body;
         if (!email) {
             return res.status(400).json({ mensaje: "Por favor completar todos los campos. Falta el email."});
         }
@@ -75,15 +37,46 @@ const usersController = {
             return res.status(400).json({mensaje: "Por favor verificar las contraseñas. Deben coincidir exactamente."})
         }
 
-        const newUser = {
-            email,
-            password,
-            confirmPassword,
-            dni,
-            tel,
-        };
+        let userRegister = users.find(user => user.email === email);
 
-        res.send(newUser)
+        if(userRegister){
+            return res.status(400).json({mensaje: "Usuario ya existente."})
+        }
+        if(!validator.isEmpty()){
+            //El  validator.errors[0].msg muestra el primer error
+            return res.status(400).json({mensaje: validator.errors[0].msg})
+        }
+
+        const usersToCreate = {
+            id: users[users.length -1].id +1,
+            email:email,
+            password:bcrypt.hashSync(password, 10),
+            dni:dni,
+            tel:tel
+        }
+        var usersToWrite = [...users,usersToCreate];
+        fs.writeFileSync(usersFilePath, JSON.stringify(usersToWrite, null, 2));
+        res.redirect('/');
+    },
+
+    login: (req, res) => {
+        res.render('users/login');
+    },
+
+    processLogin: (req, res) => {
+        let users = getUsers();
+        let userLogin = users.find(user => user.email === req.body.email && bcrypt.compareSync(req.body.password, user.password));
+        if (userLogin) {
+            req.session.usuarioLogeado = userLogin;
+            console.log(req.session.usuarioLogeado);
+            res.send('Logeado!');
+        } else {
+            return res.send('usuario invalido o contraseña incorrecta');
+        }
+    },
+
+    userSave: (req, res) => {
+        res.redirect('/')
     },
 };
 

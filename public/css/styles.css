@@ -475,6 +475,7 @@ a {
     font-weight: 600;
     width: 130px;
     height: 55px;
+    cursor: pointer;
 }
 .items-registro{
     display: grid;
