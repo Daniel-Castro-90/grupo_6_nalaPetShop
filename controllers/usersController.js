@@ -16,10 +16,46 @@ const usersController = {
     },
     create: (req, res) =>{
         const users = getUsers();
+        let validator = validationResult(req);
+        const {email, password, confirmPassword, dni, tel} = req.body;
+        if (!email) {
+            return res.status(400).json({ mensaje: "Por favor completar todos los campos. Falta el email."});
+        }
+        if (!password) {
+            return res.status(400).json({ mensaje: "Por favor completar todos los campos. Falta la contraseña."});
+        }
+        if (!confirmPassword) {
+            return res.status(400).json({ mensaje: "Por favor completar todos los campos. Falta repetir la contraseña."})
+        }
+        if (!dni) {
+            return res.status(400).json({ mensaje: "Por favor completar todos los campos. Falta el DNI."});
+        }
+        if (!tel) {
+            return res.status(400).json({ mensaje: "Por favor completar todos los campos. Falta el teléfono."});
+        }
+        if(password !== confirmPassword){
+            return res.status(400).json({mensaje: "Por favor verificar las contraseñas. Deben coincidir exactamente."})
+        }
+
+        let userRegister = users.find(user => user.email === email);
+
+        if(userRegister){
+            return res.status(400).json({mensaje: "Usuario ya existente."})
+        }
+        console.log(validator.errors);
+        if(!validator.isEmpty()){
+            //El  validator.errors[0].msg muestra el primer error
+            return res.status(400).json({mensaje: validator.errors[0].msg})
+        }
+
         const usersToCreate = {
             id: users[users.length -1].id +1,
-            ...req.body
+            email:email,
+            password:bcrypt.hashSync(password, 10),
+            dni:dni,
+            tel:tel
         }
+        console.log();
         var usersToWrite = [...users,usersToCreate];
         fs.writeFileSync(usersFilePath, JSON.stringify(usersToWrite, null, 2));
         res.redirect('/');
@@ -30,22 +66,11 @@ const usersController = {
     },
 
     processLogin: (req, res) => {
-        let errors = validationResult(req);
-    
-        if (errors.isEmpty()) {
-            let users = getUsers();
-            let usuarioLogin;
-    
-            for(let i = 0; i < users.length; i++) {
-                if (users[i].email == req.body.email) {
-                    if (bcrypt.compareSync(req.body.password, users[i].password)) {
-                        usuarioLogin = users[i];
-                        break;
-                    }
-                }
-            }
-    
-            req.session.usuarioLogeado = usuarioLogin;
+        let users = getUsers();
+        let userLogin = users.find(user => user.email === req.body.email && bcrypt.compareSync(req.body.password, user.password));
+        if (userLogin) {
+            req.session.usuarioLogeado = userLogin;
+            console.log(req.session.usuarioLogeado);
             res.send('Logeado!');
         } else {
             return res.send('usuario invalido o contraseña incorrecta');
@@ -53,7 +78,6 @@ const usersController = {
     },
 
     userSave: (req, res) => {
-        console.log("llergaeg");
         const {email, password, confirmPassword, dni, tel } = req.body;
 
         if (!email) {

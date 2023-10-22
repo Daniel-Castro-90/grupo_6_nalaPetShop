@@ -1,26 +1,30 @@
 [
   {
     "id": 1,
+    "email": "test@testwdrfgwaedrfg",
+    "password": "$2b$10$86F7oe/4G8uCLRoA6JUOlOexUA2hMAaWN3hRl8QjEq0S.f1eyMCIG",
+    "dni": "123",
+    "tel": "1123"
+  },
+  {
+    "id": 2,
     "email": "test@test",
-    "password": "123",
-    "confirmPassword": "123",
+    "password": "$2b$10$lFHxY2W1/xFf3u1rr00uTOsn2SV4.0EWCyunnhWsDmQVZgkJkbZHm",
     "dni": "123",
     "tel": "123"
   },
   {
-    "id": 2,
-    "email": "",
-    "password": "",
-    "confirmPassword": "",
-    "dni": "",
-    "tel": ""
+    "id": 3,
+    "email": "test@testt",
+    "password": "$2b$10$ZJp0Q5DxO.sCTU0hOOwvlesg2KpPF1LSeZtXWuKwhSZ4uomCEL4fi",
+    "dni": "1234",
+    "tel": "1234"
   },
   {
-    "id": 3,
-    "email": "asd@asd.com",
-    "password": "123",
-    "confirmPassword": "123",
+    "id": 4,
+    "email": "test@testtttt",
+    "password": "$2b$10$SOyBw3d8r5ZsC.Ks1NkOLOfpXARTUzO18PYozZR/ZasMRKde9N5Y2",
     "dni": "1234",
-    "tel": "12345"
+    "tel": "1234"
   }
 ]
