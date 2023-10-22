@@ -109,13 +109,14 @@
     "image": "defaultproduct.png"
   },
   {
+    "image": "product-1697937288719.jpg",
     "id": 13,
-    "name": "Alimento para Perros adultos N° 13",
-    "price": 17200,
+    "name": "PROBANDO EDITAR IMAGEN",
+    "price": "98898898978989789",
     "category": "perro",
-    "package": 5,
-    "description": "Alimento Balanceado",
-    "image": "defaultproduct.png"
+    "package": "9012901902903039",
+    "description": "EDITAR IAMGEN",
+    "imagen": ""
   },
   {
     "id": 14,

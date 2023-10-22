@@ -1,7 +1,5 @@
 const path = require('path');
 const fs = require('fs');
-
-
 const productsFilePath = path.join(__dirname, '../data/products.json');
 
 function getProducts() {
@@ -9,8 +7,6 @@ function getProducts() {
     return products;
 };
 
-
-//const products = getProducts();
 const productsController = {
     products: (req, res) => {
         const products = getProducts();
@@ -28,9 +24,6 @@ const productsController = {
         const perro = products.filter(product => product.category === 'perro');
         res.render('products/productsDog', {perro});
     },
-    productDetail: (req, res) => {
-        res.render('products/productDetail');
-    },
     detail: (req, res) => {
         const products = getProducts();
         const product = products.find(product => product.id == req.params.idProduct);
@@ -46,10 +39,11 @@ const productsController = {
         const indexProduct = products.findIndex(product => product.id == req.params.idProduct);
         products[indexProduct] = {
             ...products[indexProduct],
-            ...req.body
+            ...req.body,
+            image: req.file.filename
         };
         fs.writeFileSync(productsFilePath, JSON.stringify(products, null, 2));
-        res.redirect('/products');
+        return res.redirect('/products');
     },
     productCreation: (req, res) => {
         res.render("products/productCreation");

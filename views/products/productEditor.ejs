@@ -1,8 +1,9 @@
 <%- include('../partials/header.ejs') %>
     <main>
-        <form class="container-form-product" action="/products/<%= productToEdit.id %>?_method=PUT" method="POST">
+        <form class="container-form-product" action="/products/<%= productToEdit.id %>/productEditor?_method=PUT" 
+            method="POST" enctype="multipart/form-data">
             <div class="form-product">
-                <h4>ESTÁS EDITANDO: <%= productToEdit.name %></h4>
+                <h4>ESTÁS EDITANDO: <%= productToEdit ? productToEdit.name : '' %></h4>
                 <div>
                     <div class="items-form-product">
                         <label for="text">NOMBRE DEL PRODUCTO</label>
@@ -20,7 +21,8 @@
                         <label for="number">PRECIO</label>
                         <input type="number" id="price" name="price" placeholder="Ingrese precio" />
                     </div>
-                    <div class="items-form-product"><label>Imagen producto:<input type="file" name="imagen"></label>
+                    <div class="items-form-product"><label>Imagen producto:
+                        <input type="file" name="image" id="image"></label>
                     </div>
                 </div>
                 <div class="button-editor-product">

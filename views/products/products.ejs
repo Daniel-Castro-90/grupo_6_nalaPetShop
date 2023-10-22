@@ -13,7 +13,7 @@
                     <p class="precio"> $<%= product.price %> </p>
                     <p class="package"> Presentación en: <%= product.package %>Kg </p>
                     <a href="/descriptionCart" data-quantity="1" class="boton-producto" rel="nofollow">Comprar</a>
-                    <div class="boton-producto"><a href="products/productEditor"><button type="submit">Editar</button></a></div>
+                    <div class="boton-producto"><a href="/products/<%= product.id %>/productEditor"><button type="submit">Editar</button></a></div>
                 </div>
             </article>
             <% }) %>
@@ -30,7 +30,7 @@
                     <p class="precio"> $<%= product.price %> </p>
                     <p class="package"> Presentación en: <%= product.package %>Kg </p>
                     <a href="/descriptionCart" data-quantity="1" class="boton-producto" rel="nofollow">Comprar</a>
-                    <div class="boton-producto"><a href="products/productEditor"><button type="submit">Editar</button></a></div>
+                    <div class="boton-producto"><a href="/products/<%= product.id %>/productEditor"><button type="submit">Editar</button></a></div>
                 </div>
             </article>
             <% }) %>

@@ -14,17 +14,6 @@ const usersController = {
     register: (req, res) => {
         res.render('users/register');
     },
-    create: (req, res) =>{
-        const users = getUsers();
-        const usersToCreate = {
-            id: users[users.length -1].id +1,
-            ...req.body
-        }
-        var usersToWrite = [...users,usersToCreate];
-        fs.writeFileSync(usersFilePath, JSON.stringify(usersToWrite, null, 2));
-        res.redirect('/');
-    },
-
     login: (req, res) => {
         res.render('users/login');
     },
@@ -53,6 +42,7 @@ const usersController = {
     },
 
     userSave: (req, res) => {
+        //esto debe ir en un middleware
         const {email, password, confirmPassword, dni, tel } = req.body;
 
         if (!email) {

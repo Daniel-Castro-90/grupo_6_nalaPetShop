@@ -11,7 +11,6 @@ check('password').isLength({min: 8}).withMessage('La contraseña debe tener como
 usersController.processLogin);
 
 router.get ('/register', usersController.register);
-router.post('/register', usersController.create);
 router.post('/save', usersController.userSave);
 
 module.exports = router;
