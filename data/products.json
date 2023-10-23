@@ -165,12 +165,12 @@
   },
   {
     "id": 19,
-    "image": "defaultproduct.png",
+    "image": "product-1698099905856.jpg",
     "category": "gato",
-    "name": "PRUEBA GATO2",
-    "description": "PRUEBA GATO PRUEBA2",
-    "package": "2",
-    "price": "222"
+    "name": "NUEVO NOMBRE",
+    "description": "NUEVA DESCRIPCION",
+    "package": "1231023",
+    "price": "1209312903"
   },
   {
     "id": 20,

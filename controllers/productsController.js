@@ -64,9 +64,6 @@ const productsController = {
 
         }
         return res.redirect('/products');
-         //else {
-           // res.render('products/productCreation');
-        //}
     },
     productCart: (req, res) => {
         res.render('products/productCart')
