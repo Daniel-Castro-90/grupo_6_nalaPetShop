@@ -46,12 +46,12 @@
   },
   {
     "id": 6,
-    "name": "name6",
-    "price": 0,
+    "name": "PRODUCTO EDITADO",
+    "price": "1234",
     "category": "gato",
-    "package": 5,
-    "description": "Alimento Balanceado",
-    "image": "defaultproduct.png"
+    "package": "12345",
+    "description": "PRODUCTO EDITADO PRUEBA",
+    "image": "product-1698018749436.jpg"
   },
   {
     "id": 7,

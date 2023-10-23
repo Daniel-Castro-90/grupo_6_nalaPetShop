@@ -1,9 +1,9 @@
 <%- include('../partials/header.ejs') %>
     <main>
-        <form class="container-form-product" action="/products/<%= productToEdit.id %>/productEditor?_method=PUT" 
+        <form class="container-form-product" action="/products/<%= product.id %>/productEditor?_method=PUT" 
             method="POST" enctype="multipart/form-data">
             <div class="form-product">
-                <h4>ESTÁS EDITANDO: <%= productToEdit ? productToEdit.name : '' %></h4>
+                <h4>ESTÁS EDITANDO: <%= product ? product.name : '' %></h4>
                 <div>
                     <div class="items-form-product">
                         <label for="text">NOMBRE DEL PRODUCTO</label>

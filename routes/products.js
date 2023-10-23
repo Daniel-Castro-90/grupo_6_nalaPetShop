@@ -20,9 +20,7 @@ router.put('/:idProduct/productEditor', upload.single('image'), productsControll
 
 router.get('/productCreation', productsController.productCreation);
 
-router.post('/', 
-upload.single('image'), logNewProducts, validaciones,
-productsController.create);
+router.post('/',upload.single('image'), validaciones, logNewProducts, productsController.create);
 
 router.get('/productCart', productsController.productCart);
 

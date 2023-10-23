@@ -36,6 +36,8 @@ app.use('/products', routeProducts);
 
 app.use('/users', routeUsers);
 
+
+//hacer vista con imagen y botón. DIV PARA CONTENER TODO
 app.use((req, res, next) => {
     res.status(404).render('partials/not-found')
 })

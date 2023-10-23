@@ -26,5 +26,12 @@
     "password": "$2b$10$SOyBw3d8r5ZsC.Ks1NkOLOfpXARTUzO18PYozZR/ZasMRKde9N5Y2",
     "dni": "1234",
     "tel": "1234"
+  },
+  {
+    "id": 5,
+    "email": "daniel@prueba.com.ar",
+    "password": "$2b$10$VwwbmKkzbzClox6R8R1x7O/kV5qjhIzk/y9ipzRn4/vQDx8AbHynG",
+    "dni": "1234",
+    "tel": "1234"
   }
 ]

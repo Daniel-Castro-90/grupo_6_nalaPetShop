@@ -1,6 +1,7 @@
 const path = require('path');
 const fs = require('fs');
 const productsFilePath = path.join(__dirname, '../data/products.json');
+const { validationResult } = require('express-validator');
 
 function getProducts() {
     const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
@@ -32,7 +33,7 @@ const productsController = {
     editor: (req, res) => {
         const products = getProducts();
         const product = products.find(product => product.id == req.params.idProduct);
-        res.render('products/productEditor', { productToEdit: product });
+        res.render('products/productEditor', { product });
     },
     update: (req, res) => {
         const products = getProducts();
@@ -50,14 +51,22 @@ const productsController = {
     },
     create: (req, res) => {
         const products = getProducts();
-        const productToCreate = {
-            id: products[products.length - 1 ].id + 1,
-            image: req.file.filename,
-            ...req.body
+        const error = validationResult(req);
+        // si hay error poner el mensaje, sino crear producto
+        if (error.isEmpty()){
+            const productToCreate = {
+                id: products[products.length - 1 ].id + 1,
+                image: req.file.filename,
+                ...req.body
+            }
+            products.push(productToCreate);
+            fs.writeFileSync(productsFilePath, JSON.stringify(products, null, 2));
+
         }
-        products.push(productToCreate);
-        fs.writeFileSync(productsFilePath, JSON.stringify(products, null, 2));
         return res.redirect('/products');
+         //else {
+           // res.render('products/productCreation');
+        //}
     },
     productCart: (req, res) => {
         res.render('products/productCart')
