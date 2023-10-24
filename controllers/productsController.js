@@ -35,6 +35,13 @@ const productsController = {
         const product = products.find(product => product.id == req.params.idProduct);
         res.render('products/productEditor', { product });
     },
+    destroy: (req, res) => {
+		const products = getProducts();
+		const indexProduct = products.findIndex(product => product.id == req.params.idProduct);
+		products.splice(indexProduct, 1);
+		fs.writeFileSync(productsFilePath, JSON.stringify(products, null, 2));
+		res.redirect('/products');
+	},
     update: (req, res) => {
         const products = getProducts();
         const indexProduct = products.findIndex(product => product.id == req.params.idProduct);

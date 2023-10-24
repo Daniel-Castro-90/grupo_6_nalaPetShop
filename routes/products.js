@@ -18,6 +18,8 @@ router.get('/:idProduct/productEditor', productsController.editor);
 
 router.put('/:idProduct/productEditor', upload.single('image'), productsController.update);
 
+router.delete('/:idProduct/productEditor', productsController.destroy); 
+
 router.get('/productCreation', productsController.productCreation);
 
 router.post('/',upload.single('image'), validaciones, logNewProducts, productsController.create);

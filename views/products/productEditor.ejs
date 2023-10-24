@@ -26,10 +26,13 @@
                     </div>
                 </div>
                 <div class="button-editor-product">
-                    <div class="boton-submit"><button type="submit">ELIMINAR PRODUCTO</button></div>
+                    
                     <div class="boton-submit"><button type="submit">ACTUALIZAR DATOS</button></div>
                 </div>
             </div>
         </form>
+        <div class="button-editor-product">
+            <div class="boton-submit"><form method="POST" action="/products/<%= product.id %>/productEditor?_method=DELETE"><button type="submit">ELIMINAR PRODUCTO</button></form></div>
+        </div>
     </main>
     <%- include('../partials/footer.ejs') %>
