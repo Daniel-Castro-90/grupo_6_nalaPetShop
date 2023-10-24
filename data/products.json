@@ -1,14 +1,5 @@
 [
   {
-    "id": 1,
-    "name": "Alimento para Perros adultos N° 1",
-    "price": 6730,
-    "category": "perro",
-    "package": 5,
-    "description": "Alimento Balanceado",
-    "image": "defaultproduct.png"
-  },
-  {
     "id": 2,
     "name": "Alimento para Perros adultos N° 2",
     "price": 6000,
@@ -27,15 +18,6 @@
     "image": "defaultproduct.png"
   },
   {
-    "id": 4,
-    "name": "Alimento para Perros adultos N° 4",
-    "price": 15699,
-    "category": "gato",
-    "package": 5,
-    "description": "Alimento Balanceado",
-    "image": "defaultproduct.png"
-  },
-  {
     "id": 5,
     "name": "name5",
     "price": 0,
@@ -43,15 +25,6 @@
     "package": 5,
     "description": "Alimento Balanceado",
     "image": "defaultproduct.png"
-  },
-  {
-    "id": 6,
-    "name": "",
-    "price": "",
-    "category": "gato",
-    "package": "",
-    "description": "",
-    "image": "product-1698100655787.jpg"
   },
   {
     "id": 7,
@@ -183,20 +156,11 @@
   },
   {
     "id": 21,
-    "image": "product-1697577163803.jpg",
+    "image": "product-1698190694831.png",
     "category": "gato",
-    "name": "Alimento Excellent Adult para gato adulto sabor pollo y arroz en bolsa de 15 kg",
-    "description": "El mejor alimento para gatos adultos, en sus tres sabores: pescado, pollo y carne.",
-    "package": "15",
-    "price": "38900"
-  },
-  {
-    "id": 22,
-    "image": "product-1698187902107.jpg",
-    "category": "gato",
-    "name": "DANIEL DANIEL",
-    "description": "DANIEL DANIEL",
-    "package": "123131231",
-    "price": "12312312323"
+    "name": "1234",
+    "description": "1234",
+    "package": "1234",
+    "price": "1234"
   }
 ]

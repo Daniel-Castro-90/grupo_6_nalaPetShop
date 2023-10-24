@@ -35,6 +35,13 @@ const productsController = {
         const product = products.find(product => product.id == req.params.idProduct);
         res.render('products/productEditor', { product });
     },
+    destroy: (req, res) => {
+		const products = getProducts();
+		const indexProduct = products.findIndex(product => product.id == req.params.idProduct);
+		products.splice(indexProduct, 1);
+		fs.writeFileSync(productsFilePath, JSON.stringify(products, null, 2));
+		res.redirect('/products');
+	},
     update: (req, res) => {
         const products = getProducts();
         const indexProduct = products.findIndex(product => product.id == req.params.idProduct);
@@ -51,11 +58,11 @@ const productsController = {
     },
     create: (req, res) => {
         const products = getProducts();
-        const error = validationResult(req);
+        //const error = validationResult(req);
         // si hay error poner el mensaje, sino crear producto
-        if (error){
-            return res.redirect('/products');
-        }
+        //if (error){
+
+        //}
         const productToCreate = {
             id: products[products.length - 1 ].id + 1,
             image: req.file.filename,
@@ -63,6 +70,8 @@ const productsController = {
         }
         products.push(productToCreate);
         fs.writeFileSync(productsFilePath, JSON.stringify(products, null, 2));
+        return res.redirect('/products');
+        
 
     },
     productCart: (req, res) => {
