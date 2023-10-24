@@ -8,12 +8,15 @@ let routeUsers = require('./routes/users');
 //const logMiddleware = require('./middlewares/logMiddleware');
 const session = require('express-session');
 const cookieParser = require('cookie-parser');
+//const cloudinaryMiddleware = require('./middlewares/cloudinaryMiddleware');
 
 //Middlewares
 //app.use(logMiddleware);
 app.use(express.urlencoded({ extended: false}));
 app.use(express.json());
 app.use(session({ secret: 'Infousers' }));
+//app.use('/upload', cloudinaryMiddleware,)
+
 
 
 //method Override

@@ -46,12 +46,12 @@
   },
   {
     "id": 6,
-    "name": "PRODUCTO EDITADO",
-    "price": "1234",
+    "name": "",
+    "price": "",
     "category": "gato",
-    "package": "12345",
-    "description": "PRODUCTO EDITADO PRUEBA",
-    "image": "product-1698018749436.jpg"
+    "package": "",
+    "description": "",
+    "image": "product-1698100655787.jpg"
   },
   {
     "id": 7,
@@ -189,5 +189,14 @@
     "description": "El mejor alimento para gatos adultos, en sus tres sabores: pescado, pollo y carne.",
     "package": "15",
     "price": "38900"
+  },
+  {
+    "id": 22,
+    "image": "product-1698187902107.jpg",
+    "category": "gato",
+    "name": "DANIEL DANIEL",
+    "description": "DANIEL DANIEL",
+    "package": "123131231",
+    "price": "12312312323"
   }
 ]

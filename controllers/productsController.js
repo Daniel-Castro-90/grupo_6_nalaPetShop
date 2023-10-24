@@ -53,17 +53,17 @@ const productsController = {
         const products = getProducts();
         const error = validationResult(req);
         // si hay error poner el mensaje, sino crear producto
-        if (error.isEmpty()){
-            const productToCreate = {
-                id: products[products.length - 1 ].id + 1,
-                image: req.file.filename,
-                ...req.body
-            }
-            products.push(productToCreate);
-            fs.writeFileSync(productsFilePath, JSON.stringify(products, null, 2));
-
+        if (error){
+            return res.redirect('/products');
         }
-        return res.redirect('/products');
+        const productToCreate = {
+            id: products[products.length - 1 ].id + 1,
+            image: req.file.filename,
+            ...req.body
+        }
+        products.push(productToCreate);
+        fs.writeFileSync(productsFilePath, JSON.stringify(products, null, 2));
+
     },
     productCart: (req, res) => {
         res.render('products/productCart')
