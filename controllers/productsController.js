@@ -60,9 +60,7 @@ const productsController = {
         const products = getProducts();
         //const error = validationResult(req);
         // si hay error poner el mensaje, sino crear producto
-        //if (error){
 
-        //}
         const productToCreate = {
             id: products[products.length - 1 ].id + 1,
             image: req.file.filename,
