@@ -1,69 +1,38 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <title>Bienvenidxs a Nala PetShop</title>
-    <meta name="viewport" content="width=device-width, initial-scale = 1.0">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
-    <link rel="stylesheet" href="/css/styles.css">
-    <script src="https://kit.fontawesome.com/8a1e4f48aa.js" crossorigin="anonymous"></script>
-    <script src="/js/Dropbutton.js"></script>
-</head>
-
-<body>
+<%- include('../partials/header.ejs') %>
     <main>
-        <form class="container-form-product" action="#" method="post">
+        <form class="container-form-product" action="/products/<%= product.id %>/productEditor?_method=PUT" 
+            method="POST" enctype="multipart/form-data">
             <div class="form-product">
-                <h4>EDITAR PRODUCTO</h4>
+                <h4>ESTÁS EDITANDO: <%= product ? product.name : '' %></h4>
                 <div>
                     <div class="items-form-product">
                         <label for="text">NOMBRE DEL PRODUCTO</label>
-                        <input type="text" id="nombreproducto" name="texto" placeholder="Ingrese nombre" />
+                        <input type="text" name="name" placeholder="Ingrese el nombre del producto" value="" />
                     </div>
                     <div class="items-form-product">
                         <label for="text">DESCRIPCION</label>
-                        <input type="text" id="descripcion" name="texto" placeholder="Ingrese descripcion" />
-                    </div>
-
-                    <div class="items-form-product">
-                        <div class="items-form-product-selects">
-                            <div>
-                                <h5>CALIDAD</h5>
-                                <select>
-                                    <option>Baja</option>
-                                    <option>Media</option>
-                                    <option>Alta</option>
-                                </select>
-                            </div>
-                            <div>
-                                <h5>MEDICAMENTO</h5>
-                                <select>
-                                    <option>Con medicamentos</option>
-                                    <option>Necesidades especiales</option>
-                                </select>
-                            </div>
-                        </div>
+                        <input type="text" id="description" name="description" placeholder="Ingrese descripcion" />
                     </div>
                     <div class="items-form-product">
-                        <label for="text">CANTIDAD</label>
-                        <input type="texto" id="cantidad" name="texto" placeholder="Ingrese kg" />
+                        <label for="text">PRESENTACION</label>
+                        <input type="number" id="package" name="package" placeholder="Ingrese kg" />
                     </div>
                     <div class="items-form-product">
                         <label for="number">PRECIO</label>
-                        <input type="number" id="precio" name="number" placeholder="Ingrese precio" />
+                        <input type="number" id="price" name="price" placeholder="Ingrese precio" />
                     </div>
-                    <div class="items-form-product"><label>Imagen producto:<input type="file" name="imagen"></label>
+                    <div class="items-form-product"><label>Imagen producto:
+                        <input type="file" name="image" id="image"></label>
                     </div>
                 </div>
                 <div class="button-editor-product">
-                    <div class="boton-submit"><button type="submit">ELIMINAR PRODUCTO</button></div>
+                    
                     <div class="boton-submit"><button type="submit">ACTUALIZAR DATOS</button></div>
                 </div>
             </div>
         </form>
+        <div class="button-editor-product">
+            <div class="boton-submit"><form method="POST" action="/products/<%= product.id %>/productEditor?_method=DELETE"><button type="submit">ELIMINAR PRODUCTO</button></form></div>
+        </div>
     </main>
-</body>
-
-</html>
+    <%- include('../partials/footer.ejs') %>

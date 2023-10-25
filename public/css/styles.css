@@ -8,11 +8,12 @@
 
 /* BODY */
 
-/* HEADER*/
-
 body{
     font-family: "Roboto", sans-serif;
+    background-color: #a49987;;
 }
+
+/* HEADER*/
 
 header{
     background-color: #2f2822;
@@ -25,61 +26,65 @@ header{
     top: 0;
 }
 
-header div.top,
-header a.qs-contacto{
+.top,
+.qs-contacto{
     display:none;
 }
 
-header div.menu{
+.menu{
     position: relative;
     left: 30px;
 }
 
-header a img.logo-superior{
+.logo-superior{
     height: 100%;
     position: absolute;
     left: 33.5%;
     top:0%;
 }
 
-header input.buscador{
+.buscador{
     color: #2f2822;
     display: none;
 }
 
-header div.menu,
-header div.ingresar,
-header div.carro,
-header div.submit{
+.menu,
+.ingresar,
+.carro,
+.submit{
     color: #f19827;
     cursor: pointer
 }
 
-header div.carro{
+.carro{
     position: absolute;
     right: 12%;
 }
 
-header div.submit{
+.submit{
     position: absolute;
     right: 34%;
+    top: 35%;
+    background: transparent;
+    border:none;
+    font-size: 16px;
 }
 
-header div.ingresar{
+.ingresar{
     position: absolute;
     right: 15%;
     display:none;
 }
 
-header div.ingresar:hover,
-header div.carro:hover,
-header div.menu:hover,
-header div.submit:hover{
+.ingresar:hover,
+.carro:hover,
+.menu:hover,
+.submit:hover{
     color: #ffc962
     
 }
 
-header div.buscador{
+.buscador{
     font-size: 12px;
 }
 
@@ -90,7 +95,7 @@ header div.buscador{
 main{
     display:flex;
     flex-direction: column;
-    padding-top: 76px;
+    padding-top: 10vh;
     width: 100%;
 }
 
@@ -112,11 +117,8 @@ main{
 
 .imagen img{
     height: 103%;
-    position: relative;
-    left:50%;
     width: 100%;
     object-fit: cover;
-    transform: translateX(-50%);
 }
 
 .actual{
@@ -473,6 +475,7 @@ a {
     font-weight: 600;
     width: 130px;
     height: 55px;
+    cursor: pointer;
 }
 .items-registro{
     display: grid;
@@ -988,10 +991,10 @@ footer{
 
 /* Computadoras de escritorio */
 @media (min-width: 1280px){
-    header div.menu{
+    .menu{
         display: none;
     }
-    header input.buscador {
+    .buscador {
         display: flex;
         background-color: #FFF;
         border: 2px solid #000;
@@ -1001,13 +1004,14 @@ footer{
         height: 70%;
         position: absolute;
         right: 36%;
+        top:14%;
     }
 
-    header div.menu{
+    .menu{
         font-size: 20px;
     }
 
-    header div.fb{
+    .fb{
         display:flex;
         color: #f19827;
         position: absolute;
@@ -1015,7 +1019,7 @@ footer{
         font-size: 20px;
     }
 
-    header div.instagram{
+    .instagram{
         display:flex;
         color:#f19827;
         position: absolute;
@@ -1023,21 +1027,21 @@ footer{
         font-size: 20px;
     }
 
-    header a.qs-contacto:hover{
+    .qs-contacto:hover{
         font-size: 17px;
         color: #ffc962
     }
-    header div.instagram:hover,
-    header div.fb:hover,
-    header div.menu i:hover,
-    header div.submit:hover,
-    header div.ingresar:hover,
-    header div.carro:hover{
+    .instagram:hover,
+    .fb:hover,
+    .menu i:hover,
+    .submit:hover,
+    .ingresar:hover,
+    .carro:hover{
         color:#ffc962;
-        font-size: 25px;
+        font-size: 20px;
     }
 
-    header a.qs-contacto{
+    .qs-contacto{
         font-size: 15px;
         display: flex;
         color: #f19827;
@@ -1045,23 +1049,23 @@ footer{
         text-decoration: none;        
     }
 
-    header a.qs{
+    .qs{
         left:15%;
     }
 
-    header a.contacto{
+    .contacto{
         left:24%;
     }
 
-    header div.submit,
-    header div.input,
-    header div.menu i,
-    header div.top i{
+    .submit,
+    .input,
+    .menu i,
+    .top i{
         display:flex;
         cursor: pointer;
     }
 
-    header div.ingresar{
+    .ingresar{
         position: absolute;
         right: 15%;
         display:flex;
@@ -1291,12 +1295,7 @@ footer{
 .Descripcion:hover{
     color: #db710e;
   }
-  
-main{
-    text-align: center;
-    width: 90%;
-    margin: auto;
-}
+
 .producto article{
     border: 1px solid #fcb347;
     padding: 15px;

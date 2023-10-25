@@ -5,17 +5,17 @@
             <a class="boton-ingreso">
                 <h4>Ingresá</h4>
             </a>
-            <a href="user/register" class="boton-registro">
+            <a href="users/register" class="boton-registro">
                 <h4>Registrate</h4>
             </a>
         </section>
         <section>
-            <form class="formulario-ingreso" action="#" method="post">
+            <form class="formulario-ingreso" action="/users" method="POST">
                 <div class="contenedor-login">
                     <div>
                         <div class="items-registro">
-                            <label for="mail">E-MAIL</label>
-                            <input type="email" id="emailAddress" name="email" />
+                            <label for="email">E-MAIL</label>
+                            <input type="email" id="email" name="email" />
                         </div>
                         <div class="items-registro">
                             <label for="password">CONTRASEÑA</label>
@@ -32,7 +32,7 @@
                                 </a>
                             </div>
                         </div>
-                        <div class="boton-enter"><button type="submit">ENTRAR</button></div>
+                        <div class="boton-enter"><button type="submit" value="entrar">ENTRAR</button></div>
                     </div>
                 </div>
             </form>

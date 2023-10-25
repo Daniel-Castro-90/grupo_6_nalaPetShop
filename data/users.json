@@ -1,0 +1,44 @@
+[
+  {
+    "id": 1,
+    "email": "test@testwdrfgwaedrfg",
+    "password": "$2b$10$86F7oe/4G8uCLRoA6JUOlOexUA2hMAaWN3hRl8QjEq0S.f1eyMCIG",
+    "dni": "123",
+    "tel": "1123"
+  },
+  {
+    "id": 2,
+    "email": "test@test",
+    "password": "$2b$10$lFHxY2W1/xFf3u1rr00uTOsn2SV4.0EWCyunnhWsDmQVZgkJkbZHm",
+    "dni": "123",
+    "tel": "123"
+  },
+  {
+    "id": 3,
+    "email": "test@testt",
+    "password": "$2b$10$ZJp0Q5DxO.sCTU0hOOwvlesg2KpPF1LSeZtXWuKwhSZ4uomCEL4fi",
+    "dni": "1234",
+    "tel": "1234"
+  },
+  {
+    "id": 4,
+    "email": "test@testtttt",
+    "password": "$2b$10$SOyBw3d8r5ZsC.Ks1NkOLOfpXARTUzO18PYozZR/ZasMRKde9N5Y2",
+    "dni": "1234",
+    "tel": "1234"
+  },
+  {
+    "id": 5,
+    "email": "daniel@prueba.com.ar",
+    "password": "$2b$10$VwwbmKkzbzClox6R8R1x7O/kV5qjhIzk/y9ipzRn4/vQDx8AbHynG",
+    "dni": "1234",
+    "tel": "1234"
+  },
+  {
+    "id": 6,
+    "email": "prueba@registro.com.ar",
+    "password": "$2b$10$33FekzRwFiOtYJ/j6.W7uehN3d2pGuT9mqzmtl.h9UJ5IeSO.tNzG",
+    "dni": "1234",
+    "tel": "1234"
+  }
+]

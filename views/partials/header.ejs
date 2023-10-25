@@ -4,10 +4,10 @@
 <head>
     <meta charset="UTF-8">
     <title>Bienvenidxs a Nala PetShop</title>
-    <meta name = "viewport" content = "width=device-width, initial-scale = 1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
-    <link rel = "stylesheet" href ="/css/styles.css">
+    <link rel="stylesheet" href="/css/styles.css">
     <script src="https://kit.fontawesome.com/8a1e4f48aa.js" crossorigin="anonymous"></script>
     <script src="/js/carrusel.js"></script>
     <script src="/js/Dropbutton.js"></script>
@@ -22,8 +22,8 @@
         <a class="qs-contacto qs" href="#">Quienes Somos</a>
         <a class="qs-contacto contacto" href="#">Contacto</a>
         <a href="/"><img class="logo-superior" src="/images/logo.png" alt="Logo Nala"></a>
-        <input class="buscador" type="text" placeholder="¿Qué estás buscando?">
-        <div class="submit"><i class="fas fa-search"></i></div>
-        <div class="ingresar"><a href="/user">Ingresar <i class="fa-solid fa-user" ></a></i></div>
+        <form  action="/products/search" method="GET"><input class="buscador" type="text" name="busqueda" placeholder="¿Qué estás buscando?">
+        <div class="submit"><button value="search" action="/products/search" method="GET" class="submit fas fa-search"></button></div></form>
+        <div class="ingresar"><a href="/users">Ingresar <i class="fa-solid fa-user" ></a></i></div>
         <div class="carro"><a href="/products/productCart" class="fa-solid fa-cart-shopping" href=""></a></div>
     </header>
