@@ -1,0 +1,39 @@
+<%- include('../partials/header.ejs') %>
+    <main>
+        <form class="container-form-product" action="/users/<%= locals.user.id && user.id %>/userEditor?_method=PUT" 
+            method="POST" enctype="multipart/form-data">
+            <div class="form-product">
+                <h4>ESTÁS EDITANDO: <%= locals.user && user.email %></h4>
+                <div>
+                    <div class="items-registro">
+                        <label for="text">NUEVO EMAIL:</label>
+                        <input type="text" id="email" name="email" placeholder="Ingrese su nuevo correo electrónico" value="" />
+                    </div>
+                    <div class="items-registro">
+                        <label for="text">NUEVO DNI:</label>
+                        <input type="number" id="dni" name="dni" placeholder="Ingrese un nuevo dni" />
+                    </div>
+                    <div class="items-registro">
+                        <label for="text">NUEVO TELÉFONO:</label>
+                        <input type="number" id="tel" name="tel" placeholder="Ingrese un nuevo teléfono" />
+                    </div>
+                    <div class="items-registro">
+                        <label for="number">NUEVA CONTRASEÑA:</label>
+                        <input type="password" id="password" name="password" placeholder="Ingrese una nueva contraseña" />
+                    </div>
+                    <div class="items-registro">
+                        <label>CONFIRME NUEVA CONTRASEÑA:</label>
+                        <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Vuelva a ingresar su contraseña nueva" />
+                    </div>
+                </div>
+                    <div class="items-registro"><label>Imagen producto:
+                        <input type="file" name="image" id="image"></label>
+                    </div>
+                <div class="button-editor-product">
+                    
+                    <div class="boton-submit"><button type="submit">ACTUALIZAR DATOS</button></div>
+                </div>
+            </div>
+        </form>
+    </main>
+    <%- include('../partials/footer.ejs') %>

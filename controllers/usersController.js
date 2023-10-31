@@ -16,47 +16,23 @@ const usersController = {
     },
     create: (req, res) =>{
         const users = getUsers();
-        let validator = validationResult(req);
-        const {email, password, confirmPassword, dni, tel} = req.body;
-        if (!email) {
-            return res.status(400).json({ mensaje: "Por favor completar todos los campos. Falta el email."});
-        }
-        if (!password) {
-            return res.status(400).json({ mensaje: "Por favor completar todos los campos. Falta la contraseña."});
-        }
-        if (!confirmPassword) {
-            return res.status(400).json({ mensaje: "Por favor completar todos los campos. Falta repetir la contraseña."})
-        }
-        if (!dni) {
-            return res.status(400).json({ mensaje: "Por favor completar todos los campos. Falta el DNI."});
-        }
-        if (!tel) {
-            return res.status(400).json({ mensaje: "Por favor completar todos los campos. Falta el teléfono."});
-        }
-        if(password !== confirmPassword){
-            return res.status(400).json({mensaje: "Por favor verificar las contraseñas. Deben coincidir exactamente."})
+        let errors = validationResult(req);
+        if (!errors.isEmpty()){
+            return res.render('users/register',{
+                errors: errors.mapped(),
+                oldData: req.body,
+            });
         }
 
-        let userRegister = users.find(user => user.email === email);
-
-        if(userRegister){
-            return res.status(400).json({mensaje: "Usuario ya existente."})
-        }
-        if(!validator.isEmpty()){
-            //El  validator.errors[0].msg muestra el primer error
-            return res.status(400).json({mensaje: validator.errors[0].msg})
-        }
-
-        const usersToCreate = {
-            id: users[users.length -1].id +1,
-            email:email,
-            password:bcrypt.hashSync(password, 10),
-            dni:dni,
-            tel:tel
-        }
-        var usersToWrite = [...users,usersToCreate];
-        fs.writeFileSync(usersFilePath, JSON.stringify(usersToWrite, null, 2));
-        res.redirect('/');
+        const user = {
+            id: users[users.length -1] ? users[users.length -1].id + 1 : 1,
+            image: req.file.filename,
+            ...req.body,
+            password: bcrypt.hashSync(req.body.password, 10)
+        };
+        users.push(user);
+        fs.writeFileSync(usersFilePath, JSON.stringify(users, null, 4));
+        return res.redirect('/users');
     },
 
     login: (req, res) => {
@@ -65,19 +41,58 @@ const usersController = {
 
     processLogin: (req, res) => {
         let users = getUsers();
-        let userLogin = users.find(user => user.email === req.body.email && bcrypt.compareSync(req.body.password, user.password));
-        if (userLogin) {
-            req.session.usuarioLogeado = userLogin;
-            console.log(req.session.usuarioLogeado);
-            res.send('Logeado!');
-        } else {
-            return res.send('usuario invalido o contraseña incorrecta');
+        const user = users.find((element) => element.email === req.body.email);
+        const errors = {
+            unauthorized: {
+                msg: 'Usuario y/o contraseña inválidos'
+            }
+        };
+        if (!user) {
+            return res.render('users', { errors });
         }
+        if (!bcrypt.compareSync(req.body.password, user.password)) {
+            return res.render('users', { errors });
+        }
+        req.session.user = {
+            id: user.id,
+            image: user.image,
+            email: user.email,
+            dni: user.dni,
+            tel: user.tel
+        };
+        return res.redirect('/users/profile');
     },
 
     userSave: (req, res) => {
         res.redirect('/')
     },
+    profile: (req, res) => {
+        const { user } = req.session;
+        return res.render('users/profile', { user });
+    },
+    logout: (req, res) => {
+        req.session.user = undefined;
+        return res.render('users/login')
+    },
+    editor: (req, res) => {
+        const users = getUsers();
+        const user = users.find(user => user.id == req.params.idUser);
+        res.render('users/userEditor', { user })
+
+    },
+    //AL VIAJAR POR  PUT TIRA ERROR VER SI O SI
+    update: (req, res) => {
+        const users = getUsers();
+        const indexUsers = users.findIndex(user => user.id == req.params.idUser);
+        users[indexUsers] = {
+            ...users[indexUsers],
+            ...req.body,
+            password: bcrypt.hashSync(req.body.password, 10),
+            image: req.file.filename
+        };
+        fs.writeFileSync(usersFilePath, JSON.stringify(users, null, 4));
+        return res.redirect('/users/profile')
+    }
 };
 
 module.exports = usersController;

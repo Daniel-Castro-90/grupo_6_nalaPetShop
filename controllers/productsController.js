@@ -58,19 +58,26 @@ const productsController = {
     },
     create: (req, res) => {
         const products = getProducts();
-        //const error = validationResult(req);
-        // si hay error poner el mensaje, sino crear producto
+        const errors = validationResult(req);
+        // Ver la carga de imágenes, si bien la vista avisa que no puede estar vacío ese campo, cuando los otros campos
+        //están vacíos y se carga una imagen, el formulario no avanza, pero sí carga la imagen a la base de datos.
+        if (!errors.isEmpty()){
+            return res.render('products/productCreation', { 
+                errors: errors.mapped(),
+                oldData: req.body,
+             });
+
+        }
 
         const productToCreate = {
             id: products[products.length - 1 ].id + 1,
             image: req.file.filename,
             ...req.body
-        }
+        };
         products.push(productToCreate);
         fs.writeFileSync(productsFilePath, JSON.stringify(products, null, 2));
-        return res.redirect('/products');
-        
 
+        return res.redirect('/products');
     },
     productCart: (req, res) => {
         res.render('products/productCart')
