@@ -27,7 +27,9 @@ const usersController = {
         const user = {
             id: users[users.length -1] ? users[users.length -1].id + 1 : 1,
             image: req.file.filename,
-            ...req.body,
+            email: req.body.email,
+            dni: req.body.dni,
+            tel: req.body.tel,
             password: bcrypt.hashSync(req.body.password, 10)
         };
         users.push(user);
@@ -40,32 +42,9 @@ const usersController = {
     },
 
     processLogin: (req, res) => {
-        let users = getUsers();
-        const user = users.find((element) => element.email === req.body.email);
-        const errors = {
-            unauthorized: {
-                msg: 'Usuario y/o contraseña inválidos'
-            }
-        };
-        if (!user) {
-            return res.render('users', { errors });
-        }
-        if (!bcrypt.compareSync(req.body.password, user.password)) {
-            return res.render('users', { errors });
-        }
-        req.session.user = {
-            id: user.id,
-            image: user.image,
-            email: user.email,
-            dni: user.dni,
-            tel: user.tel
-        };
-        return res.redirect('/users/profile');
+
     },
 
-    userSave: (req, res) => {
-        res.redirect('/')
-    },
     profile: (req, res) => {
         const { user } = req.session;
         return res.render('users/profile', { user });

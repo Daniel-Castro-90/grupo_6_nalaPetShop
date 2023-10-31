@@ -50,9 +50,8 @@
     {
         "id": 7,
         "image": "defaultprofile.png",
-        "email": "",
+        "email": "prueba@probando.com.ar",
         "password": "$2b$10$s7/dcsEUKqjrE9ILwPQ/UutMfX0XgW.lqVfpV68AJFqVtjE6zPRwu",
-        "confirmPassword": "",
         "dni": "",
         "tel": ""
     },
@@ -61,8 +60,15 @@
         "image": "profile-1698711722182.png",
         "email": "probando@imagendeperfil",
         "password": "$2b$10$mAY02zC4E0zoCvjTlOlp1ekQ47H5q6bdBwUa/UMmFoE8zglzXPwUG",
-        "confirmPassword": "12345678",
         "dni": "123",
         "tel": "1234567"
+    },
+    {
+        "id": 9,
+        "image": "profile-1698771715474.jpg",
+        "email": "daniel@prueba",
+        "dni": "1234567",
+        "tel": "98765543",
+        "password": "$2b$10$bJ7hVYds6vpZrgrdVtcoKepwDuneHl7SGBW2V5CQPDwWz783TsY9S"
     }
 ]
