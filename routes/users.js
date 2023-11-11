@@ -4,13 +4,13 @@ let usersController = require('../controllers/usersController.js');
 const userValidation = require('../middlewares/usersValidatorMiddleware.js')
 const upload = require('../middlewares/multerUsersMiddleware.js')
 const isLoggedMiddleware = require('../middlewares/isLoggedMiddleware.js')
-const loginMiddleware = require('../middlewares/loginMiddleware.js')
+//const loginMiddleware = require('../middlewares/loginMiddleware.js')
 
 //Login
 //agregar que si esta logeado al hacer clic en ingresar lo lleve al perfil, usando lógica middleware isLogged
 //cambiar header para cuando esta logeado.
 router.get('/', usersController.login);
-router.post('/login', loginMiddleware, usersController.processLogin);
+router.post('/login', usersController.processLogin);
 router.get('/profile', isLoggedMiddleware, usersController.profile);
 router.get('/logout', usersController.logout);
 
