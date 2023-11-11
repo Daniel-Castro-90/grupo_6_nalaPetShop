@@ -1,7 +1,15 @@
 const { validationResult } = require('express-validator');
 const fs = require('fs');
 const bcrypt = require('bcrypt');
+const path = require('path');
 //const { getUsers, usersFilePath } = require('../middlewares/loginMiddleware');
+
+
+const usersFilePath = path.join(__dirname, '../data/users.json');
+function getUsers() {
+    const users = JSON.parse(fs.readFileSync(usersFilePath, 'utf-8'));
+    return users;
+};
 
 const usersController = {
     register: (req, res) => {
@@ -32,45 +40,33 @@ const usersController = {
     },
 
     login: (req, res) => {
-        return res.render('users/login');
+        res.render('users/login');
     },
 
     processLogin: (req, res) => {
         //volver a poner el codigo y crear un helper
-                const path = require('path');
-        const fs = require('fs');
-        const bcrypt = require('bcrypt');
-
-
-        const usersFilePath = path.join(__dirname, '../data/users.json');
-        function getUsers() {
-            const users = JSON.parse(fs.readFileSync(usersFilePath, 'utf-8'));
-            return users;
-        };
-
-        const loginMiddleware = (req, res, next) => {
-            let users = getUsers();
-            const user = users.find((element) => element.email === req.body.email);
-            const errors = {
-                unauthorized: {
-                    msg: 'Usuario y/o contraseña inválidos'
+        let users = getUsers();
+        const user = users.find((element) => element.email === req.body.email);
+        const errors = {
+            unauthorized: {
+                msg: 'Usuario y/o contraseña inválidos'
                 }
-            };
-            if (!user) {
-                return res.render('/users/login', { errors });
             }
-            if (!bcrypt.compareSync(req.body.password, user.password)) {
-                return res.render('/users/login', { errors });
-            }
-            req.session.user = {
-                id: user.id,
-                image: user.image,
-                email: user.email,
-                dni: user.dni,
-                tel: user.tel
-            };
-            return res.redirect('/users/profile');
+        
+        if (!user) {
+            return res.render('/users/login', { errors });
+        }
+        if (!bcrypt.compareSync(req.body.password, user.password)) {
+            return res.render('/users/login', { errors });
+        }
+        req.session.user = {
+            id: user.id,
+            image: user.image,
+            email: user.email,
+            dni: user.dni,
+            tel: user.tel
         };
+        return res.redirect('/users/profile');
     },
 
     profile: (req, res) => {
