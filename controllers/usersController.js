@@ -1,18 +1,11 @@
 const { validationResult } = require('express-validator');
-const path = require('path');
 const fs = require('fs');
 const bcrypt = require('bcrypt');
-
-
-const usersFilePath = path.join(__dirname, '../data/users.json');
-function getUsers() {
-    const users = JSON.parse(fs.readFileSync(usersFilePath, 'utf-8'));
-    return users;
-};
+const { getUsers, usersFilePath } = require('../middlewares/loginMiddleware');
 
 const usersController = {
     register: (req, res) => {
-        res.render('users/register');
+        return res.render('users/register');
     },
     create: (req, res) =>{
         const users = getUsers();
@@ -26,6 +19,7 @@ const usersController = {
 
         const user = {
             id: users[users.length -1] ? users[users.length -1].id + 1 : 1,
+            // va 'default.jpg' en el modelo de la base de datos (ver clase 38 extra)"
             image: req.file.filename,
             email: req.body.email,
             dni: req.body.dni,
@@ -38,11 +32,11 @@ const usersController = {
     },
 
     login: (req, res) => {
-        res.render('users/login');
+        return res.render('users/login');
     },
 
     processLogin: (req, res) => {
-
+        //volver a poner el codigo y crear un helper
     },
 
     profile: (req, res) => {
@@ -56,7 +50,7 @@ const usersController = {
     editor: (req, res) => {
         const users = getUsers();
         const user = users.find(user => user.id == req.params.idUser);
-        res.render('users/userEditor', { user })
+        return res.render('users/userEditor', { user })
 
     },
     //AL VIAJAR POR  PUT TIRA ERROR VER SI O SI

@@ -30,7 +30,6 @@ const loginMiddleware = (req, res, next) => {
         dni: user.dni,
         tel: user.tel
     };
-    if (req.body.saveUser != undefined) { res.cookie('saveUser', req.session.user.email, { maxAge: 60000 }) }
     return res.redirect('/users/profile');
 };
 

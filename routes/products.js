@@ -22,7 +22,7 @@ router.delete('/:idProduct/productEditor', productsController.destroy);
 
 router.get('/productCreation', productsController.productCreation);
 
-router.post('/', productValidation, upload.single('image'), logNewProducts, productsController.create);
+router.post('/', upload.single('image'), productValidation, logNewProducts, productsController.create);
 
 router.get('/productCart', productsController.productCart);
 

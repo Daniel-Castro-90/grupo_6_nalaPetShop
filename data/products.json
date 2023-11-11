@@ -28,12 +28,12 @@
   },
   {
     "id": 7,
-    "name": "name7",
-    "price": 0,
+    "name": "probando nuevas implementaciones",
+    "price": "131232",
     "category": "gato",
-    "package": 5,
-    "description": "Alimento Balanceado",
-    "image": "defaultproduct.png"
+    "package": "123123",
+    "description": "probando algo nuevo",
+    "image": "product-1698774898359.jpg"
   },
   {
     "id": 9,

@@ -8,6 +8,7 @@ const loginMiddleware = require('../middlewares/loginMiddleware.js')
 
 //Login
 //agregar que si esta logeado al hacer clic en ingresar lo lleve al perfil, usando lógica middleware isLogged
+//cambiar header para cuando esta logeado.
 router.get('/', usersController.login);
 router.post('/login', loginMiddleware, usersController.processLogin);
 router.get('/profile', isLoggedMiddleware, usersController.profile);
