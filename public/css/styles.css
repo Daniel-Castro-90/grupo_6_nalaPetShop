@@ -815,7 +815,48 @@ footer{
     justify-content: space-evenly;
     cursor:pointer;
 }
-
+/*error 404*/
+.not-found-html{
+    height: 100%;
+}
+.not-found-body{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    justify-content: space-between;
+    background-color: #f7f7f7;
+}
+.not-found-picture{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 25px;
+}
+.not-found-picture img{
+    width: 350px;
+}
+.not-found-button{
+    display: flex;
+    justify-content: space-around;
+    margin-top: 40px;
+}
+.not-found-button button{
+    background-color: orange;
+    color: white;
+    padding: 15px;
+    font-size: 20px;
+    border: solid 1px orange;
+    cursor: pointer;
+    border-radius: 7px;
+}
+.container-image{
+    margin:0 auto;
+    width: 70%;
+}
+.not-found-image{
+    width: 100%;
+}
 
 @media (max-width: 480px) {
         .product {
@@ -903,6 +944,9 @@ footer{
         font-size: 30px;
         color: #f19827;
     }
+    .not-found-picture{
+        margin-top: 200px;
+    }
 }
 
 /* Laptops en adelante */
@@ -983,6 +1027,9 @@ footer{
         bottom:2%;
         font-size: 25px;
     
+    }
+    .not-found-picture{
+        margin-top: 30px;
     }
 
 }
