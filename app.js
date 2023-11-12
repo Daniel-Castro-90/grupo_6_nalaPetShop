@@ -1,7 +1,8 @@
 //varibales
+require('dotenv').config();
 const express = require('express');
 const app = express();
-const port = 3000;
+const port = process.env.PORT || 3000;
 let routeProducts = require('./routes/products');
 let routeIndex = require('./routes/index');
 let routeUsers = require('./routes/users');
@@ -15,7 +16,7 @@ const cookieMiddleware = require('./middlewares/cookieMiddleware');
 //app.use(logMiddleware);
 app.use(express.urlencoded({ extended: false}));
 app.use(express.json());
-app.use(session({ secret: 'Infousers' }));
+app.use(session({ secret: process.env.SECRET }));
 app.use(cookieParser());
 app.use(cookieMiddleware);
 //app.use('/upload', cloudinaryMiddleware,)

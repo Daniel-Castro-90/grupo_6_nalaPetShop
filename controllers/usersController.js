@@ -2,6 +2,7 @@ const { validationResult } = require('express-validator');
 const fs = require('fs');
 const bcrypt = require('bcrypt');
 const path = require('path');
+const db = require('../database/models')
 //const { getUsers, usersFilePath } = require('../middlewares/loginMiddleware');
 
 
@@ -12,31 +13,31 @@ function getUsers() {
 };
 
 const usersController = {
+    async create(req, res) {
+        try {
+            const errors = validationResult(req);
+            if (!errors.isEmpty()) {
+                return res.render('users/register', {
+                    errors: errors.mapped(),
+                    oldData: req.body,
+                });
+            }
+            const role = await db.Role.findOne({ where: {name: 'Usuario'}});
+            const newUser = {
+                ...req.body,
+                image: req.file?.filename,
+                roles_id: role.id
+
+            };
+            await db.User.create(newUser);
+            return res.redirect('/users');
+
+        } catch (error) {
+            return res.status(500).send(error);
+        }
+    },
     register: (req, res) => {
         return res.render('users/register');
-    },
-    create: (req, res) =>{
-        const users = getUsers();
-        let errors = validationResult(req);
-        if (!errors.isEmpty()){
-            return res.render('users/register',{
-                errors: errors.mapped(),
-                oldData: req.body,
-            });
-        }
-
-        const user = {
-            id: users[users.length -1] ? users[users.length -1].id + 1 : 1,
-            // va 'default.jpg' en el modelo de la base de datos (ver clase 38 extra)"
-            image: req.file.filename,
-            email: req.body.email,
-            dni: req.body.dni,
-            tel: req.body.tel,
-            password: bcrypt.hashSync(req.body.password, 10)
-        };
-        users.push(user);
-        fs.writeFileSync(usersFilePath, JSON.stringify(users, null, 4));
-        return res.redirect('/users');
     },
 
     login: (req, res) => {
