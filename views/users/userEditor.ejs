@@ -1,9 +1,9 @@
 <%- include('../partials/header.ejs') %>
     <main>
-        <form class="container-form-product" action="/users/<%= locals.user.id && user.id %>/userEditor?_method=PUT" 
+        <form class="container-form-product" action="/users/<%= user.id %>/profile?_method=PUT" 
             method="POST" enctype="multipart/form-data">
             <div class="form-product">
-                <h4>ESTÁS EDITANDO: <%= locals.user && user.email %></h4>
+                <h4>ESTÁS EDITANDO: <%= user ? user.email : '' %></h4>
                 <div>
                     <div class="items-registro">
                         <label for="text">NUEVO EMAIL:</label>
