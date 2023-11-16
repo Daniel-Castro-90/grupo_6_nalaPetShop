@@ -1,24 +1,28 @@
 let express = require('express');
 let router = express.Router();
 let usersController = require('../controllers/usersController.js');
-const { check } = require('express-validator');
-
+const userValidation = require('../middlewares/usersValidatorMiddleware.js')
+const upload = require('../middlewares/multerUsersMiddleware.js')
+const isLoggedMiddleware = require('../middlewares/isLoggedMiddleware.js')
+//const loginMiddleware = require('../middlewares/loginMiddleware.js')
 
 //Login
+//agregar que si esta logeado al hacer clic en ingresar lo lleve al perfil, usando lógica middleware isLogged
+//cambiar header para cuando esta logeado.
 router.get('/', usersController.login);
-router.post('/',usersController.processLogin);
+router.post('/login', usersController.processLogin);
+router.get('/profile', isLoggedMiddleware, usersController.profile);
+router.get('/logout', usersController.logout);
 
 
 //Register
 router.get ('/register', usersController.register);
-
-router.post('/register',
-check('password').isLength({min: 8}).withMessage('La contraseña debe tener como mínimo 8 caracteres.'), 
-usersController.create);
+router.post('/register', upload.single('image'), userValidation,  usersController.create);
 
 
 //Modification
-router.post('/edit', usersController.userSave);
+router.get('/:idUser/profile', isLoggedMiddleware, usersController.editor);
+router.put('/:idUser/profile', upload.single('image'), usersController.update);
 
 
 module.exports = router;

@@ -1,0 +1,21 @@
+<%- include('../partials/header.ejs') %>
+        <main class="Products-description-main">
+            <div class="product-image">
+                <img src="/images/profiles/<%= locals.user && user.image %>" alt="Imagen del Perfil">
+            </div>
+            <div class="product-description">
+                <h2>Bienvenido: <%= locals.user && user.email %></h2>
+                <br>
+                <p>Su DNI: <%= locals.user && user.dni %></p>
+                <br>
+                <p>Su teléfono: <%= locals.user && user.tel %></p>
+                <br>
+                <div class="boton-producto"><a href="/users/<%= locals.user && user.id %>/profile">
+                    <button type="submit">Editar Perfil</button></a>
+                </div>
+                <div class="boton-producto"><a href="logout">
+                    <button type="submit">Cerrar Sesión</button></a>
+                </div>
+            </div>
+        </main>
+<%- include('../partials/footer.ejs') %>
