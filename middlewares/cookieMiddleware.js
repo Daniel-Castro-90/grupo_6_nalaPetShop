@@ -25,7 +25,7 @@ const cookieMiddleware = async (req, res, next) => {
             }
         } catch (error) {
             console.error(error);
-            return res.status(500).send('Error interno del servidor');
+            return res.status(500).send('Error interno del servidor.');
         }
     }
 
