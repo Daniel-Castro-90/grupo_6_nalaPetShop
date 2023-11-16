@@ -13,6 +13,11 @@ function getUsers() {
 };
 
 const usersController = {
+
+    register: (req, res) => {
+        return res.render('users/register');
+    },
+
     async create(req, res) {
         try {
             const errors = validationResult(req);
@@ -35,9 +40,6 @@ const usersController = {
         } catch (error) {
             return res.status(500).send(error);
         }
-    },
-    register: (req, res) => {
-        return res.render('users/register');
     },
 
     login: (req, res) => {
