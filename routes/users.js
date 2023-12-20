@@ -1,9 +1,14 @@
 let express = require('express');
 let router = express.Router();
 let usersController = require('../controllers/usersController.js');
-const userValidation = require('../middlewares/usersValidatorMiddleware.js')
-const upload = require('../middlewares/multerUsersMiddleware.js')
-const isLoggedMiddleware = require('../middlewares/isLoggedMiddleware.js')
+const userValidation = require('../middlewares/usersValidatorMiddleware.js');
+const upload = require('../middlewares/multerUsersMiddleware.js');
+const isLoggedMiddleware = require('../middlewares/isLoggedMiddleware.js');
+const cloudinaryMiddleware = require('../middlewares/cloudinaryMiddleware.js');
+
+
+
+
 //const loginMiddleware = require('../middlewares/loginMiddleware.js')
 
 //Login
@@ -17,7 +22,7 @@ router.get('/logout', usersController.logout);
 
 //Register
 router.get ('/register', usersController.register);
-router.post('/register', upload.single('image'), userValidation,  usersController.create);
+router.post('/register', upload.single('image'), cloudinaryMiddleware, userValidation,  usersController.create);
 
 
 //Modification

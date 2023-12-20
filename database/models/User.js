@@ -1,8 +1,7 @@
 'use strict';
 const bcrypt = require('bcryptjs');
-const {
-  Model
-} = require('sequelize');
+const {  Model } = require('sequelize');
+
 module.exports = (sequelize, DataTypes) => {
   class User extends Model {
     /**
@@ -49,9 +48,15 @@ module.exports = (sequelize, DataTypes) => {
     sequelize,
     modelName: 'User',
     hooks: {
-      beforeCreate: (user, options) => {
-        user.password = bcrypt.hashSync(user.password, 10);
-        //user.image = user.image || 'defaultprofile.png';
+      beforeCreate: async (user, options) => {
+        try {
+          user.password = bcrypt.hashSync(user.password, 10);
+
+        } catch (error) {
+          console.error('Error en el hook beforeCreate:', error);
+          throw new Error ('Error en el hook beforeCreate');
+        }
+
       }
     }
   });

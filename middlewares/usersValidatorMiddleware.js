@@ -10,17 +10,3 @@ const userValidation = [
 ];
 
 module.exports = userValidation;
-
-//if(password !== confirmPassword){
-//    return res.status(400).json({mensaje: "Por favor verificar las contraseñas. Deben coincidir exactamente."})
-//}
-
-//let userRegister = users.find(user => user.email === email);
-
-//if(userRegister){
- //   return res.status(400).json({mensaje: "Usuario ya existente."})
-//}
-//if(!validator.isEmpty()){
-    //El  validator.errors[0].msg muestra el primer error
- //   return res.status(400).json({mensaje: validator.errors[0].msg})
-//}

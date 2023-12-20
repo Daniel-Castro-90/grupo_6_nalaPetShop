@@ -1,6 +1,10 @@
 const { validationResult } = require('express-validator');
 const bcrypt = require('bcrypt');
 const db = require('../database/models');
+const cloudinaryMiddleware = require('../middlewares/cloudinaryMiddleware.js');
+const cloudinary = require('cloudinary').v2;
+
+
 
 const usersController = {
     register: (req, res) => {
@@ -18,17 +22,35 @@ const usersController = {
             }
 
             const role = await db.Role.findOne({ where: { name: 'Usuario' } });
+            if (!role) {
+                return res.status(500).send('Role "Usuario" not found');
+            }
+
+            const cloudinaryResponse = await cloudinary.uploader.upload(req.file.path);
+            const cloudinaryUrl = cloudinaryResponse.secure_url;
+
             const newUser = {
                 ...req.body,
-                image: req.file?.filename,
+                image: cloudinaryUrl, //poner secure_url
+                cloudinaryUrl,
                 roles_id: role.id
             };
-
+        
             await db.User.create(newUser);
+            //Eliminar la imagen local
+            try {
+                const fs = require('fs');
+                fs.unlinkSync(req.file.path);
+                console.log('Archivo local eliminado: ', req.file.path);
+            } catch (unlinkError) {
+                console.error('Error al eliminar el archivo local: ', unlinkError);
+            }
+
             return res.redirect('/users');
 
         } catch (error) {
-            return res.status(500).send(error);
+            console.error(error);
+            return res.status(500).send('Internal Server Error');
         }
     },
 
