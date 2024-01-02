@@ -629,6 +629,34 @@ a {
 /* END MAIN */
 
 /* FOOTER */
+.footer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.footer-columnas{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 10px;
+}
+.footer-titulos{
+    color:#f19827;
+    text-decoration: underline;
+}
+.footer-subtitulos{
+    margin-top: 5px;
+    color:#f19827;
+}
+.footer-logonala{
+    display: flex;
+    justify-content: center;
+}
+.footer-logonala img{
+    max-width: 75px;
+}
+
+
 
 footer{
     background-color: #2f2822;
@@ -868,6 +896,7 @@ footer{
         .container {
             padding: 10px;
         }
+        
 }
     
 @media (min-width: 481px) {
@@ -885,6 +914,45 @@ footer{
         content: "";
         display: table;
         clear: both;
+    }
+    .footer{
+        width: 100%;
+
+    }
+    .footer-container{
+        width: 100%;
+    }
+    .footer-logonala{
+       margin: auto;
+    }
+    .footer-logonala img{
+        max-width: 75px;
+    }
+    .footer-container-columnas{
+        display: flex;
+        flex-direction: row;
+        flex-grow: 100;
+        margin: auto;
+        margin-top: 30px;
+        justify-content: space-around;
+    }
+    .footer-columnas{
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .footer-titulos{
+        color: #f19827;
+        font-size: 20px;
+        text-decoration: underline;
+    }
+    .footer-subtitulos{
+        margin-top: 10px;
+        color: #f19827;
+        cursor: pointer;
+    }
+    .footer-redes{
+        margin-top: 10px;
     }
 }
 
@@ -908,7 +976,6 @@ footer{
         background-color: #2f2822;
         display:flex;
         width: 100%;
-        height: 100%;
         position: absolute;
         bottom:-171%;
     }
@@ -916,7 +983,6 @@ footer{
     .footer-logo{
         position: absolute;
         width: 20%;
-        height: 12%;
         left:36%;
         top:6%;
     }
@@ -1304,10 +1370,6 @@ footer{
         left: 105vh;
         top:33vh;
     }
-    main{
-        padding-top: 134px;
-    }
-    
 }
 /*Parte de products*/
 .titulares{
