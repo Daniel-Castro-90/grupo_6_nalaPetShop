@@ -6,6 +6,7 @@ const port = process.env.PORT || 3000;
 let routeProducts = require('./routes/products');
 let routeIndex = require('./routes/index');
 let routeUsers = require('./routes/users');
+let routeApis = require('./routes/apis');
 //const logMiddleware = require('./middlewares/logMiddleware');
 const session = require('express-session');
 const cookieParser = require('cookie-parser');
@@ -43,6 +44,7 @@ app.use('/products', routeProducts);
 
 app.use('/users', routeUsers);
 
+app.use('/api', routeApis);
 
 //hacer vista con imagen y botón. DIV PARA CONTENER TODO
 app.use((req, res, next) => {
