@@ -1,20 +1,24 @@
 //varibales
+require('dotenv').config();
 const express = require('express');
 const app = express();
-const port = 3000;
+const port = process.env.PORT || 3000;
 let routeProducts = require('./routes/products');
 let routeIndex = require('./routes/index');
 let routeUsers = require('./routes/users');
 //const logMiddleware = require('./middlewares/logMiddleware');
 const session = require('express-session');
 const cookieParser = require('cookie-parser');
+const cookieMiddleware = require('./middlewares/cookieMiddleware');
 //const cloudinaryMiddleware = require('./middlewares/cloudinaryMiddleware');
 
 //Middlewares
 //app.use(logMiddleware);
 app.use(express.urlencoded({ extended: false}));
 app.use(express.json());
-app.use(session({ secret: 'Infousers' }));
+app.use(session({ secret: process.env.SECRET }));
+app.use(cookieParser());
+app.use(cookieMiddleware);
 //app.use('/upload', cloudinaryMiddleware,)
 
 
@@ -42,7 +46,7 @@ app.use('/users', routeUsers);
 
 //hacer vista con imagen y botón. DIV PARA CONTENER TODO
 app.use((req, res, next) => {
-    res.status(404).render('partials/not-found')
+    return res.status(404).render('partials/not-found')
 })
 
 //server start

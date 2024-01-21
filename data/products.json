@@ -19,30 +19,21 @@
   },
   {
     "id": 5,
-    "name": "name5",
-    "price": 0,
+    "name": "probando edicion",
+    "price": "",
     "category": "gato",
-    "package": 5,
-    "description": "Alimento Balanceado",
-    "image": "defaultproduct.png"
+    "package": "",
+    "description": "",
+    "image": "product-1698717724218.jpg"
   },
   {
     "id": 7,
-    "name": "name7",
-    "price": 0,
+    "name": "probando nuevas implementaciones",
+    "price": "131232",
     "category": "gato",
-    "package": 5,
-    "description": "Alimento Balanceado",
-    "image": "defaultproduct.png"
-  },
-  {
-    "id": 8,
-    "name": "name8",
-    "price": 0,
-    "category": "gato",
-    "package": 5,
-    "description": "Alimento Balanceado",
-    "image": "defaultproduct.png"
+    "package": "123123",
+    "description": "probando algo nuevo",
+    "image": "product-1698774898359.jpg"
   },
   {
     "id": 9,
@@ -162,5 +153,32 @@
     "description": "1234",
     "package": "1234",
     "price": "1234"
+  },
+  {
+    "id": 22,
+    "image": "product-1698470953178.jpg",
+    "category": "",
+    "name": "",
+    "description": "",
+    "package": "",
+    "price": ""
+  },
+  {
+    "id": 23,
+    "image": "product-1698479345537.png",
+    "category": "",
+    "name": "",
+    "description": "",
+    "package": "",
+    "price": ""
+  },
+  {
+    "id": 24,
+    "image": "product-1698479378296.png",
+    "category": "",
+    "name": "",
+    "description": "",
+    "package": "",
+    "price": ""
   }
 ]

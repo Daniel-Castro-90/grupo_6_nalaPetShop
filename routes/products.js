@@ -3,7 +3,7 @@ let router = express.Router();
 let productsController = require('../controllers/productsController.js');
 const upload = require('../middlewares/multerMiddleware.js');
 const logNewProducts = require('../middlewares/logNewProductsMiddleware.js');
-const validaciones = require('../middlewares/expressValidator.js');
+const productValidation = require('../middlewares/productsValidatorMiddleware.js');
 
 
 router.get('/', productsController.products);
@@ -22,7 +22,7 @@ router.delete('/:idProduct/productEditor', productsController.destroy);
 
 router.get('/productCreation', productsController.productCreation);
 
-router.post('/',upload.single('image'), validaciones, logNewProducts, productsController.create);
+router.post('/', upload.single('image'), productValidation, logNewProducts, productsController.create);
 
 router.get('/productCart', productsController.productCart);
 
