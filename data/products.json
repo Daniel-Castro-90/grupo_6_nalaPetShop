@@ -180,5 +180,14 @@
     "description": "",
     "package": "",
     "price": ""
+  },
+  {
+    "id": 25,
+    "image": "product-1705870357347.jpg",
+    "category": "gato",
+    "name": "Primer producto",
+    "description": "producto de prueba",
+    "package": "123",
+    "price": "50000"
   }
 ]

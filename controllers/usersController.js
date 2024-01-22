@@ -1,7 +1,6 @@
 const { validationResult } = require('express-validator');
 const bcrypt = require('bcrypt');
 const db = require('../database/models');
-const cloudinaryMiddleware = require('../middlewares/cloudinaryMiddleware.js');
 const cloudinary = require('cloudinary').v2;
 
 

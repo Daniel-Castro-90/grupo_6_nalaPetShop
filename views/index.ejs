@@ -1,45 +1,54 @@
-    <%- include('partials/header.ejs') %>
-    <main>
-        <div class="slider">
-            <div class="imagen actual"><img src="/images/guau-mini.png"/></div>
-            <div class="imagen"><img src="/images/oferta-gato-mini.png"/></div>
-            <div class="imagen"><img src="/images/oferta-perro-mini.png"/></div>
-            <div class="imagen"><img src="/images/Nala2.jpg"/><div class="texto">Ella es Nala ¡otra vez!</div></div>
+    <!DOCTYPE html>
+    <html lang="es">
 
-            <a href="#" class="anterior" onclick="anterior();">&#10094;</a>
-            <a href="#" class="siguiente" onclick="siguiente();">&#10095;</a>
-
-            <div class="puntos">
-                <span class="punto activo" onclick="mostrar(0);"></span>
-                <span class="punto" onclick="mostrar(1);"></span>
-                <span class="punto" onclick="mostrar(2);"></span>
-                <span class="punto" onclick="mostrar(3);"></span>
+    <head>
+        <%- include('partials/head.ejs') %>
+    </head>
+    <body>
+        <%- include('partials/header.ejs') %>
+        <main>
+            <div class="slider">
+                <div class="imagen actual"><img src="/images/guau-mini.png"/></div>
+                <div class="imagen"><img src="/images/oferta-gato-mini.png"/></div>
+                <div class="imagen"><img src="/images/oferta-perro-mini.png"/></div>
+                <div class="imagen"><img src="/images/Nala2.jpg"/><div class="texto">Ella es Nala ¡otra vez!</div></div>
+    
+                <a href="#" class="anterior" onclick="anterior();">&#10094;</a>
+                <a href="#" class="siguiente" onclick="siguiente();">&#10095;</a>
+    
+                <div class="puntos">
+                    <span class="punto activo" onclick="mostrar(0);"></span>
+                    <span class="punto" onclick="mostrar(1);"></span>
+                    <span class="punto" onclick="mostrar(2);"></span>
+                    <span class="punto" onclick="mostrar(3);"></span>
+                </div>
+    
+                <div class="boton">
+                    <a href="#"><img src="/images/pause.png" id="btn" onclick="playpause();"/></a>
+                </div>
             </div>
-
-            <div class="boton">
-                <a href="#"><img src="/images/pause.png" id="btn" onclick="playpause();"/></a>
+            <div class="compra-pagos-envios">
+                <div class="compra-segura"><img src="/images/compra-segura.svg" alt="Compra Segura">
+                    <span class="titulo-cs">COMPRA SEGURA</span><span class="cuerpo-cs">
+                        Gestionamos tus datos e información con absoluta confidencialidad.</span></div>
+                <div class="medios-de-pago"><img src="/images/medios-de-pago.svg" alt="Medios de Pago">
+                    <span class="titulo-mdp">MEDIOS DE PAGO</span><span class="cuerpo-mdp">
+                        Aceptamos pagos en efectivo y con tarjetas de débito o crédito. También podés pagar con tus billeteras virtuales.</span></div>
+                <div class="envios-sin-cargo"><img src="/images/envios-sin-cargo.svg" alt="Envios sin Cargo">
+                    <span class="titulo-esc">ENVÍOS SIN CARGO</span><span class="cuerpo-esc">
+                        ¡Comprando el monto mínimo tenés el envío GRATIS a cualquier parte del país!</span></div>
             </div>
-        </div>
-        <div class="compra-pagos-envios">
-            <div class="compra-segura"><img src="/images/compra-segura.svg" alt="Compra Segura">
-                <span class="titulo-cs">COMPRA SEGURA</span><span class="cuerpo-cs">
-                    Gestionamos tus datos e información con absoluta confidencialidad.</span></div>
-            <div class="medios-de-pago"><img src="/images/medios-de-pago.svg" alt="Medios de Pago">
-                <span class="titulo-mdp">MEDIOS DE PAGO</span><span class="cuerpo-mdp">
-                    Aceptamos pagos en efectivo y con tarjetas de débito o crédito. También podés pagar con tus billeteras virtuales.</span></div>
-            <div class="envios-sin-cargo"><img src="/images/envios-sin-cargo.svg" alt="Envios sin Cargo">
-                <span class="titulo-esc">ENVÍOS SIN CARGO</span><span class="cuerpo-esc">
-                    ¡Comprando el monto mínimo tenés el envío GRATIS a cualquier parte del país!</span></div>
-        </div>
-        <div class="contenedor-categoria-publicidad">
-            <div class="categorias">
-                <div class="gato"><a href="/products/productsCat"><div class="contenedor-gato">
-                    <span class="texto-gato">GATOS</span></div></a></div>
-                <div class="perro"><a href="/products/productsDog"><div class="contenedor-perro">
-                    <span class="texto-perro">PERROS</span></div></a></div>
+            <div class="contenedor-categoria-publicidad">
+                <div class="categorias">
+                    <div class="gato"><a href="/products/productsCat"><div class="contenedor-gato">
+                        <span class="texto-gato">GATOS</span></div></a></div>
+                    <div class="perro"><a href="/products/productsDog"><div class="contenedor-perro">
+                        <span class="texto-perro">PERROS</span></div></a></div>
+                </div>
+                <img class="publicidad" src="/images/publicidad-lis.png" alt="Publicidad Lis">
+                <img class="publicidad2" src="/images/pet-salud.png" alt="Publicidad Lis">
             </div>
-            <img class="publicidad" src="/images/publicidad-lis.png" alt="Publicidad Lis">
-            <img class="publicidad2" src="/images/pet-salud.png" alt="Publicidad Lis">
-        </div>
-    </main>
-    <%- include('partials/footer.ejs') %>
+        </main>
+        <%- include('partials/footer.ejs') %>
+    </body>
+    </html>
