@@ -1,7 +1,10 @@
 const express = require("express");
 const router = express.Router();
 
-const controller = require("../controllers/apiController");
+const apiController = require("../controllers/apiController");
 
-router.get("/products/productDetail/:idProduct");
-router.post("/checkout", controller.checkout);
+router.get('/', apiController.product)
+router.get('/products/:idProduct', apiController.product);
+router.post("/checkout", apiController.checkout);
+
+module.exports = router;

@@ -41,10 +41,19 @@ const productsController = {
         const perro = products.filter(product => product.category === 'perro');
         res.render('products/productsDog', {perro});
     },
-    detail: (req, res) => {
-        const products = getProducts();
-        const product = products.find(product => product.id == req.params.idProduct);
-        res.render('products/productDetail', { product });
+    detail: async (req, res) => {
+        try {
+            const product = await db.product.findByPk(req.params.idProduct);
+            
+            if(!product) {
+                return res.status(404).render('partials/not-found')
+            }
+
+            res.render('products/productDetail', { product });
+        } catch (error) {
+            console.error('Error al obtener el detalle del producto:', error);
+            res.status(500).render('Internal Server Error');
+        }
     },
     editor: (req, res) => {
         const products = getProducts();
