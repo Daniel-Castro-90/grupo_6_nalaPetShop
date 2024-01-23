@@ -1,4 +1,27 @@
 /* GLOBAL */
+table.table td,
+table.table th {
+  vertical-align: middle;
+}
+table .th-lg {
+    min-width: 9rem;
+}
+.card-body {
+    flex: 2 2 auto;
+    padding: 2.25rem;
+}
+
+.card {
+    box-shadow: 0 2px 5px 0 rgba(0,0,0,.16),0 2px 10px 0 rgba(0,0,0,.12);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    word-wrap: break-word;
+    background-color: #fff;
+    background-clip: border-box;
+    border-radius: .25rem;
+}
+
 
 *{
     margin: 0px;

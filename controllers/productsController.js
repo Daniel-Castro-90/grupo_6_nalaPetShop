@@ -2,6 +2,8 @@ const path = require('path');
 const fs = require('fs');
 const productsFilePath = path.join(__dirname, '../data/products.json');
 const { validationResult } = require('express-validator');
+const db = require('../database/models');
+
 
 function getProducts() {
     const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
@@ -9,11 +11,25 @@ function getProducts() {
 };
 
 const productsController = {
-    products: (req, res) => {
-        const products = getProducts();
-        const gato = products.filter(product => product.category === 'gato');
-        const perro = products.filter(product => product.category === 'perro');
-        res.render('products/products', {gato, perro});
+    products: async (req, res) => {
+        try{
+            const gato = await db.product.findAll({
+                where: {
+                    category: 'gato'
+                }
+            });
+            const perro = await db.product.findAll({
+                where: {
+                    category: 'perro'
+                }
+            });
+
+            res.render('products/products', {gato, perro});
+
+        } catch (error) {
+            console.error('Error al obtener productos:', error);
+            res.status(500).send('Internal Server Error')
+        }
     },
     productsCat: (req, res) =>{
         const products = getProducts();
@@ -56,28 +72,40 @@ const productsController = {
     productCreation: (req, res) => {
         res.render("products/productCreation");
     },
-    create: (req, res) => {
-        const products = getProducts();
-        const errors = validationResult(req);
-        // Ver la carga de imágenes, si bien la vista avisa que no puede estar vacío ese campo, cuando los otros campos
-        //están vacíos y se carga una imagen, el formulario no avanza, pero sí carga la imagen a la base de datos.
-        if (!errors.isEmpty()){
-            return res.render('products/productCreation', { 
-                errors: errors.mapped(),
-                oldData: req.body,
-             });
+    create: async (req, res) => {
+        try {
+            let image = 'defaultproduct.png';
+            if (req.file) {
+                image = req.file.filename;
+            }
+            const errors = validationResult(req);
+            // Ver la carga de imágenes, si bien la vista avisa que no puede estar vacío ese campo, cuando los otros campos
+            //están vacíos y se carga una imagen, el formulario no avanza, pero sí carga la imagen a la base de datos.
+            if (!errors.isEmpty()){
+                return res.render('products/productCreation', { 
+                    errors: errors.mapped(),
+                    oldData: req.body,
+                 });
+    
+            }
+            const productToCreate = {
+                ...req.body,
+                category: req.body.category,
+                name: req.body.name,
+                description: req.body.description,
+                package: req.body.package,
+                price: req.body.price,
+                image: image,
+            };
 
+            await db.product.create(productToCreate);
+    
+            return res.redirect('/products');
+
+        } catch (error) {
+            console.error(error);
+            return res.status(500).send('Internal Server Error');
         }
-
-        const productToCreate = {
-            id: products[products.length - 1 ].id + 1,
-            image: req.file.filename,
-            ...req.body
-        };
-        products.push(productToCreate);
-        fs.writeFileSync(productsFilePath, JSON.stringify(products, null, 2));
-
-        return res.redirect('/products');
     },
     productCart: (req, res) => {
         res.render('products/productCart')

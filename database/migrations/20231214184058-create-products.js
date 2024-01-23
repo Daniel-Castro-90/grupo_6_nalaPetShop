@@ -7,31 +7,35 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER,
         autoIncrement: true,
-        allowNull: false
+        allowNull: false,
       },
       name: {
         type: Sequelize.TEXT,
-        allowNull: false
+        allowNull: false,
       },
-      pricear: {
-        type: Sequelize.INTEGER,
-        allowNull: false
+      category: {
+        type: Sequelize.ENUM('Gato', 'Perro'),
+        allowNull: false,
       },
-      priceusd: {
+      price: {
         type: Sequelize.INTEGER,
-        allowNull: false
+        allowNull: false,
+      },
+      highlight: {
+        type: Sequelize.BOOLEAN,
+        defaultValue: false,
       },
       package: {
         type: Sequelize.INTEGER,
-        allowNull: false
+        allowNull: false,
       },
       description: {
         type: Sequelize.TEXT,
-        allowNull: false
+        allowNull: false,
       },
       image: {
         type: Sequelize.TEXT,
-        allowNull: false
+        allowNull: false,
       },
       createdAt: {
         allowNull: false,
@@ -39,6 +43,10 @@ module.exports = {
       },
       updatedAt: {
         allowNull: false,
+        type: Sequelize.DATE
+      },
+      deletedAt: {
+        allowNull: true,
         type: Sequelize.DATE
       }
     });

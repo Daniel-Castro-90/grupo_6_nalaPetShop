@@ -1,33 +1,52 @@
-<%- include('../partials/header.ejs') %>
-<main class="cart-menu">
-    <div>
-        <div class="cart-header">
-            <div class="fa-solid fa-cart-shopping"></div>
-            <h5>MI CARRITO</h5>
-        </div>
-        <div class="cart-body">
-            <p><strong>DOG SELECTION CRIADORES ADULTO</strong></p>
-            <P>$11,000</P>
-            <div class="button-number">
-                <button type="submit">+</button>
-                <input type="number" id="number" name="number" />
-                <button type="submit">-</button>
-            </div>
-        </div>
-        <div class="cart-footer">
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <%- include('../partials/head.ejs') %>
+        <script src="/js/cart.js"></script>
+    </head>
+
+    <body>
+        <%- include('../partials/header.ejs') %>
+        <main class="cart-menu">
             <div>
-                <ul>
-                    <li>Subtotal</li>
-                    <li>$11,000</li>
-                </ul>
-                <ul>
-                    <li>Total</li>
-                    <li>$11,000</li>
-                </ul>
+                <div class="cart-header">
+                    <div class="fa-solid fa-cart-shopping"></div>
+                    <h5>MI CARRITO</h5>
+                </div>
+                <div class="card">
+                    <div class="card-body">
+                        <table class="table table-responsive-md mb-0">
+                            <colgroup>
+                                <col style="width: 50px;">
+                                <col class="th-lg">
+                                <col class="th-lg">
+                                <col style="width: 100px;" class="text-center">
+                                <col style="width: 100px;" class="text-center">
+                            </colgroup>
+                            <thead>
+                                <tr>
+                                    <th><strong>#</strong></th>
+                                    <th class="th-lg"><strong>Producto</strong></th>
+                                    <th class="th-lg"><strong>Precio</strong></th>
+                                    <th class="text-center"><strong>Cantidad</strong></th>
+                                    <th class="text-center"><strong>Subtotal</strong></th>
+                                </tr>
+                            </thead>
+                            <tbody class="cartRows">
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="card-footer text-right">
+                        <h2>Total: <span class="totalAmount">$ 0,00</span></h2>
+                    </div>
+                </div>                
+
+                <div class="cart-footer">
+                    <div class="add-products"><a href="/products/productDetail"><strong>AGREGAR MAS PRODUCTOS</strong></a></div>
+                    <div class="button-finish"><button type="submit">FINALIZAR COMPRA</button></div>
+                </div>
             </div>
-            <div class="add-products"><a href="/products/productDetail"><strong>AGREGAR MAS PRODUCTOS</strong></a></div>
-            <div class="button-finish"><button type="submit">FINALIZAR COMPRA</button></div>
-        </div>
-    </div>
-</main>
-<%- include('../partials/footer.ejs') %>
+        </main>
+        <%- include('../partials/footer.ejs') %>
+    </body>
+</html>
