@@ -39,11 +39,45 @@
                     <div class="card-footer text-right">
                         <h2>Total: <span class="totalAmount">$ 0,00</span></h2>
                     </div>
+                </div>
+                <div class="card">
+                    <div class="card-header text center">
+                        Finalizar Compra
+                    </div>
+                    <form class="card-body" id="checkoutCart">
+                        <div class="row">
+                            <div class="col-md-6 mb-4">
+                                <label for="country">Tipo de Envío</label>
+                                <select class="custom-select d-block w-100" id="shippingMethod" name="shippingMethod" required="">
+                                    <option value="">Elegir:</option>
+                                    <option value="Cadete">Cadete</option>
+                                    <option value="Correo Argentino">Correo Argentino</option>
+                                    <option value="Andreani">Andreani</option>
+                                </select>
+                                <div class="invalid-feedback">
+                                    Elija un tipo de envío.
+                                </div>
+                            </div>
+                                <div class="col-md-6 mb-4">
+                                    <label for="country">Pago</label>
+                                    <select class="custom-select d-block w-100" id="paymentMethod" name="paymentMethod" required="">
+                                        <option value="">Elegir:</option>
+                                        <option value="Efectivo">Elegir:</option>
+                                        <option value="Debito">Tarjeta de Débito</option>
+                                        <option value="Credito">Tarjeta de Crédito</option>
+                                        <option value="Transferencia">Transferencia Bancaria</option>
+                                    </select>
+                                    <div class="invalid-feedback">
+                                        Elija un tipo de envío.
+                                    </div>
+                                </div>
+                        </div>
+                        <button class="button-finish" type="submit">COMPRAR AHORA</button>
+                    </form>
                 </div>                
 
                 <div class="cart-footer">
-                    <div class="add-products"><a href="/products/productDetail"><strong>AGREGAR MAS PRODUCTOS</strong></a></div>
-                    <div class="button-finish"><button type="submit">FINALIZAR COMPRA</button></div>
+                    <div class="add-products"><a href="/products"><strong>AGREGAR MAS PRODUCTOS</strong></a></div>
                 </div>
             </div>
         </main>

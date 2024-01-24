@@ -1,11 +1,10 @@
 'use strict';
-const {  Model } = require('sequelize');
-
+const {
+  Model
+} = require('sequelize');
 module.exports = (sequelize, DataTypes) => {
   class OrderItem extends Model {
-    static associate(models) {
 
-    }
   }
   OrderItem.init({
     name: {
@@ -20,10 +19,39 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.INTEGER,
       allowNull: false,
     },
+    order_id: {
+      type: DataTypes.INTEGER,
+      references: {
+        model: {
+          tableName: 'orders'
+        },
+        key: 'id'
+      }
+    },
+    product_id: {
+      type: DataTypes.INTEGER,
+      references: {
+        model: {
+          tableName: 'products'
+        },
+        key: 'id'
+      }
+    },
   }, {
     sequelize,
-    modelName: 'orderitem',
+    modelName: 'OrderItem',
   });
+
+      
+  OrderItem.associate = (models) => {
+    OrderItem.belongsTo(models.Order, {
+      as: "orders"
+    });
+
+    OrderItem.belongsTo(models.Product, {
+      as: "products"
+    });
+  };
 
   return OrderItem;
 };

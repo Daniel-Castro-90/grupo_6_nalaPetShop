@@ -21,7 +21,7 @@ let products = [];
 
 if(localStorage.cart) {
     let cart = JSON.parse(localStorage.cart);
-    console.log(cart);
+
     cart.forEach((item, index) => {
         fetch(`/api/products/${item.id}`)
         .then(res => res.json())
@@ -58,4 +58,12 @@ if(localStorage.cart) {
         })
         .catch(error => console.log(error));
     });
+}
+
+let checkoutCart = document.querySelector('#checkoutCart');
+
+checkoutCart.onsubmit = (e) => {
+    e.preventDefault();
+    console.log(e)
+
 }
