@@ -105,7 +105,9 @@ const productsController = {
                 package: req.body.package,
                 price: req.body.price,
                 image: image,
+                date: req.body.date,
             };
+            console.log(productToCreate);
 
             await db.product.create(productToCreate);
     

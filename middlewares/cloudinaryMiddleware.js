@@ -24,7 +24,7 @@ const upload = multer({ storage });
 const cloudinaryMiddleware = (req, res, next) => {
   try {
     if (!req.file) {
-      return res.status(400).send('No se proporcionó ningún archivo.');
+      return next();
     }
 
     //Subir la imagen a Cloudinary

@@ -1,65 +1,74 @@
-<%- include('../partials/header.ejs') %>
-<main>
-    <div class="contenedor-accesousuario">
-        <section class="ingreso-registro">
-            <a href="/users" class="boton-ingreso">
-                <h4>Ingresá</h4>
-            </a>
-            <a class="boton-registro">
-                <h4>Registrate</h4>
-            </a>
-        </section>
-        <section>
-            <form class="formulario-registro" action="/users/register" method="POST" enctype="multipart/form-data">
-                <div class="contenedor-registro">
-                    <div>
-                        <div class="items-registro">
-                            <label for="email">E-MAIL</label>
-                            <input type="email" id="email" name="email" value="<%= locals.oldData?.email && oldData?.email %>" />
-                            <% if (locals.errors?.email) { %>
-                                <p><%= errors.email.msg %></p>
-                                <% } %>
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <%- include('../partials/head.ejs') %>
+    </head>
+
+    <body>
+        <%- include('../partials/header.ejs') %>
+        <main>
+            <div class="contenedor-accesousuario">
+                <section class="ingreso-registro">
+                    <a href="/users" class="boton-ingreso">
+                        <h4>Ingresá</h4>
+                    </a>
+                    <a class="boton-registro">
+                        <h4>Registrate</h4>
+                    </a>
+                </section>
+                <section>
+                    <form class="formulario-registro" action="/users/register" method="POST" enctype="multipart/form-data">
+                        <div class="contenedor-registro">
+                            <div>
+                                <div class="items-registro">
+                                    <label for="email">E-MAIL</label>
+                                    <input type="email" id="email" name="email" value="<%= locals.oldData?.email && oldData?.email %>" />
+                                    <% if (locals.errors?.email) { %>
+                                        <p><%= errors.email.msg %></p>
+                                        <% } %>
+                                </div>
+                                <div class="items-registro">
+                                    <label for="password">CONTRASEÑA</label>
+                                    <input type="password" id="password" name="password" />
+                                    <% if (locals.errors?.password) { %>
+                                        <p><%= errors.password.msg %></p>
+                                        <% } %>
+                                </div>
+                                <div class="items-registro">
+                                    <label for="password">REPITA LA CONTRASEÑA</label>
+                                    <input type="password" id="confirmPassword" name="confirmPassword" />
+                                    <% if (locals.errors?.confirmPassword) { %>
+                                        <p><%= errors.confirmPassword.msg %></p>
+                                        <% } %>
+                                </div>
+                                <div class="items-registro">
+                                    <label for="dni">DNI</label>
+                                    <input type="number" id="dni" name="dni" value="<%= locals.oldData?.dni && oldData?.dni %>" />
+                                    <% if (locals.errors?.dni) { %>
+                                        <p><%= errors.dni.msg %></p>
+                                        <% } %>
+                                </div>
+                                <div class="items-registro">
+                                    <label for="telephone">TELEFONO</label>
+                                    <input type="number" id="tel" name="tel" value="<%= locals.oldData?.tel && oldData?.tel %>"/>
+                                    <% if (locals.errors?.tel) { %>
+                                        <p><%= errors.tel.msg %></p>
+                                        <% } %>
+                                </div>
+                                <div class="items-registro"><label>IMAGEN DE PERFIL:</label>
+                                    <input type="file" name="image" id="image">
+                                </div>
+                                <div>
+                                    <input type="checkbox">
+                                    <label>Acepto los términos y condiciones</label>
+                                </div>
+                            </div>
+                            <div class="boton-submit"><button type="submit" value="registrarme">REGISTRARME</button></div>
                         </div>
-                        <div class="items-registro">
-                            <label for="password">CONTRASEÑA</label>
-                            <input type="password" id="password" name="password" />
-                            <% if (locals.errors?.password) { %>
-                                <p><%= errors.password.msg %></p>
-                                <% } %>
-                        </div>
-                        <div class="items-registro">
-                            <label for="password">REPITA LA CONTRASEÑA</label>
-                            <input type="password" id="confirmPassword" name="confirmPassword" />
-                            <% if (locals.errors?.confirmPassword) { %>
-                                <p><%= errors.confirmPassword.msg %></p>
-                                <% } %>
-                        </div>
-                        <div class="items-registro">
-                            <label for="dni">DNI</label>
-                            <input type="number" id="dni" name="dni" value="<%= locals.oldData?.dni && oldData?.dni %>" />
-                            <% if (locals.errors?.dni) { %>
-                                <p><%= errors.dni.msg %></p>
-                                <% } %>
-                        </div>
-                        <div class="items-registro">
-                            <label for="telephone">TELEFONO</label>
-                            <input type="number" id="tel" name="tel" value="<%= locals.oldData?.tel && oldData?.tel %>"/>
-                            <% if (locals.errors?.tel) { %>
-                                <p><%= errors.tel.msg %></p>
-                                <% } %>
-                        </div>
-                        <div class="items-registro"><label>IMAGEN DE PERFIL:</label>
-                            <input type="file" name="image" id="image">
-                        </div>
-                        <div>
-                            <input type="checkbox">
-                            <label>Acepto los términos y condiciones</label>
-                        </div>
-                    </div>
-                    <div class="boton-submit"><button type="submit" value="registrarme">REGISTRARME</button></div>
-                </div>
-            </form>
-        </section>
-    </div>
-</main>
-<%- include('../partials/footer.ejs') %>
+                    </form>
+                </section>
+            </div>
+        </main>
+        <%- include('../partials/footer.ejs') %>
+    </body>
+</html>

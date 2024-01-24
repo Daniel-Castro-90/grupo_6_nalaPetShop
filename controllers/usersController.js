@@ -28,10 +28,12 @@ const usersController = {
             const cloudinaryResponse = await cloudinary.uploader.upload(req.file.path);
             const cloudinaryUrl = cloudinaryResponse.secure_url;
 
+            let image = '/public/images/profiles/defaultprofile.png';
+            
+
             const newUser = {
                 ...req.body,
-                image: cloudinaryUrl, //poner secure_url
-                cloudinaryUrl,
+                image: cloudinaryUrl || image, //poner secure_url
                 roles_id: role.id
             };
         

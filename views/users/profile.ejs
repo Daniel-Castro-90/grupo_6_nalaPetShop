@@ -1,4 +1,11 @@
-<%- include('../partials/header.ejs') %>
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <%- include('../partials/head.ejs') %>
+    </head>
+
+    <body>
+        <%- include('../partials/header.ejs') %>
         <main class="Products-description-main">
             <div class="product-image">
                 <img src="<%= locals.user && user.image %>" alt="Imagen del Perfil">
@@ -18,4 +25,6 @@
                 </div>
             </div>
         </main>
-<%- include('../partials/footer.ejs') %>
+        <%- include('../partials/footer.ejs') %>
+    </body>
+</html>
