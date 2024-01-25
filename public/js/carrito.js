@@ -8,12 +8,14 @@ function productsInCart() {
     }
 }
 
-function updateCart() {
-    let cartNumber = document.querySelector(".cart-number");
-    if(cartNumber) {
-        cartNumber.innerText = productsInCart();
-    }
-}
+//Antigua funcion para actualizar el carrito, ahora esta definido en el EventListener
+
+//function updateCart() {
+//    let cartNumber = document.querySelector(".cart-number");
+//    if(cartNumber) {
+//        cartNumber.innerText = productsInCart();
+//    }
+//}
 
 window.addEventListener("load", function () {
     
@@ -51,12 +53,14 @@ window.addEventListener("load", function () {
                 localStorage.setItem('cart', JSON.stringify([{ id:e.target.dataset.id, quantity: 1 }]))
             }
 
+             cartNumber.innerText = productsInCart();
+
             if(typeof toastr !== 'undefined') {
                 toastr.success('Se agregó un nuevo producto al carrito');
             }
 
-            updateCart();
         });
     });
-    updateCart();
+    let cartNumber = document.querySelector(".cart-number");
+    cartNumber.innerHTML = productsInCart();
 });

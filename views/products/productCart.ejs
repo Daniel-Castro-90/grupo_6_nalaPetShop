@@ -1,53 +1,58 @@
 <!DOCTYPE html>
 <html lang="es">
-    <head>
-        <%- include('../partials/head.ejs') %>
-    </head>
 
-    <body>
-        <%- include('../partials/header.ejs') %>
-        <main class="cart-menu">
-            <div>
-                <div class="cart-header">
-                    <div class="fa-solid fa-cart-shopping"></div>
-                    <h5>MI CARRITO</h5>
-                </div>
-                <div class="card">
+<head>
+    <%- include('../partials/head.ejs') %>
+    <script src="/js/carrito.js"></script>
+</head>
+
+<body>
+    <%- include('../partials/header.ejs') %>
+        <main class="mt-5 pt-4">
+            <div class="container wow fadeIn animated">
+                <h2 class="mt-5 mb-3 h2 text-center"> Productos en mi carrito</h2>
+                <div class="card my-5">
                     <div class="card-body">
                         <table class="table table-responsive-md mb-0">
-                            <colgroup>
-                                <col style="width: 50px;">
-                                <col class="th-lg">
-                                <col class="th-lg">
-                                <col style="width: 100px;" class="text-center">
-                                <col style="width: 100px;" class="text-center">
-                            </colgroup>
                             <thead>
                                 <tr>
-                                    <th><strong>#</strong></th>
-                                    <th class="th-lg"><strong>Producto</strong></th>
-                                    <th class="th-lg"><strong>Imagen</strong></th>
-                                    <th class="th-lg"><strong>Precio</strong></th>
-                                    <th class="text-center"><strong>Cantidad</strong></th>
-                                    <th class="text-center"><strong>Subtotal</strong></th>
+                                    <th style="width: 50px;">
+                                        <strong>#</strong>
+                                    </th>
+                                    <th class="th-lg">
+                                        <strong>Producto</strong>
+                                    </th>
+                                    <th class="th-lg">
+                                        <strong>Imagen</strong>
+                                    </th>
+                                    <th class="th-lg ">
+                                        <strong>Precio</strong>
+                                    </th>
+                                    <th class="text-center">
+                                        <strong>Cantidad</strong>
+                                    </th>
+                                    <th class="text-center">
+                                        <strong>Subtotal</strong>
+                                    </th>
+                                    <th style="width: 50px;"></th>
                                 </tr>
                             </thead>
                             <tbody class="cartRows">
                             </tbody>
                         </table>
-                    </div>
-                    <div class="card-footer text-right">
-                        <h2>Total: <span class="totalAmount">$ 0,00</span></h2>
+                        <div class="card-footer text-right">
+                            <h2>Total: <span class="totalAmount">$ 0,00</span></h2>
+                        </div>
                     </div>
                 </div>
                 <div class="card">
-                    <div class="card-header text center">
-                        Finalizar Compra
+                    <div class="card-header text-center">
+                        Finalizar la compra
                     </div>
                     <form class="card-body" id="checkoutCart">
                         <div class="row">
-                            <div class="col-md-6 mb-4">
-                                <label for="country">Tipo de Envío</label>
+                            <div class=" col-md-6 mb-4">
+                                <label for="country">Tipo Envío</label>
                                 <select class="custom-select d-block w-100" id="shippingMethod" name="shippingMethod" required="">
                                     <option value="">Elegir:</option>
                                     <option value="Cadete">Cadete</option>
@@ -55,33 +60,36 @@
                                     <option value="Andreani">Andreani</option>
                                 </select>
                                 <div class="invalid-feedback">
-                                    Elija un tipo de envío.
+                                    Elija un tipo de envio.
                                 </div>
-                            </div>
-                                <div class="col-md-6 mb-4">
-                                    <label for="country">Pago</label>
-                                    <select class="custom-select d-block w-100" id="paymentMethod" name="paymentMethod" required="">
-                                        <option value="">Elegir:</option>
-                                        <option value="Efectivo">Efectivo</option>
-                                        <option value="Debito">Tarjeta de Débito</option>
-                                        <option value="Credito">Tarjeta de Crédito</option>
-                                        <option value="Transferencia">Transferencia Bancaria</option>
-                                    </select>
-                                    <div class="invalid-feedback">
-                                        Elija un tipo de envío.
-                                    </div>
-                                </div>
-                        </div>
-                        <button class="button-finish" type="submit">COMPRAR AHORA</button>
-                    </form>
-                </div>                
 
+                            </div>
+                            <div class=" col-md-6 mb-4">
+                                <label for="country">Método de Pago</label>
+                                <select class="custom-select d-block w-100" id="paymentMethod" name="paymentMethod" required="">
+                                    <option value="">Elegir:</option>
+                                    <option value="Efectivo">Efectivo</option>
+                                    <option value="Debito">Tarjeta de Débito</option>
+                                    <option value="Credito">Tarjeta de Crédito</option>
+                                    <option value="Transferencia">Transferencia Bancaria</option>
+                                </select>
+                                <div class="invalid-feedback">
+                                    Elija un tipo de pago.
+                                </div>
+
+                            </div>
+                        </div>
+                        <button class="btn btn-primary btn-lg btn-block waves-effect waves-light"
+                            type="submit">¡Comprar Ahora!</button>
+                    </form>
+                </div>
                 <div class="cart-footer">
                     <div class="add-products"><a href="/products"><strong>AGREGAR MAS PRODUCTOS</strong></a></div>
                 </div>
             </div>
         </main>
-        <%- include('../partials/footer.ejs') %>
+        <%- include('../partials/footer') %>
         <script src="/js/cart.js"></script>
-    </body>
+</body>
+
 </html>

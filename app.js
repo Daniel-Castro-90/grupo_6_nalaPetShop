@@ -11,6 +11,7 @@ let routeApis = require('./routes/api');
 const session = require('express-session');
 const morgan = require('morgan');
 const path = require('path');
+const cookieParser = require('cookie-parser');
 //const cloudinaryMiddleware = require('./middlewares/cloudinaryMiddleware');
 
 //Middlewares
@@ -19,6 +20,7 @@ app.use(express.urlencoded({ extended: false}));
 app.use(express.json());
 app.use(session({ secret: process.env.SECRET }));
 app.use(morgan('dev'));
+app.use(cookieParser());
 //app.use('/upload', cloudinaryMiddleware,)
 
 

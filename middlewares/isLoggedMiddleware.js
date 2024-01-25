@@ -25,9 +25,10 @@ const isLoggedMiddleware = async (req, res, next) => {
             if (userFromCookie.id === 1) {
                 res.locals.userAdmin = true;
             }
+            next();
+        } else {
+            res.redirect('/users');
         }
-
-        next();
     }
 };
 

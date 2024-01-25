@@ -110,7 +110,8 @@ const usersController = {
     },
 
     logout: (req, res) => {
-        req.session.user = undefined;
+        req.session.destroy();
+        res.clearCookie("user_id");
         return res.render('users/login');
     },
 

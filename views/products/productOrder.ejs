@@ -70,7 +70,7 @@
                     <div class="card-header text-center">
                         Detalles de la compra
                     </div>
-                    <form class="card-body" id="checkoutCart">
+                    <div class="card-body" id="checkoutCart">
                         <div class="row">
                             <div class=" col-md-6 mb-4">
                                 <p><strong>Tipo Envio: </strong><%= order.shippingMethod %></p>
@@ -79,12 +79,18 @@
                                 <p><strong>Pago: </strong> <%= order.paymentMethod %></p>
                             </div>
                         </div>
-                    </form>
+                    </div>
+                    <div class="card-footer">
+                        <a href="/users/profile" class="btn btn-primary btn-block">Volver a mis pedidos</a>
+                    </div>
+                    <div class="card-footer">
+                        <a href="" class="btn btn-primary btn-block">Ir a Pagar</a>
+                    </div>
                 </div>
             </div>
         </main>
         <%- include('../partials/footer.ejs') %>
-        <script src="/js/cart.js"></script>
+
 </body>
 
 </html>
