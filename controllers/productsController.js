@@ -4,21 +4,15 @@ const productsFilePath = path.join(__dirname, '../data/products.json');
 const { validationResult } = require('express-validator');
 const db = require('../database/models');
 
-
-function getProducts() {
-    const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
-    return products;
-};
-
 const productsController = {
     products: async (req, res) => {
         try{
-            const gato = await db.product.findAll({
+            const gato = await db.Product.findAll({
                 where: {
                     category: 'gato'
                 }
             });
-            const perro = await db.product.findAll({
+            const perro = await db.Product.findAll({
                 where: {
                     category: 'perro'
                 }
@@ -43,7 +37,7 @@ const productsController = {
     },
     detail: async (req, res) => {
         try {
-            const product = await db.product.findByPk(req.params.idProduct);
+            const product = await db.Product.findByPk(req.params.idProduct);
             
             if(!product) {
                 return res.status(404).render('partials/not-found')
@@ -109,7 +103,7 @@ const productsController = {
             };
             console.log(productToCreate);
 
-            await db.product.create(productToCreate);
+            await db.Product.create(productToCreate);
     
             return res.redirect('/products');
 
@@ -133,6 +127,13 @@ const productsController = {
 
         }
         res.render('products/productResults', { productResults });
+    },
+    order: async function (req, res) {
+        let order = await db.Order.findByPk(req.params.idProduct, {
+            include: db.Order.OrderItems,
+        });
+
+        return res.render('products/productOrder', { order });
     }
 };
 

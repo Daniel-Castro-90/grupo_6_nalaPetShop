@@ -1,55 +1,35 @@
-'use strict';
-const {
-  Model
-} = require('sequelize');
-module.exports = (sequelize, DataTypes) => {
-  class OrderItem extends Model {
+module.exports = (sequelize, dataTypes) => {
 
-  }
-  OrderItem.init({
+  let alias = "OrderItem";
+  let columns = {
     name: {
-      type: DataTypes.STRING,
+      type: dataTypes.STRING,
       allowNull: false,
     },
     price: {
-      type: DataTypes.DECIMAL(10, 2),
+      type: dataTypes.DECIMAL(10, 2),
       defaultValue: false,
     },
     quantity: {
-      type: DataTypes.INTEGER,
+      type: dataTypes.INTEGER,
       allowNull: false,
     },
-    order_id: {
-      type: DataTypes.INTEGER,
-      references: {
-        model: {
-          tableName: 'orders'
-        },
-        key: 'id'
-      }
-    },
-    product_id: {
-      type: DataTypes.INTEGER,
-      references: {
-        model: {
-          tableName: 'products'
-        },
-        key: 'id'
-      }
-    },
-  }, {
-    sequelize,
-    modelName: 'OrderItem',
-  });
+  }
+  const config = {
+    tableName: 'orderitems'
+  }
 
-      
+  const OrderItem = sequelize.define(alias, columns, config)
+
   OrderItem.associate = (models) => {
     OrderItem.belongsTo(models.Order, {
-      as: "orders"
+      as: "order",
+      foreignKey: "order_id",
     });
 
     OrderItem.belongsTo(models.Product, {
-      as: "products"
+      as: "product",
+      foreignKey: "product_id"
     });
   };
 

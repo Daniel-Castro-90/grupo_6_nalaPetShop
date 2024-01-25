@@ -28,7 +28,7 @@ module.exports = {
         defaultValue: false,
       },
       shippingMethod: {
-        type: Sequelize.INTEGER,
+        type: Sequelize.STRING,
         allowNull: false,
       },
       createdAt: {

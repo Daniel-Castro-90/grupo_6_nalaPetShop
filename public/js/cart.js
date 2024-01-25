@@ -32,8 +32,8 @@ if(localStorage.cart) {
                     <th scope="row">${index + 1}</th>
                     <td>${product.name}</td>
                     <img src="/images/products/${product.image}" style="width: 100px; height: 100px;">
-                    <td>${product.price}</td>
-                    <td class="text-center">${item.quantity}</td>
+                    <td>$ ${product.price}</td>
+                    <td class="text-center">${item.quantity} Unidades</td>
                     <td class="text-center">$ ${parseFloat(
                         product.price * item.quantity,
                         2
@@ -42,11 +42,11 @@ if(localStorage.cart) {
                 </tr>
                 `;
                 products.push({
-                    productId: product.id,
+                    product_id: product.id,
                     name: product.name,
                     price: product.price,
                     quantity: item.quantity
-                });              
+                });             
             } else {
                 cart.splice(index,1);
                 localStorage.setItem('cart', JSON.stringify(cart));
@@ -54,7 +54,7 @@ if(localStorage.cart) {
 
         })
         .then( () => {
-            document.querySelector('.totalAmount').innerText = `${Total(products)}`
+            document.querySelector('.totalAmount').innerText = `$ ${Total(products)}`
         })
         .catch(error => console.log(error));
     });
@@ -64,6 +64,25 @@ let checkoutCart = document.querySelector('#checkoutCart');
 
 checkoutCart.onsubmit = (e) => {
     e.preventDefault();
-    console.log(e)
+    const formData = {
+        orderItems: products,
+        shippingMethod: checkoutCart.shippingMethod.value,
+        paymentMethod: checkoutCart.paymentMethod.value,
+        total: Total(products)
+    };
+    fetch("/api/checkout", {
+        method:"POST",
+        headers: {
+            "Content-Type":"application/json"
+        },
+        body: JSON.stringify(formData)
+    })
+    .then((res) => res.json())
+    .then((response) => {
+        if(response.ok) {
+            EmptyCart()
+            location.href = `/products/order/${response.order.id}`
+        };
+    })
 
 }

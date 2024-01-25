@@ -28,6 +28,8 @@ router.get('/productCart', productsController.productCart);
 
 router.get('/search', productsController.search);
 
+router.get("/order/:idProduct", productsController.order);
+
 
 
 module.exports = router;

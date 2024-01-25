@@ -9,8 +9,6 @@ let routeUsers = require('./routes/users');
 let routeApis = require('./routes/api');
 //const logMiddleware = require('./middlewares/logMiddleware');
 const session = require('express-session');
-const cookieParser = require('cookie-parser');
-const cookieMiddleware = require('./middlewares/cookieMiddleware');
 const morgan = require('morgan');
 const path = require('path');
 //const cloudinaryMiddleware = require('./middlewares/cloudinaryMiddleware');
@@ -20,8 +18,6 @@ const path = require('path');
 app.use(express.urlencoded({ extended: false}));
 app.use(express.json());
 app.use(session({ secret: process.env.SECRET }));
-app.use(cookieParser());
-app.use(cookieMiddleware);
 app.use(morgan('dev'));
 //app.use('/upload', cloudinaryMiddleware,)
 

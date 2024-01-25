@@ -60,35 +60,53 @@ const usersController = {
     },
 
     async processLogin(req, res) {
-        try {
-            const user = await db.User.findOne({ where: { email: req.body.email } });
-            const errors = {
-                unauthorized: {
-                    msg: 'Usuario y/o contraseña inválidos'
+
+                // Valido errores
+                let errors = validationResult(req);
+
+                //Retorar errores a la vista
+                if (!errors.isEmpty()) {
+                    let error = errors.mapped();
+                    console.log(error);
+                    return res.render("users/login", { error: error, olds: req.body})
                 }
-            };
 
-            if (!user || !bcrypt.compareSync(req.body.password, user.password)) {
-                return res.render('users/login', { errors });
-            }
+                //Buscar usuario
 
-            req.session.user = {
-                id: user.id,
-                image: user.image,
-                email: user.email,
-                dni: user.dni,
-                tel: user.tel
-            };
+                let user = await db.User.findOne({
+                    where: {
+                        email: req.body.email,
+                    },
+                });
 
-            return res.redirect('/users/profile');
-        } catch (error) {
-            return res.status(500).send(error);
-        }
+                if(user) {
+                    let passOk = bcrypt.compareSync(req.body.password, user.password);
+                    if(passOk) {
+                        req.session.userLogged = user;
+                        req.session.lastActivity = Date.now();
+
+                        if(req.body.saveUser) {
+                            res.cookie("user_id", user.id, { maxAge: 100 * 60 * 5 });
+                        }
+
+                        return res.redirect("/users/profile");
+                    } else {
+                        return res.render("/users/login", {
+                            errors: {
+                                msg: "Usuario y/o contraseña inválidos"
+                            },
+                            olds: req.body,
+                        })
+                    }
+                }
     },
 
-    profile: (req, res) => {
-        const { user } = req.session;
-        return res.render('users/profile', { user });
+    profile: async (req, res) => {
+        let orders = await db.Order.findAll({
+            where: {user_id: req.session.userLogged.id }
+        });
+        const user = await db.User.findByPk(req.params.idUser)
+        return res.render('users/profile', { orders, user });
     },
 
     logout: (req, res) => {
