@@ -25,15 +25,32 @@ const productsController = {
             res.status(500).send('Internal Server Error')
         }
     },
-    productsCat: (req, res) =>{
-        const products = getProducts();
-        const gato = products.filter(product => product.category === 'gato');
-        res.render('products/productsCat', {gato});
+    productsCat: async (req, res) =>{
+        try{
+            const gato = await db.Product.findAll({
+                where: {
+                    category: 'gato'
+                }
+            });
+            res.render('products/productsCat', { gato });
+
+        } catch (error) {
+            console.error('Error al obtener productos: ', error);
+            res.status(500).send('Internal Server Error');
+        }
     },
-    productsDog: (req, res) =>{
-        const products = getProducts();
-        const perro = products.filter(product => product.category === 'perro');
-        res.render('products/productsDog', {perro});
+    productsDog: async (req, res) =>{
+        try {
+            const perro = await db.Product.findAll({
+                where: {
+                    category: 'perro'
+                }
+            });
+            res.render('products/productsDog', { perro });
+        } catch (error) {
+            console.error('Error al obtener productos: ', error);
+            res.status(500).send('Internal Server Error');
+        }
     },
     detail: async (req, res) => {
         try {
@@ -49,28 +66,63 @@ const productsController = {
             res.status(500).render('Internal Server Error');
         }
     },
-    editor: (req, res) => {
-        const products = getProducts();
-        const product = products.find(product => product.id == req.params.idProduct);
-        res.render('products/productEditor', { product });
+    editor: async (req, res) => {
+        try {
+            const product = await db.Product.findByPk(req.params.idProduct);
+            res.render('products/productEditor', { product })
+        } catch (error) {
+            console.error('Error al obtener los datos del producto: ', error);
+            res.status(500).render('Internal Server Error');
+        }
     },
-    destroy: (req, res) => {
-		const products = getProducts();
-		const indexProduct = products.findIndex(product => product.id == req.params.idProduct);
-		products.splice(indexProduct, 1);
-		fs.writeFileSync(productsFilePath, JSON.stringify(products, null, 2));
-		res.redirect('/products');
+    destroy: async (req, res) => {
+        await db.Product.destroy({
+            where: { id: req.params.idProduct},
+        });
+
+        res.render('/products');
 	},
-    update: (req, res) => {
-        const products = getProducts();
-        const indexProduct = products.findIndex(product => product.id == req.params.idProduct);
-        products[indexProduct] = {
-            ...products[indexProduct],
-            ...req.body,
-            image: req.file.filename
-        };
-        fs.writeFileSync(productsFilePath, JSON.stringify(products, null, 2));
-        return res.redirect('/products');
+    update: async (req, res) => {
+        try {
+            let product = await db.Product.findByPk(req.params.idProduct);
+            if (product) {
+                let updateProduct = {};
+    
+                if (req.body.name) {
+                    updateProduct.name = req.body.name;
+                }
+    
+                if (req.body.category) {
+                    updateProduct.category = req.body.category;
+                }
+    
+                if (req.body.price) {
+                    updateProduct.price = req.body.price;
+                }
+    
+                if (req.body.highlight !== undefined) {
+                    updateProduct.highlight = req.body.highlight ? true : false;
+                }
+
+                if (req.body.package) {
+                    updateProduct.package = req.body.package;
+                }
+    
+                if (req.body.description) {
+                    updateProduct.description = req.body.description;
+                }
+    
+                if (req.file) {
+                    updateProduct.image = req.file.filename;
+                }
+    
+                product.update(updateProduct);
+            }
+            return res.redirect('/products');
+        } catch (error) {
+            console.error('Error al editar los datos del producto: ', error);
+            res.status(500).render('Internal Server Error');
+        }
     },
     productCreation: (req, res) => {
         res.render("products/productCreation");

@@ -19,7 +19,13 @@
                 <br>
                 <p>Precio: $<%= locals.product && product.price %></p>
                 <br>
-                <button>Añadir al Carrito</button>
+                <button class="add_cart">Añadir al Carrito</button>
+                <div style="margin-top: 10px;"><button onclick="goBack()">Volver</button></div>
+                <script>
+                    function goBack() {
+                        window.history.back()
+                    }
+                </script>
             </div>
         </main>
         <%- include('../partials/footer.ejs') %>

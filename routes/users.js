@@ -5,6 +5,7 @@ const userValidation = require('../middlewares/usersValidatorMiddleware.js');
 const upload = require('../middlewares/multerUsersMiddleware.js');
 const isLoggedMiddleware = require('../middlewares/isLoggedMiddleware.js');
 const cloudinaryMiddleware = require('../middlewares/cloudinaryMiddleware.js');
+const redirectIfAuthMiddleware = require('../middlewares/redirectIfAuthMiddleware.js');
 
 
 
@@ -12,16 +13,15 @@ const cloudinaryMiddleware = require('../middlewares/cloudinaryMiddleware.js');
 //const loginMiddleware = require('../middlewares/loginMiddleware.js')
 
 //Login
-//agregar que si esta logeado al hacer clic en ingresar lo lleve al perfil, usando lógica middleware isLogged
 //cambiar header para cuando esta logeado.
-router.get('/', usersController.login);
+router.get('/', redirectIfAuthMiddleware, usersController.login);
 router.post('/login', usersController.processLogin);
 router.get('/profile', isLoggedMiddleware, usersController.profile);
 router.get('/logout', usersController.logout);
 
 
 //Register
-router.get ('/register', usersController.register);
+router.get ('/register', redirectIfAuthMiddleware, usersController.register);
 router.post('/register', upload.single('image'), cloudinaryMiddleware, userValidation,  usersController.create);
 
 

@@ -7,21 +7,18 @@ let routeProducts = require('./routes/products');
 let routeIndex = require('./routes/index');
 let routeUsers = require('./routes/users');
 let routeApis = require('./routes/api');
-//const logMiddleware = require('./middlewares/logMiddleware');
 const session = require('express-session');
 const morgan = require('morgan');
 const path = require('path');
 const cookieParser = require('cookie-parser');
-//const cloudinaryMiddleware = require('./middlewares/cloudinaryMiddleware');
+const cors = require('cors');
 
 //Middlewares
-//app.use(logMiddleware);
 app.use(express.urlencoded({ extended: false}));
 app.use(express.json());
 app.use(session({ secret: process.env.SECRET }));
 app.use(morgan('dev'));
 app.use(cookieParser());
-//app.use('/upload', cloudinaryMiddleware,)
 
 
 
@@ -36,6 +33,8 @@ app.set("view engine", "ejs");
 
 //public
 app.use(express.static('public'));
+
+app.use(cors());
 
 
 // routes

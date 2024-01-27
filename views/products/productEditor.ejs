@@ -1,4 +1,12 @@
-<%- include('../partials/header.ejs') %>
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <%- include('../partials/head.ejs') %>
+    </head>
+
+    <body>
+
+        <%- include('../partials/header.ejs') %>
     <main>
         <form class="container-form-product" action="/products/<%= product.id %>/productEditor?_method=PUT" 
             method="POST" enctype="multipart/form-data">
@@ -38,3 +46,6 @@
         </div>
     </main>
     <%- include('../partials/footer.ejs') %>
+
+    </body>
+</html>
