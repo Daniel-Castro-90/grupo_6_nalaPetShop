@@ -6,19 +6,26 @@
     <body>
         <%- include('../partials/header.ejs') %>
 <main>
- <%- include('../partials/filter.ejs') %>
-    <section class="Gatos">
-        <h3 class="titulares">Resultados según tu búsqueda:</h3>
-        <div class="producto">
+    <section>
+        <h3 class="titulos">Resultados según tu búsqueda:</h3>
+        <div class="productos">
             <% locals.productResults && productResults.forEach(productResults => { %>
-            <article>
-                <img src="<%= productResults.image %>" alt="Imagen Producto" class="img-producto"width="300px">
+            <article class="producto">
+                <img class="producto-img" src="<%= productResults.image %>" alt="Imagen Producto" class="img-producto"width="300px">
                 <div class="main-article">
                     <a href="/products/productDetail/<%= productResults.id %>"><h4 class="Descripcion"><%= productResults.name %></h4></a>
                     <p class="precio"> $<%= productResults.price %> </p>
                     <p class="package"> Presentación en: <%= productResults.package %>Kg </p>
-                    <a href="/descriptionCart" data-quantity="1" class="boton-producto" rel="nofollow">Comprar</a>
-                    <div class="boton-producto"><a href="products/productEditor"><button type="submit">Editar</button></a></div>
+                    <div class="producto-buttons">
+                        <button href="" data-quantity="1" class="comprar-producto add_cart" rel="nofollow" data-id="<%= productResults.id %>">Comprar</button>
+                        <% if (locals.userLogged) { %>
+                            <% if (locals.userLogged.roles_id === 1) { %>
+                                <a href="/products/<%= productResults.id %>/productEditor">
+                                    <button class="comprar-producto" type="submit">Editar</button>
+                                </a>
+                            <% } %>
+                        <% } %>
+                    </div>
                 </div>
             </article>
             <% }) %>

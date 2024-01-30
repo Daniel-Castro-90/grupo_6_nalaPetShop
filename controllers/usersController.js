@@ -2,6 +2,7 @@ const { validationResult } = require('express-validator');
 const bcrypt = require('bcrypt');
 const db = require('../database/models');
 const cloudinary = require('cloudinary').v2;
+const userValidation = require('../middlewares/usersValidatorMiddleware')
 
 
 
@@ -23,10 +24,24 @@ const usersController = {
             if (!role) {
                 return res.status(500).send('Role "Usuario" not found');
             }
+
+            let cloudinaryUrl = 'https://res.cloudinary.com/do3hvqxmd/image/upload/v1706138774/j0fladpejzgeebmtmprb.jpg'
+
+            if (req.file) {
+              const cloudinaryResponse = await cloudinary.uploader.upload(req.file.path);
+              cloudinaryUrl = cloudinaryResponse.secure_url;
+  
+              try {
+                  fs.unlinkSync(req.file.path);
+                  console.log('Archivo local eliminado: ', req.file.path);
+              } catch (unlinkError) {
+                  console.error('Error al eliminar el archivo local: ', unlinkError);
+              }
+          }
     
             const newUser = {
                 ...req.body,
-                image: req.file.cloudinaryUrl || '/public/images/profiles/defaultprofile.png',
+                image: cloudinaryUrl,
                 roles_id: role.id
             };
         
@@ -44,51 +59,53 @@ const usersController = {
     },
 
     async processLogin(req, res) {
-        // Valido errores
+
+      try {
         let errors = validationResult(req);
-      
-        // Retornar errores a la vista
+
         if (!errors.isEmpty()) {
-          let error = errors.mapped();
-          console.log(error);
-          return res.render("users/login", { error: error, olds: req.body });
+            return res.render('users/login', {
+                errors: errors.mapped(),
+                oldData: req.body,
+            });
         }
-      
-        // Buscar usuario
+
         let user = await db.User.findOne({
           where: {
-            email: req.body.email,
+              email: req.body.email,
           },
-        });
-      
-        if (user) {
+      });
+  
+      if (user) {
           let passOk = bcrypt.compareSync(req.body.password, user.password);
           if (passOk) {
-            req.session.userLogged = user;
-            req.session.lastActivity = Date.now();
-      
-            if (req.body.user_id) {
-              res.cookie("user_id", user.id, { maxAge: 100 * 60 * 5 });
-            }
-      
-            // Verificar si el usuario es administrador
-            if (user.roles_id === 1) {
-              // Si es administrador, redirigir a localhost:5173
-              return res.redirect("http://localhost:5173");
-            } else {
-              // Si no es administrador, redirigir a /users/profile
-              return res.redirect("/users/profile");
-            }
+              req.session.userLogged = user;
+              req.session.lastActivity = Date.now();
+  
+              if (req.body.user_id) {
+                  res.cookie("user_id", user.id, { maxAge: 100 * 60 * 5 });
+              }
+  
+              if (user.roles_id === 1) {
+
+                  return res.redirect("http://localhost:5173");
+              } else {
+
+                  return res.redirect("profile");
+              }
           } else {
-            return res.render("/users/login", {
-              errors: {
-                msg: "Usuario y/o contraseña inválidos",
-              },
-              olds: req.body,
-            });
+            return res.render("users/login", { errors: {password: {msg: "Email y/o contraseña incorrectos."}} });
           }
-        }
-      },      
+      } else {
+        return res.render("users/login", { errors: {password: {msg: "Email y/o contraseña incorrectos."}} });
+      }
+
+      } catch (error) {
+        console.error(error);
+        return res.status(500).send('Internal Server Error');
+      }
+  
+  },     
 
     profile: async (req, res) => {
         let orders = await db.Order.findAll({

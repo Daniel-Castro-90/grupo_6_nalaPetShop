@@ -7,11 +7,6 @@ const isLoggedMiddleware = require('../middlewares/isLoggedMiddleware.js');
 const cloudinaryMiddleware = require('../middlewares/cloudinaryMiddleware.js');
 const redirectIfAuthMiddleware = require('../middlewares/redirectIfAuthMiddleware.js');
 
-
-
-
-//const loginMiddleware = require('../middlewares/loginMiddleware.js')
-
 //Login
 //cambiar header para cuando esta logeado.
 router.get('/', redirectIfAuthMiddleware, usersController.login);

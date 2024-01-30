@@ -6,59 +6,72 @@
     <body>
         <%- include('../partials/header.ejs') %>
     <main>
-        <form class="container-form-product" action="/products" method="POST" enctype="multipart/form-data">
-            <div class="form-product">
-                <h4>CREAR NUEVO PRODUCTO</h4>
-                <div>
-					<div class="items-form-product">
-						<label for="category">CATEGORÍA DEL PRODUCTO:</label>
-						<select name="category" id="category">
-							<option value="">SELECCIONAR</option>
-							<option value="gato" <%= locals.oldData?.category === 'gato' ? 'selected' : '' %>>GATOS</option>
-							<option value="perro" <%= locals.oldData?.category === 'perro' ? 'selected' : '' %>>PERROS</option>
-						</select>
-                        <% if (locals.errors?.category) { %>
-                            <p><%= errors.category.msg %></p>
-                        <% } %>
-					</div>
-                    <div class="items-form-product">
-                        <label for="name">NOMBRE DEL PRODUCTO</label>
-                        <input type="text" id="name" name="name" placeholder="Ingrese nombre" value="<%= locals.oldData?.name && oldData?.name %>"/>
-                        <% if (locals.errors?.name) { %>
-                            <p><%= errors.name.msg %></p>
-                        <% } %>
+        <div class="contenedor-accesousuario">
+            <form class="" action="/products" method="POST" enctype="multipart/form-data">
+                <h4 class="titulos titulos-destacados">CREAR NUEVO PRODUCTO</h4>
+                <div class="contenedor-registro">
+                    <div>
+                        <div class="item-registro">
+                                <label for="category">CATEGORÍA DEL PRODUCTO:</label>
+                                <select name="category" id="category">
+                                    <option value="">SELECCIONAR</option>
+                                    <option value="gato" <%= locals.oldData?.category === 'gato' ? 'selected' : '' %>>GATOS</option>
+                                    <option value="perro" <%= locals.oldData?.category === 'perro' ? 'selected' : '' %>>PERROS</option>
+                                </select>
+                                <% if (locals.errors?.category) { %>
+                                    <p><%= errors.category.msg %></p>
+                                <% } %>
+                            </div>
+                            <br>
+                            <!-- <div class="item-registro">
+                                <label for="category">CATEGORÍA DEL PRODUCTO:</label>
+                                <select name="category" id="category">
+                                    <option value="">SELECCIONAR</option>
+                                    <option value="1" <%= locals.oldData?.highlight === 'Sí' ? 'selected' : '' %>>Sí</option>
+                                    <option value="0" <%= locals.oldData?.highlight === 'No' ? 'selected' : '' %>>No</option>
+                                </select>
+                            </div> -->
+                            <br>
+                            <div class="items-registro">
+                                <label for="name">NOMBRE DEL PRODUCTO</label>
+                                <input type="text" id="name" name="name" placeholder="Ingrese nombre" value="<%= locals.oldData?.name && oldData?.name %>"/>
+                                <% if (locals.errors?.name) { %>
+                                    <p><%= errors.name.msg %></p>
+                                <% } %>
+                            </div>
+                            <div class="items-registro">
+                                <label for="description">DESCRIPCION</label>
+                                <input type="text" id="description" name="description" placeholder="Ingrese descripcion" value="<%= locals.oldData?.description && oldData?.description %>"/>
+                                <% if (locals.errors?.description) { %>
+                                    <p><%= errors.description.msg %></p>
+                                <% } %>
+                            </div>
+                            <div class="items-registro">
+                                <label for="package">PRESENTACION</label>
+                                <input type="number" id="package" name="package" placeholder="Ingrese cantidad de kg" value="<%= locals.oldData?.package && oldData?.package %>"/>
+                                <% if (locals.errors?.package) { %>
+                                    <p><%= errors.package.msg %></p>
+                                <% } %>
+                            </div>
+                            <div class="items-registro">
+                                <label for="price">PRECIO</label>
+                                <input type="number" id="price" name="price" placeholder="Ingrese precio" value="<%= locals.oldData?.price && oldData?.price %>"/>
+                                <% if (locals.errors?.price) { %>
+                                    <p><%= errors.price.msg %></p>
+                                <% } %>
+                            </div>
+                            <div class="items-registro"><label>IMAGEN PRODUCTO:</label>
+                                <input type="file" name="image" id="image">
+                                <% if (locals.errors?.image) { %>
+                                    <p><%= errors.image.msg %></p>
+                                <% } %>
+                            </div>
                     </div>
-                    <div class="items-form-product">
-                        <label for="description">DESCRIPCION</label>
-                        <input type="text" id="description" name="description" placeholder="Ingrese descripcion" value="<%= locals.oldData?.description && oldData?.description %>"/>
-                        <% if (locals.errors?.description) { %>
-                            <p><%= errors.description.msg %></p>
-                        <% } %>
-                    </div>
-                    <div class="items-form-product">
-                        <label for="package">PRESENTACION</label>
-                        <input type="number" id="package" name="package" placeholder="Ingrese cantidad de kg" value="<%= locals.oldData?.package && oldData?.package %>"/>
-                        <% if (locals.errors?.package) { %>
-                            <p><%= errors.package.msg %></p>
-                        <% } %>
-                    </div>
-                    <div class="items-form-product">
-                        <label for="price">PRECIO</label>
-                        <input type="number" id="price" name="price" placeholder="Ingrese precio" value="<%= locals.oldData?.price && oldData?.price %>"/>
-                        <% if (locals.errors?.price) { %>
-                            <p><%= errors.price.msg %></p>
-                        <% } %>
-                    </div>
-                    <div class="items-form-product"><label>IMAGEN PRODUCTO:</label>
-                        <input type="file" name="image" id="image">
-                        <% if (locals.errors?.image) { %>
-                            <p><%= errors.image.msg %></p>
-                        <% } %>
-                    </div>
+                    <div class="boton-submit"><button type="submit">CREAR PRODUCTO</button></div>
                 </div>
-                <div class="boton-submit"><button type="submit">CREAR PRODUCTO</button></div>
-            </div>
-        </form>
+            </form>
+        </div>
+
     </main>
     <%- include('../partials/footer.ejs') %>
     </body>

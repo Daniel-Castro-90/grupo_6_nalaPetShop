@@ -8,19 +8,19 @@
 
         <%- include('../partials/header.ejs') %>
     <main>
-        <form class="container-form-product" action="/products/<%= product.id %>/productEditor?_method=PUT" 
+        <form class="formulario-ingreso" action="/products/<%= product.id %>/productEditor?_method=DELETE" 
             method="POST" enctype="multipart/form-data">
-            <div class="form-product">
+            <div class="contenedor-registro">
                 <h4>ESTÁS EDITANDO: <%= product ? product.name : '' %></h4>
                 <div>
-                    <div class="items-form-product">
+                    <div class="items-registro">
                         <label for="text">NOMBRE DEL PRODUCTO</label>
                         <input type="text" name="name" placeholder="Ingrese el nombre del producto" value="" />
                     </div>
-					<div class="items-form-product">
-						<label for="category">CATEGORÍA DEL PRODUCTO:</label>
-						<select name="category" id="category">
-							<option value="">SELECCIONAR</option>
+					<div class="items-registro">
+						<label class="items-registro" for="category">CATEGORÍA DEL PRODUCTO:</label>
+						<select class="items-registro" name="category" id="category">
+							<option value="">SELECIONAR</option>
 							<option value="gato" <%= locals.oldData?.category === 'gato' ? 'selected' : '' %>>GATOS</option>
 							<option value="perro" <%= locals.oldData?.category === 'perro' ? 'selected' : '' %>>PERROS</option>
 						</select>
@@ -28,19 +28,20 @@
                             <p><%= errors.category.msg %></p>
                         <% } %>
 					</div>
-                    <div class="items-form-product">
+                    <br>
+                    <div class="items-registro">
                         <label for="text">DESCRIPCION</label>
                         <input type="text" id="description" name="description" placeholder="Ingrese descripcion" />
                     </div>
-                    <div class="items-form-product">
+                    <div class="items-registro">
                         <label for="text">PRESENTACION</label>
                         <input type="number" id="package" name="package" placeholder="Ingrese kg" />
                     </div>
-                    <div class="items-form-product">
+                    <div class="items-registro">
                         <label for="number">PRECIO</label>
                         <input type="number" id="price" name="price" placeholder="Ingrese precio" />
                     </div>
-                    <div class="items-form-product"><label>Imagen producto:
+                    <div class="items-registro"><label>Imagen producto:
                         <input type="file" name="image" id="image"></label>
                     </div>
                 </div>

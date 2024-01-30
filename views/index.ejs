@@ -8,11 +8,16 @@
     <body>
         <%- include('partials/header.ejs') %>
         <main>
-            <section>
+            <section >
+                <a href="/products"> <img class="bannerresponsive" src="/images/resources/responsive2.png"></a>
+            </section>
+
+            <section class="bannersup" >
                 <div>
                     <img src="/images/resources/bannersuperior.gif">
                 </div>
             </section>
+
             <section>
                 <div class="slider">
                         <a href="/products" class="imagen" ><img  href="/products" src="/images/resources/slider.gif"/></a>                
@@ -47,7 +52,7 @@
                 </div>
             </section>
 
-            <section>
+            <section class="desktop">
                 <h2 class="titulos titulo-destacados">👇🔥¡PRODUCTOS DESTACADOS ESTA SEMANA!🔥👇</h2>
                 <% productosDestacados.forEach(product => { %>
                     <div class="flip-card">
@@ -64,23 +69,62 @@
                                 </a>
                             </div>
                         </div>
+
                     </div>
                 <% }); %>
             </section>
-            <section>
+
+            <section class="mobile">
+                <h3 class="titulos">PRODUCTOS DESTACADOS 
+                    ESTA SEMANA🔥👇</h3>
+
+                <% productosDestacados.forEach(product => { %>
+                <div class="mobile-card">
+                    <img src="<%= product.image %>" alt="<%= product.name %>" style="width:100%">
+                    <p class="titulos"><%= product.name %></p>
+                    <p class="card-text">Precio: $<%= product.price %></p>
+                    <p class="card-text">Presentación: <%= product.package %> Kg</p>
+                        <button class="mobile-ver-producto">Ver Producto</button>
+                  </div>
+                  <br>
+                  <% }); %>
+            </section>
+
+            <section class="desktop">
                 <h2 class="titulos titulo-gatos">TODOS NUESTROS PRODUCTOS PARA GATOS</h2>
                 <div class="card-container">
                     <% gato.forEach(product => { %>
                         <div class="container">
                             <img src="<%= product.image %>" alt="<%= product.name %>" class="image">
                             <div class="middle">
-                                <button href="" data-quantity="1" class="ver-producto add_cart" rel="nofollow" data-id="<%= product.id %>">Comprar</button>
+                                <button data-quantity="1" class="ver-producto add_cart"data-id="<%= product.id %>">Comprar</button>
                             </div>
                         </div>
                     <% }); %>
                 </div>            
             </section>
-            <section>
+
+            <section >
+                <a href="/products"> <img class="bannerresponsive" src="/images/resources/responsive3.png"></a>
+            </section>
+
+            <section class="mobile">
+                <h2 class="titulos titulo-gatos">TODOS NUESTROS PRODUCTOS PARA GATOS🙀</h2>
+
+                <% gato.forEach(product => { %>
+                    <div class="mobile-card">
+                        <img src="<%= product.image %>" alt="<%= product.name %>" style="width:100%">
+                        <p class="titulos"><%= product.name %></p>
+                        <p class="card-text">Precio: $<%= product.price %></p>
+                        <p class="card-text">Presentación: <%= product.package %> Kg</p>
+                        <a href="/products/productDetail/<%= product.id %>">
+                            <button class="mobile-ver-producto">Ver Producto</button>
+                      </div>
+                      <br>
+                      <% }); %>                
+            </section>
+
+            <section class="desktop">
                 <h2 class="titulos titulo-gatos">TODOS NUESTROS PRODUCTOS PARA PERROS</h2>
                 <div class="card-container">
                     <% perro.forEach(product => { %>
@@ -92,6 +136,26 @@
                         </div>
                     <% }); %>
                 </div>            
+            </section>
+
+            <section >
+                <a href="/products"> <img class="bannerresponsive" src="/images/resources/responsive5.png"></a>
+            </section>
+
+            <section class="mobile">
+                <h2 class="titulos titulo-gatos">TODOS NUESTROS PRODUCTOS PARA PERROS🙀</h2>
+
+                <% perro.forEach(product => { %>
+                    <div class="mobile-card">
+                        <img src="<%= product.image %>" alt="<%= product.name %>" style="width:100%">
+                        <p class="titulos"><%= product.name %></p>
+                        <p class="card-text">Precio: $<%= product.price %></p>
+                        <p class="card-text">Presentación: <%= product.package %> Kg</p>
+                        <a href="/products/productDetail/<%= product.id %>">
+                            <button class="mobile-ver-producto">Ver Producto</button>
+                      </div>
+                      <br>
+                      <% }); %>                
             </section>
 
         </main>

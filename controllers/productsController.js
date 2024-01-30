@@ -79,11 +79,17 @@ const productsController = {
         }
     },
     destroy: async (req, res) => {
-        await db.Product.destroy({
-            where: { id: req.params.idProduct},
-        });
+        try {
+            await db.Product.destroy({
+                where: { id: req.params.idProduct},
+            });
+    
+            return res.render('/');
+        } catch (error) {
+            console.error('Error al eliminar el producto:', error);
+            res.status(500).render('Internal Server Error');
+        }
 
-        res.render('/products');
 	},
     update: async (req, res) => {
         try {
@@ -175,7 +181,7 @@ const productsController = {
     
             await db.Product.create(productToCreate);
     
-            return res.redirect('/products');
+            return res.redirect('/');
     
         } catch (error) {
             console.error(error);

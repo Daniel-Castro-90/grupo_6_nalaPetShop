@@ -1,6 +1,6 @@
 <%- include('../partials/header.ejs') %>
     <main>
-        <form class="container-form-product" action="/users/<%= user.id %>/profile?_method=PUT" 
+        <form class="container-form-product" action="/users/<%= user ? user.id : '' %>/profile?_method=PUT" 
             method="POST" enctype="multipart/form-data">
             <div class="form-product">
                 <h4>ESTÁS EDITANDO: <%= user ? user.email : '' %></h4>

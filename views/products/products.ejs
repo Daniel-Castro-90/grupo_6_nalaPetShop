@@ -10,8 +10,7 @@
         <div>
             <% if (locals.userLogged) { %>
                 <% if (locals.userLogged.roles_id === 1) { %>
-                    <a href="/products/<%= product.id %>/productEditor">
-                        <button class="crear-producto" href="/products/productCreation" type="submit">CREAR NUEVO PRODUCTO</button>
+                        <a  href="/products/productCreation"><button class="crear-producto" type="submit">CREAR NUEVO PRODUCTO</button>
                     </a>
                 <% } %>
             <% } %>
