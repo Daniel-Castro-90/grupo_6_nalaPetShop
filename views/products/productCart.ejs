@@ -4,92 +4,89 @@
 <head>
     <%- include('../partials/head.ejs') %>
     <script src="/js/carrito.js"></script>
+    <link rel="stylesheet" href="/path/to/your/styles.css">
 </head>
 
 <body>
     <%- include('../partials/header.ejs') %>
-        <main class="mt-5 pt-4">
-            <div class="container wow fadeIn animated">
-                <h2 class="mt-5 mb-3 h2 text-center"> Productos en mi carrito</h2>
-                <div class="card my-5">
-                    <div class="card-body">
-                        <table class="table table-responsive-md mb-0">
-                            <thead>
-                                <tr>
-                                    <th style="width: 50px;">
-                                        <strong>#</strong>
-                                    </th>
-                                    <th class="th-lg">
-                                        <strong>Producto</strong>
-                                    </th>
-                                    <th class="th-lg">
-                                        <strong>Imagen</strong>
-                                    </th>
-                                    <th class="th-lg ">
-                                        <strong>Precio</strong>
-                                    </th>
-                                    <th class="text-center">
-                                        <strong>Cantidad</strong>
-                                    </th>
-                                    <th class="text-center">
-                                        <strong>Subtotal</strong>
-                                    </th>
-                                    <th style="width: 50px;"></th>
-                                </tr>
-                            </thead>
-                            <tbody class="cartRows">
-                            </tbody>
-                        </table>
-                        <div class="card-footer text-right">
-                            <h2>Total: <span class="totalAmount">$ 0,00</span></h2>
-                        </div>
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="card-header text-center">
-                        Finalizar la compra
-                    </div>
-                    <form class="card-body" id="checkoutCart">
-                        <div class="row">
-                            <div class=" col-md-6 mb-4">
-                                <label for="country">Tipo Envío</label>
-                                <select class="custom-select d-block w-100" id="shippingMethod" name="shippingMethod" required="">
-                                    <option value="">Elegir:</option>
-                                    <option value="Cadete">Cadete</option>
-                                    <option value="Correo Argentino">Correo Argentino</option>
-                                    <option value="Andreani">Andreani</option>
-                                </select>
-                                <div class="invalid-feedback">
-                                    Elija un tipo de envio.
-                                </div>
-
-                            </div>
-                            <div class=" col-md-6 mb-4">
-                                <label for="country">Método de Pago</label>
-                                <select class="custom-select d-block w-100" id="paymentMethod" name="paymentMethod" required="">
-                                    <option value="">Elegir:</option>
-                                    <option value="Efectivo">Efectivo</option>
-                                    <option value="Debito">Tarjeta de Débito</option>
-                                    <option value="Credito">Tarjeta de Crédito</option>
-                                    <option value="Transferencia">Transferencia Bancaria</option>
-                                </select>
-                                <div class="invalid-feedback">
-                                    Elija un tipo de pago.
-                                </div>
-
-                            </div>
-                        </div>
-                        <button class=" "
-                            type="submit">¡Comprar Ahora!</button>
-                    </form>
-                </div>
-                <div class="cart-footer">
-                    <div class="add-products"><a href="/products"><strong>AGREGAR MAS PRODUCTOS</strong></a></div>
+    <main class="main-container-ord">
+        <div class="table-container-ord">
+            <h2>Productos en mi carrito</h2>
+            <div class="table-ord">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th style="width: 50px;">#</th>
+                            <th class="th-lg">Producto</th>
+                            <th class="th-lg">Imagen</th>
+                            <th class="th-lg">Precio</th>
+                            <th class="text-center">Cantidad</th>
+                            <th class="text-center">Subtotal</th>
+                            <th style="width: 50px;"></th>
+                        </tr>
+                    </thead>
+                    <tbody class="cartRows">
+                    </tbody>
+                </table>
+                <div class="total-container-ord">
+                    <br>
+                    <h2>Total: <span class="totalAmount">$ 0,00</span></h2>
                 </div>
             </div>
-        </main>
-        <%- include('../partials/footer') %>
-        <script src="/js/cart.js"></script>
+        </div>
+        <div class="details-container-ord">
+            <br>
+            <form class="card-body" id="checkoutCart">
+                <div>
+                    <label for="shippingMethod">Tipo Envío</label>
+                    <select class="custom-select" id="shippingMethod" name="shippingMethod" required="">
+                        <option value="">Elegir:</option>
+                        <option value="Cadete">Cadete</option>
+                        <option value="Correo Argentino">Correo Argentino</option>
+                        <option value="Andreani">Andreani</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="paymentMethod">Método de Pago</label>
+                    <select class="custom-select" id="paymentMethod" name="paymentMethod" required="">
+                        <option value="">Elegir:</option>
+                        <option value="Efectivo">Efectivo</option>
+                        <option value="Debito">Tarjeta de Débito</option>
+                        <option value="Credito">Tarjeta de Crédito</option>
+                        <option value="Transferencia">Transferencia Bancaria</option>
+                    </select>
+                </div>
+                <button class="tarjeta-button" type="submit">¡Comprar Ahora!</button>
+            </form>
+            
+            <div style="margin-top: 10px;"><button class="tarjeta-button" onclick="goBack()">Volver</button></div>
+        </div>
+    </main>
+    <%- include('../partials/footer.ejs') %>
+    <script src="/js/cart.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const checkoutForm = document.getElementById('checkoutCart');
+            checkoutForm.addEventListener('submit', async (event) => {
+                event.preventDefault();
+    
+                const response = await fetch('/api/checkout');
+                const data = await response.json();
+
+                if (data.userFound) {
+                    checkoutForm.submit();
+                } else {
+                    window.location.href = '/users';
+                }
+            });
+        });
+    
+        function goBack() {
+            window.history.back();
+        }
+    </script>
+    
+    
 </body>
 
 </html>

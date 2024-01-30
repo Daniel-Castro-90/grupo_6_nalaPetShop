@@ -3,16 +3,15 @@
 
 <head>
     <%- include('../partials/head.ejs') %>
+    <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
     <%- include('../partials/header.ejs') %>
-        <main class="mt-5 pt-4">
-            <div class="container wow fadeIn animated">
-                <h2 class="mt-5 mb-3 h2 text-center"> Pedido de Compra N°<%= order.id %></h2>
-                <div class="card my-5">
-                    <div class="card-body">
-                        <table class="table table-responsive-md mb-0">
+    <main class="main-container-ord">
+        <div class="table-container-ord">
+            <h2>Pedido de Compra N°<%= order.id %></h2>
+            <table class="table-ord">
                             <thead>
                                 <tr>
                                     <th style="width: 50px;">
@@ -33,64 +32,51 @@
                                     <th class="text-center">
                                         <strong>Subtotal</strong>
                                     </th>
-                                    <th style="width: 50px;"></th>
                                 </tr>
                             </thead>
                             <tbody class="cartRows">
-                                <% for ( let i = 0; i < order.orderItems.length; i++) { %>
+                                <% for (let i = 0; i < order.orderItems.length; i++) { %>
                                     <tr>
-                                        <th scope="row">
-                                            <%= i + 1 %>
-                                        </th>
+                                        <th scope="row"><%= i + 1 %></th>
+                                        <td><%= order.orderItems[i].name %></td>
                                         <td>
-                                            <%= order.orderItems[i].name %>
+                                            <% if (order.orderItems[i].product) { %>
+                                                <img src="<%= order.orderItems[i].product.image %>" alt="Imagen del Producto">
+                                            <% } %>
                                         </td>
-                                        <td>
-                                            <img src="/images/products/<%= order.orderItems[i].product_id %>" style="width: 100px; height: 100px;">
-                                        </td>
-                                        <td>
-                                            $ <%= order.orderItems[i].price %>
-                                        </td>
-                                        <td>
-                                            <%= order.orderItems[i].quantity %>
-                                        </td>
-                                        <td class="text-center">
-                                            <%= order.orderItems[i].price * order.orderItems[i].quantity %>
-                                        </td>
+                                        <td>$ <%= order.orderItems[i].price %></td>
+                                        <td><%= order.orderItems[i].quantity %></td>
+                                        <td class=""><%= order.orderItems[i].price * order.orderItems[i].quantity %></td>
                                     </tr>
-                                    <% } %>
+                                <% } %>
                             </tbody>
                         </table>
-                        <div class="card-footer text-right">
-                            <h2>Total: <span class="totalAmount">$ <%= order.total %></span></h2>
+                        <div class="total-container-ord">
+                            <br>
+                            <h2 stlye="margin-left: 10px">Total: <span class="totalAmount">$ <%= order.total %></span></h2>
                         </div>
                     </div>
-                </div>
-                <div class="card">
-                    <div class="card-header text-center">
-                        Detalles de la compra
-                    </div>
-                    <div class="card-body" id="checkoutCart">
-                        <div class="row">
-                            <div class=" col-md-6 mb-4">
-                                <p><strong>Tipo Envio: </strong><%= order.shippingMethod %></p>
-                            </div>
-                            <div class=" col-md-6 mb-4">
-                                <p><strong>Pago: </strong> <%= order.paymentMethod %></p>
-                            </div>
+
+                    <div class="details-container-ord">
+                        <br>
+                        <div>
+                            <p><strong>Tipo Envío: </strong><%= order.shippingMethod %></p>
+                        </div>
+                        <br>
+                        <div>
+                            <p><strong>Pago: </strong> <%= order.paymentMethod %></p>
+                        </div>
+                        <br>
+                        <div>
+                            <a href="/users/profile" class="tarjeta-button order-button">Volver a mis pedidos</a>
+                        </div>
+                        <br>
+                        <div>
+                            <a href="" class="tarjeta-button">Ir a Pagar</a>
                         </div>
                     </div>
-                    <div class="card-footer">
-                        <a href="/users/profile" class="btn btn-primary btn-block">Volver a mis pedidos</a>
-                    </div>
-                    <div class="card-footer">
-                        <a href="" class="btn btn-primary btn-block">Ir a Pagar</a>
-                    </div>
-                </div>
-            </div>
-        </main>
-        <%- include('../partials/footer.ejs') %>
-
-</body>
-
-</html>
+                </main>
+                <%- include('../partials/footer.ejs') %>
+            </body>
+            
+            </html>

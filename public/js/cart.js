@@ -5,11 +5,16 @@ function removeItem(index, price) {
     if (cart.length > 1) {
         if (item.quantity > 1) {
             item.quantity -= 1;
+
             document.querySelector(`#row${index} .prod-quant`).innerText = `${item.quantity} Unidades`;
-            document.querySelector(`#row${index} .prod-price`).innerText = `$ ${parseFloat(price * item.quantity, 2).toFixed(2)}`;
+            document.querySelector(`#row${index} .prod-total-price`).innerText = `$ ${parseFloat(price * item.quantity, 2).toFixed(2)}`;
+
+            products[index].quantity = item.quantity;
         } else {
             cart.splice(index, 1);
             document.querySelector(`#row${index}`).remove();
+
+            products.splice(index, 1);
         }
         localStorage.setItem("cart", JSON.stringify(cart));
     } else {
@@ -20,8 +25,6 @@ function removeItem(index, price) {
 
     let cartNumber = document.querySelector(".cart-number");
     cartNumber.innerText = productsInCart();
-
-    products[index].quantity = item.quantity
 
     document.querySelector(".totalAmount").innerText = `$ ${Total(products)}`;
 
@@ -60,15 +63,16 @@ if (localStorage.cart && localStorage.cart != "[]") {
             .then((product) => {
                 if (product) {
                     cartRows.innerHTML += `
-                    <tr id="row${index}">
-                        <th scope="row">${index + 1}</th>
-                        <td>${product.name}</td>
-                        <img class="prod-img" src="/images/products/${product.image}" style="width: 100px; height: 100px;">
-                        <td>$ ${product.price}</td>
-                        <td class="prod-quant">${item.quantity} Unidades</td>
-                        <td class="prod-price">$ ${parseFloat(product.price * item.quantity, 2).toFixed(2)}</td>
-                        <td><button class="btn btn-danger btn-sm rem-item" onclick=removeItem(${index},${product.price})><i class="fas fa-trash"></i></button></td>
-                    </tr>`;
+                    <tr id="row${index}" class="cart-item">
+    <th scope="row">${index + 1}</th>
+    <td class="prod-name">${product.name}</td>
+    <td><img class="prod-img" src="${product.image}" alt="${product.name}" style="width: 100px; height: 100px;"></td>
+    <td class="prod-price">$ ${product.price}</td>
+    <td class="prod-quant">${item.quantity} Unidades</td>
+    <td class="prod-total-price">$ ${parseFloat(product.price * item.quantity, 2).toFixed(2)}</td>
+    <td><button class="btn btn-danger btn-sm rem-item" onclick=removeItem(${index},${product.price})><i class="fas fa-trash"></i></button></td>
+</tr>
+`;
                     products.push({
                         product_id: product.id,
                         name: product.name,
@@ -113,7 +117,7 @@ checkoutCart.onsubmit = (e) => {
                 EmptyCart()
                 location.href = `/products/order/${response.order.id}`
             } else {
-                toastr.error("No se pudo realizar al compra, intente nuevamente más tarde");
+                toastr.error("Registrese o identifíquese para realizar la compra por favor");
             }
         })
         .catch((error) => console.log(error));

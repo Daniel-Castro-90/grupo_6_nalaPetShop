@@ -9,7 +9,6 @@ const usersController = {
     register: (req, res) => {
         return res.render('users/register');
     },
-
     async create(req, res) {
         try {
             const errors = validationResult(req);
@@ -19,87 +18,77 @@ const usersController = {
                     oldData: req.body,
                 });
             }
-
+    
             const role = await db.Role.findOne({ where: { name: 'Usuario' } });
             if (!role) {
                 return res.status(500).send('Role "Usuario" not found');
             }
-
-            const cloudinaryResponse = await cloudinary.uploader.upload(req.file.path);
-            const cloudinaryUrl = cloudinaryResponse.secure_url;
-
-            let image = '/public/images/profiles/defaultprofile.png';
-            
-
+    
             const newUser = {
                 ...req.body,
-                image: cloudinaryUrl || image, //poner secure_url
+                image: req.file.cloudinaryUrl || '/public/images/profiles/defaultprofile.png',
                 roles_id: role.id
             };
         
             await db.User.create(newUser);
-            //Eliminar la imagen local
-            try {
-                const fs = require('fs');
-                fs.unlinkSync(req.file.path);
-                console.log('Archivo local eliminado: ', req.file.path);
-            } catch (unlinkError) {
-                console.error('Error al eliminar el archivo local: ', unlinkError);
-            }
-
+    
             return res.redirect('/users');
-
+    
         } catch (error) {
             console.error(error);
             return res.status(500).send('Internal Server Error');
         }
     },
-
     login: (req, res) => {
         res.render('users/login');
     },
 
     async processLogin(req, res) {
-
-                // Valido errores
-                let errors = validationResult(req);
-
-                //Retorar errores a la vista
-                if (!errors.isEmpty()) {
-                    let error = errors.mapped();
-                    console.log(error);
-                    return res.render("users/login", { error: error, olds: req.body})
-                }
-
-                //Buscar usuario
-
-                let user = await db.User.findOne({
-                    where: {
-                        email: req.body.email,
-                    },
-                });
-
-                if(user) {
-                    let passOk = bcrypt.compareSync(req.body.password, user.password);
-                    if(passOk) {
-                        req.session.userLogged = user;
-                        req.session.lastActivity = Date.now();
-
-                        if(req.body.saveUser) {
-                            res.cookie("user_id", user.id, { maxAge: 100 * 60 * 5 });
-                        }
-
-                        return res.redirect("/users/profile");
-                    } else {
-                        return res.render("/users/login", {
-                            errors: {
-                                msg: "Usuario y/o contraseña inválidos"
-                            },
-                            olds: req.body,
-                        })
-                    }
-                }
-    },
+        // Valido errores
+        let errors = validationResult(req);
+      
+        // Retornar errores a la vista
+        if (!errors.isEmpty()) {
+          let error = errors.mapped();
+          console.log(error);
+          return res.render("users/login", { error: error, olds: req.body });
+        }
+      
+        // Buscar usuario
+        let user = await db.User.findOne({
+          where: {
+            email: req.body.email,
+          },
+        });
+      
+        if (user) {
+          let passOk = bcrypt.compareSync(req.body.password, user.password);
+          if (passOk) {
+            req.session.userLogged = user;
+            req.session.lastActivity = Date.now();
+      
+            if (req.body.user_id) {
+              res.cookie("user_id", user.id, { maxAge: 100 * 60 * 5 });
+            }
+      
+            // Verificar si el usuario es administrador
+            if (user.roles_id === 1) {
+              // Si es administrador, redirigir a localhost:5173
+              return res.redirect("http://localhost:5173");
+            } else {
+              // Si no es administrador, redirigir a /users/profile
+              return res.redirect("/users/profile");
+            }
+          } else {
+            return res.render("/users/login", {
+              errors: {
+                msg: "Usuario y/o contraseña inválidos",
+              },
+              olds: req.body,
+            });
+          }
+        }
+      },      
 
     profile: async (req, res) => {
         let orders = await db.Order.findAll({
@@ -141,7 +130,10 @@ const usersController = {
         } catch (error) {
             return res.status(500).send(error);
         }
-    }
+    },
+    topSecret: (req, res) => {
+      return res.render('users/topSecret');
+  },
 };
 
 module.exports = usersController;

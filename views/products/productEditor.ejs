@@ -17,6 +17,17 @@
                         <label for="text">NOMBRE DEL PRODUCTO</label>
                         <input type="text" name="name" placeholder="Ingrese el nombre del producto" value="" />
                     </div>
+					<div class="items-form-product">
+						<label for="category">CATEGORÍA DEL PRODUCTO:</label>
+						<select name="category" id="category">
+							<option value="">SELECCIONAR</option>
+							<option value="gato" <%= locals.oldData?.category === 'gato' ? 'selected' : '' %>>GATOS</option>
+							<option value="perro" <%= locals.oldData?.category === 'perro' ? 'selected' : '' %>>PERROS</option>
+						</select>
+                        <% if (locals.errors?.category) { %>
+                            <p><%= errors.category.msg %></p>
+                        <% } %>
+					</div>
                     <div class="items-form-product">
                         <label for="text">DESCRIPCION</label>
                         <input type="text" id="description" name="description" placeholder="Ingrese descripcion" />

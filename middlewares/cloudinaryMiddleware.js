@@ -1,6 +1,5 @@
 const cloudinary = require('cloudinary').v2;
-const multer = require('multer');
-const path = require('path');
+const { validationResult } = require("express-validator");
 
 cloudinary.config({
     cloud_name: 'do3hvqxmd', 
@@ -8,52 +7,49 @@ cloudinary.config({
     api_secret: 'JTW2cHKhGQbVAhOzPN5F_208By8'
 });
 
-//Multer para manejar la carga de archivos
-const storage = multer.diskStorage({
-    destination: (req, file, callback) => {
-        callback(null, path.join(__dirname, '../public/images/profiles'));
-    },
-    filename: (req, file, callback) => {
-        const newProfileImage = 'profile-' + Date.now() + path.extname(file.originalname);
-        callback(null, newProfileImage);
-    }
-});
+function addPropertiesCloudinary(file, result) {
+    file.cloudinaryUrl = result.secure_url;
+}
 
-const upload = multer({ storage });
+const cloudinaryMiddleware = async (req, res, next) => {
+    try {
+        const errors = validationResult(req);
+        const file = req.file;
 
-const cloudinaryMiddleware = (req, res, next) => {
-  try {
-    if (!req.file) {
-      return next();
-    }
-
-    //Subir la imagen a Cloudinary
-    cloudinary.uploader.upload(
-      req.file.path,
-      { resource_type: 'auto' },
-      (error, result) => {
-        if (error) {
-          console.error(error);
-          return res.status(500).send('Error al subir la imagen a Cloudinary.');
+        if (!file) {
+            return next();
         }
 
-        console.log('URL de Cloudinary:', result.secure_url);
-
-        req.cloudinaryUrl = result.secure_url;
-
-        //Guardar url en una constante
-        if (req.user) {
-            req.user.cloudinaryUrl = result.secure_url;
+        if (!errors.isEmpty()) {
+            return next();
         }
 
-        next();
-      }
-    );
-  } catch (error) {
-    console.error(error);
-    return res.status(500).send('Error en el middleware de Cloudinary.');
-  }
+        const options = {};
+
+        if (req.body.idImagenAntesDeActualizar) {
+            options.public_id = req.body.idImagenAntesDeActualizar;
+            options.invalidate = true;
+            options.overwrite = true;
+        } else {
+            options.folder = 'seatech';
+            options.allowed_formats = ['jpg', 'png', 'jpeg'];
+        }
+
+        options.transformation = [{ width: 512, height: 512 }];
+
+        const result = await cloudinary.uploader.upload(file.path, options);
+
+        if (result.error) {
+            console.error(result.error);
+            return res.status(500).json({ error: 'Error al subir el archivo a Cloudinary' });
+        } else {
+            addPropertiesCloudinary(file, result);
+            return next();
+        }
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ error: 'Error al subir el archivo a Cloudinary' });
+    }
 };
 
 module.exports = cloudinaryMiddleware;
-

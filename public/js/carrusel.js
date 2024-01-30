@@ -32,12 +32,12 @@ function siguiente() {
 function anterior() {
 	actual--;
 	if (actual < 0) {
-		actual = 3;
+		actual = 7;
 	}
 	mostrar(actual);
 }
 
-var velocidad = 5000;
+var velocidad = 8000;
 var play = setInterval("siguiente()", velocidad);
 
 function playpause() {

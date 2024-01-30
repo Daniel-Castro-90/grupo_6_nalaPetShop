@@ -8,47 +8,92 @@
     <body>
         <%- include('partials/header.ejs') %>
         <main>
-            <div class="slider">
-                <div class="imagen actual"><img src="/images/resources/guau-mini.png"/></div>
-                <div class="imagen"><img src="/images/resources/oferta-gato-mini.png"/></div>
-                <div class="imagen"><img src="/images/resources/oferta-perro-mini.png"/></div>
-                <div class="imagen"><img src="/images/resources/Nala2.jpg"/><div class="texto">Ella es Nala ¡otra vez!</div></div>
-    
-                <a href="#" class="anterior" onclick="anterior();">&#10094;</a>
-                <a href="#" class="siguiente" onclick="siguiente();">&#10095;</a>
-    
-                <div class="puntos">
-                    <span class="punto activo" onclick="mostrar(0);"></span>
-                    <span class="punto" onclick="mostrar(1);"></span>
-                    <span class="punto" onclick="mostrar(2);"></span>
-                    <span class="punto" onclick="mostrar(3);"></span>
+            <section>
+                <div>
+                    <img src="/images/resources/bannersuperior.gif">
                 </div>
-    
-                <div class="boton">
-                    <a href="#"><img src="/images/resources/pause.png" id="btn" onclick="playpause();"/></a>
+            </section>
+            <section>
+                <div class="slider">
+                        <a href="/products" class="imagen" ><img  href="/products" src="/images/resources/slider.gif"/></a>                
+                    <a class="imagen actual" href="/products"><img src="/images/resources/slider1.png"/></a>
+                    <a class="imagen" href="/products/productsCat"><img src="/images/resources/slider2.png"/></a>
+                    <a href="/products/productsDog" class="imagen"><img src="/images/resources/slider3.png"/></a>
+                    <a href="/products/productsCat" class="imagen"><img src="/images/resources/slider4.png"/></a>
+                    <a href="/products/productsDog" class="imagen"><img src="/images/resources/slider5.png"/></a>
+                    <a href="/products/productsCat" class="imagen"><img src="/images/resources/slider6.png"/></a>
+        
+                    <a href="#" class="anterior" onclick="anterior();">&#10094;</a>
+                    <a href="#" class="siguiente" onclick="siguiente();">&#10095;</a>
+        
+                    <div class="puntos">
+                        <span class="punto activo" onclick="mostrar(0);"></span>
+                        <span class="punto" onclick="mostrar(1);"></span>
+                        <span class="punto" onclick="mostrar(2);"></span>
+                        <span class="punto" onclick="mostrar(3);"></span>
+                        <span class="punto" onclick="mostrar(4);"></span>
+                        <span class="punto" onclick="mostrar(5);"></span>
+                        <span class="punto" onclick="mostrar(6);"></span>
+                    </div>
+        
+                    <div class="boton">
+                        <a href="#"><img src="/images/resources/pause.png" id="btn" onclick="playpause();"/></a>
+                    </div>
+            </section>
+
+            <section class="bannerinf">
+                <div>
+                    <img src="/images/resources/bannerinferior.gif">
                 </div>
-            </div>
-            <div class="compra-pagos-envios">
-                <div class="compra-segura"><img src="/images/resources/compra-segura.svg" alt="Compra Segura">
-                    <span class="titulo-cs">COMPRA SEGURA</span><span class="cuerpo-cs">
-                        Gestionamos tus datos e información con absoluta confidencialidad.</span></div>
-                <div class="medios-de-pago"><img src="/images/resources/medios-de-pago.svg" alt="Medios de Pago">
-                    <span class="titulo-mdp">MEDIOS DE PAGO</span><span class="cuerpo-mdp">
-                        Aceptamos pagos en efectivo y con tarjetas de débito o crédito. También podés pagar con tus billeteras virtuales.</span></div>
-                <div class="envios-sin-cargo"><img src="/images/resources/envios-sin-cargo.svg" alt="Envios sin Cargo">
-                    <span class="titulo-esc">ENVÍOS SIN CARGO</span><span class="cuerpo-esc">
-                        ¡Comprando el monto mínimo tenés el envío GRATIS a cualquier parte del país!</span></div>
-            </div>
-            <div class="contenedor-categoria-publicidad">
-                <div class="categorias">
-                    <div class="gato"><a href="/products/productsCat"><div class="contenedor-gato">
-                        <span class="texto-gato">GATOS</span></div></a></div>
-                    <div class="perro"><a href="/products/productsDog"><div class="contenedor-perro">
-                        <span class="texto-perro">PERROS</span></div></a></div>
-                </div>
-                <img class="publicidad" src="/images/resources/publicidad-lis.png" alt="Publicidad Lis">
-                <img class="publicidad2" src="/images/resources/pet-salud.png" alt="Publicidad Lis">
-            </div>
+            </section>
+
+            <section>
+                <h2 class="titulos titulo-destacados">👇🔥¡PRODUCTOS DESTACADOS ESTA SEMANA!🔥👇</h2>
+                <% productosDestacados.forEach(product => { %>
+                    <div class="flip-card">
+                        <div class="flip-card-inner">
+                            <div class="flip-card-front">
+                                <img class="flip-card" src="<%= product.image %>" alt="<%= product.name %>" style="width:300px;height:300px;">
+                            </div>
+                            <div class="flip-card-back">
+                                <h3 class="card-title"><%= product.name %></h3>
+                                <p class="card-text">Precio: $<%= product.price %></p>
+                                <p class="card-text">Presentación: <%= product.package %> Kg</p>
+                                <a href="/products/productDetail/<%= product.id %>">
+                                    <button class="ver-producto">Ver Producto</button>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                <% }); %>
+            </section>
+            <section>
+                <h2 class="titulos titulo-gatos">TODOS NUESTROS PRODUCTOS PARA GATOS</h2>
+                <div class="card-container">
+                    <% gato.forEach(product => { %>
+                        <div class="container">
+                            <img src="<%= product.image %>" alt="<%= product.name %>" class="image">
+                            <div class="middle">
+                                <button href="" data-quantity="1" class="ver-producto add_cart" rel="nofollow" data-id="<%= product.id %>">Comprar</button>
+                            </div>
+                        </div>
+                    <% }); %>
+                </div>            
+            </section>
+            <section>
+                <h2 class="titulos titulo-gatos">TODOS NUESTROS PRODUCTOS PARA PERROS</h2>
+                <div class="card-container">
+                    <% perro.forEach(product => { %>
+                        <div class="container">
+                            <img src="<%= product.image %>" alt="<%= product.name %>" class="image">
+                            <div class="middle">
+                                <button href="" data-quantity="1" class="ver-producto add_cart" rel="nofollow" data-id="<%= product.id %>">Comprar</button>
+                            </div>
+                        </div>
+                    <% }); %>
+                </div>            
+            </section>
+
         </main>
         <%- include('partials/footer.ejs') %>
     </body>

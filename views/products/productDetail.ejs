@@ -6,21 +6,16 @@
 
     <body>
         <%- include('../partials/header.ejs') %>
-        <main class="Products-description-main">
-            <div class="product-image">
-                <img src="/images/products/<%= locals.product && product.image %>" alt="Imagen del Producto">
-            </div>
-            <div class="product-description">
+        <main>
+            <div class="tarjeta">
+                <img class="tarjeta-img" src="<%= product && product.image %>" alt="Imagen del Producto">
                 <h2><%= locals.product && product.name %></h2>
-                <br>
-                <p>Descripción: <%= locals.product && product.description %></p>
-                <br>
-                <p>En presentación de: <%= locals.product && product.package %>Kg</p>
-                <br>
-                <p>Precio: $<%= locals.product && product.price %></p>
-                <br>
-                <button class="add_cart">Añadir al Carrito</button>
-                <div style="margin-top: 10px;"><button onclick="goBack()">Volver</button></div>
+                <p class="tarjeta-title">Descripción: <%= locals.product && product.description %></p>
+                <p class="tarjeta-title">En presentación de: <%= locals.product && product.package %>Kg</p>
+                <p class="tarjeta-title">Precio: $<%= locals.product && product.price %></p>
+                <p ><button data-quantity="1" class="add_cart tarjeta-button" rel="nofollow" data-id="<%= product.id %>">¡Añadir al Carrito!</button></p>
+                <p><button class="tarjeta-button" onclick="goBack()">Volver</button></p>
+              </div>
                 <script>
                     function goBack() {
                         window.history.back()
@@ -29,5 +24,6 @@
             </div>
         </main>
         <%- include('../partials/footer.ejs') %>
+        <script src="/js/cart.js"></script>
     </body>
 </html>

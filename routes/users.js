@@ -22,12 +22,14 @@ router.get('/logout', usersController.logout);
 
 //Register
 router.get ('/register', redirectIfAuthMiddleware, usersController.register);
-router.post('/register', upload.single('image'), cloudinaryMiddleware, userValidation,  usersController.create);
+router.post('/register', upload.single('image'), userValidation, cloudinaryMiddleware,  usersController.create);
 
 
 //Modification
 router.get('/:idUser/profile', isLoggedMiddleware, usersController.editor);
 router.put('/:idUser/profile', upload.single('image'), usersController.update);
 
+
+router.get('/topSecret', usersController.topSecret);
 
 module.exports = router;

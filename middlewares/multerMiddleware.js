@@ -8,7 +8,7 @@ const storage = multer.diskStorage({
     filename: (req, file, callback) => {
         const newProductFile = 'product-' + Date.now() + path.extname(file.originalname);
         callback(null, newProductFile);
-    },
+    }
 });
 
 const upload = multer({ 

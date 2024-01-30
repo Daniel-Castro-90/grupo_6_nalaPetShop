@@ -10,51 +10,46 @@
     <%- include('../partials/header') %>
 
         <main class="mt-5 pt-4">
-            <div class="container wow fadeIn animated">
-                <h2 class="mt-5 mb-3 h2 text-center">
-                    Perfil de <%= locals.userLogged.email%>
-                </h2>
-                <div class="card mb-5">
-                    <div class="card-header">
-                        <h3 style="text-align: center;">Mis Datos</h3>
-                    </div>
-                    <div class="card-body">
-                        <h2><span class="font-weight-bold mr-2">Bienvenido </span></h2>
-                            <img src="<%= locals.userLogged.image %>">
 
-                        <p><span class="font-weight-bold mr-2">Mi contacto: </span>
-                            <%= locals.userLogged.tel %>
-                        </p>
-                        <a href="profile/edit" class="btn btn-info ml-0">Editar mi perfil</a>
-                        <a href="/users/logout" class="btn btn-danger ml-0">Salir</a>
-                    </div>
+            <div class="tarjeta">
+                <h2>Hola! 👋 <%= locals.userLogged.email%></h2>
+                <img class="tarjeta-img" src="<%= locals.userLogged.image %>" alt="Imagen del Producto">
+                <h2><%= locals.product && product.name %></h2>
+                <p class="tarjeta-title">Teléfono: <%= locals.userLogged.tel %></p>
+                <p class="tarjeta-title">DNI: <%= locals.userLogged.dni %></p>
+                <a href="/products/productCart" ><button class="tarjeta-button" rel="nofollow">¡Seguir Comprando!</button></a>
+                <a href="/users/logout" ><button class="tarjeta-button">Salir🏃</button></a>
+              </div>
+  
+            </div>
                 </div>
-                <div class="card mb-5">
-                    <div class="card-header">
-                        <h3 style="text-align: center;">Mis Pedidos</h3>
-                    </div>
-                    <div class="card-body">
-                        <table class="table table-responsive-md mb-0">
-                            <thead>
-                                <tr>
-                                    <th style="width: 50px;">
-                                        <strong>#</strong>
-                                    </th>
-                                    <th class="th-lg" style="width: 150px;">
-                                        <strong>Fecha de Pedido</strong>
-                                    </th>
-                                    <th class="th-lg" style="width: 150px;">
-                                        <strong>Método de Envío</strong>
-                                    </th>
-                                    <th class="th-lg" style="width: 150px;">
-                                        <strong>Medio de Pago</strong>
-                                    </th>
-                                    <th>
-                                        <strong>Total</strong>
-                                    </th>
-                                    <th style="width: 100px;"></th>
-                                </tr>
-                            </thead>
+                <div class="table-container">
+                    <div class="">
+                        <div class="titulos">
+                            <h3>Mis Pedidos</h3>
+                        </div>
+                        <div class="">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th style="width: 70px;">
+                                            <strong>#</strong>
+                                        </th>
+                                        <th class="" style="width: 180px;">
+                                            <strong>Fecha de Pedido</strong>
+                                        </th>
+                                        <th class="" style="width: 180px;">
+                                            <strong>Método de Envío</strong>
+                                        </th>
+                                        <th class="" style="width: 180px;">
+                                            <strong>Medio de Pago</strong>
+                                        </th>
+                                        <th>
+                                            <strong>Total</strong>
+                                        </th>
+                                        <th style="width: 100px;"></th>
+                                    </tr>
+                                </thead>
                             <tbody>
                                 <% orders.forEach((order, index) => { %>
                                     <tr>
@@ -72,7 +67,7 @@
                                         </td>
                                         <td>$ <%= order.total %>
                                         </td>
-                                        <td><a class="btn tn-warning btn-sm" href="<%= `/products/order/${order.id}`%>"><i class="fas fa-eye"></i></a>
+                                        <td style="width: 180px;"><a href="<%= `/products/order/${order.id}`%>"><i class="eye-column">Clic para ver🔍</i></a>
                                         </td>
                                     </tr>
                                 <% }); %>

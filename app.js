@@ -1,4 +1,4 @@
-//varibales
+// varibales
 require('dotenv').config();
 const express = require('express');
 const app = express();
@@ -12,47 +12,44 @@ const morgan = require('morgan');
 const path = require('path');
 const cookieParser = require('cookie-parser');
 const cors = require('cors');
+//const cookieMiddleware = require('./middlewares/cookieMiddleware');
 
-//Middlewares
-app.use(express.urlencoded({ extended: false}));
+const corsOptions = {
+    origin: 'http://localhost:5173',
+    credentials: true,
+};
+
+// Middlewares
+app.use(cors(corsOptions));
+app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 app.use(session({ secret: process.env.SECRET }));
 app.use(morgan('dev'));
 app.use(cookieParser());
+//app.use(cookieMiddleware);
 
-
-
-//method Override
+// method Override
 const methodOverride = require('method-override');
 app.use(methodOverride('_method'));
 
-
 // EJS
-app.set("view engine", "ejs");
+app.set('view engine', 'ejs');
 
-
-//public
+// Public
 app.use(express.static('public'));
 
-app.use(cors());
-
-
-// routes
+// Routes
 app.use('/', routeIndex);
-
 app.use('/products', routeProducts);
-
 app.use('/users', routeUsers);
-
 app.use('/api', routeApis);
 
-
-//hacer vista con imagen y botón. DIV PARA CONTENER TODO
+// Hacer vista con imagen y botón. DIV PARA CONTENER TODO
 app.use((req, res, next) => {
-    return res.status(404).render('partials/not-found')
-})
+    return res.status(404).render('partials/not-found');
+});
 
-//server start
+// Server start
 app.listen(port, () => {
     console.log(`Servidor iniciado correctamente en el puerto ${port}`);
 });

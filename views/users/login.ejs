@@ -8,11 +8,11 @@
         <%- include('../partials/header.ejs') %>
 <main>
     <div class="contenedor-accesousuario">
-        <section class="ingreso-registro">
+        <section class="ingreso">
             <a class="boton-ingreso">
                 <h4>Ingresá</h4>
             </a>
-            <a href="/users/register" class="boton-registro">
+            <a href="/users/register" id="linkIngreso" class="boton-registro selected">
                 <h4>Registrate</h4>
             </a>
         </section>
@@ -30,7 +30,7 @@
                         </div>
                         <div>
                             <div>
-                                <input type="checkbox" name="saveUser">
+                                <input type="checkbox" name="user_id">
                                 <label>Recordar</label>
                             </div>
                             <div>
@@ -48,5 +48,16 @@
     </div>
 </main>
 <%- include('../partials/footer.ejs') %>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const linkRegistro = document.getElementById('linkRegistro');
+        const linkIngreso = document.getElementById('linkIngreso');
+
+        linkRegistro.addEventListener('click', () => {
+            linkRegistro.classList.add('selected');
+            linkIngreso.classList.remove('selected');
+        });
+    });
+</script>
     </body>
 </html>

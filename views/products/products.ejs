@@ -1,49 +1,87 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <%- include('../partials/head.ejs') %>
-    </head>
+<head>
+    <%- include('../partials/head.ejs') %>
+</head>
 
-    <body>
-        <%- include('../partials/header.ejs') %>
-        <main>
-            <div class="create-product-button"><a href="/products/productCreation"><button type="submit"><img src="/images/resources/icons8-más.svg">CREAR NUEVO PRODUCTO</button></a></div>
-         <%- include('../partials/filter.ejs') %>
-            <section class="Perro">
-                <h3 class="titulares">Seccion Perros</h3>
-                <div class="producto">
+<body>
+    <%- include('../partials/header.ejs') %>
+    <main class="main-container">
+        <div>
+            <% if (locals.userLogged) { %>
+                <% if (locals.userLogged.roles_id === 1) { %>
+                    <a href="/products/<%= product.id %>/productEditor">
+                        <button class="crear-producto" href="/products/productCreation" type="submit">CREAR NUEVO PRODUCTO</button>
+                    </a>
+                <% } %>
+            <% } %>
+        </div>
+        
+        <div class="sections-container">
+            <section class="bannerinf">
+                <div>
+                    <img src="/images/resources/bannerinferior.gif">
+                </div>
+            </section>
+            <section>
+                <h2 class="titulos titulo-gatos">🐶SECCIÓN PERROS🐶</h2>
+                <div class="productos">
                     <% locals.perro && perro.forEach(product => { %>
-                    <article>
-                        <img src="/images/products/<%= product.image %>" alt="Imagen Producto Perros" class="img-producto"width="300px">
-                        <div class="main-article">
-                            <a href="/products/productDetail/<%= product.id %>"><h4 class="Descripcion"><%= product.name %></h4></a>
-                            <p class="precio"> $<%= product.price %> </p>
-                            <p class="package"> Presentación en: <%= product.package %>Kg </p>
-                            <button href="" data-quantity="1" class="boton-producto add_cart" rel="nofollow" data-id="<%= product.id %>">Comprar</button>
-                            <div class="boton-producto"><a href="/products/<%= product.id %>/productEditor"><button type="submit">Editar</button></a></div>
-                        </div>
-                    </article>
+                        <article class="producto">
+                            <img class="producto-img" src="<%= product.image %>" alt="Imagen Producto Perros">
+                            <div class="producto-info">
+                                <a class="producto-title" href="/products/productDetail/<%= product.id %>"><%= product.name %></a>
+                                <p class="price-text"> $ <%= product.price %> </p>
+                                <p class="price-text"> Presentación en: <%= product.package %> Kg </p>
+                            </div>
+                            <div class="producto-buttons">
+                                <button href="" data-quantity="1" class="comprar-producto add_cart" rel="nofollow" data-id="<%= product.id %>">Comprar</button>
+                                <% if (locals.userLogged) { %>
+                                    <% if (locals.userLogged.roles_id === 1) { %>
+                                        <a href="/products/<%= product.id %>/productEditor">
+                                            <button class="comprar-producto" type="submit">Editar</button>
+                                        </a>
+                                    <% } %>
+                                <% } %>
+                            </div>
+                        </article>
                     <% }) %>
                 </div>
             </section>
-            <section class="Gatos">
-                <h3 class="titulares">Sección Gatos</h3>
-                <div class="producto">
+
+            <section>
+                <a href="/products/productsCat" ><img class="publicidad" src="/images/resources/slider2.png"/></a>
+            </section>
+
+            <section>
+                <h2 class="titulos titulo-gatos">🙀SECCIÓN GATOS🙀</h2>
+                <div class="productos">
                     <% locals.gato && gato.forEach(product => { %>
-                    <article>
-                        <img src="/images/products/<%= product.image %>" alt="Imagen Producto Gatos" class="img-producto"width="300px">
-                        <div class="main-article">
-                            <a href="/products/productDetail/<%= product.id %>"><h4 class="Descripcion"><%= product.name %></h4></a>
-                            <p class="precio"> $<%= product.price %> </p>
-                            <p class="package"> Presentación en: <%= product.package %>Kg </p>
-                            <button href="" data-quantity="1" class="boton-producto add_cart" rel="nofollow" data-id="<%= product.id %>">Comprar</button>
-                            <div class="boton-producto"><a href="/products/<%= product.id %>/productEditor"><button type="submit">Editar</button></a></div>
-                        </div>
-                    </article>
+                        <article class="producto">
+                            <img class="producto-img" src="<%= product.image %>" alt="Imagen Producto Perros">
+                            <div class="producto-info">
+                                <a class="producto-title" href="/products/productDetail/<%= product.id %>"><%= product.name %></a>
+                                <p class="price-text"> $ <%= product.price %> </p>
+                                <p class="price-text"> Presentación en: <%= product.package %> Kg </p>
+                            </div>
+                            <div class="producto-buttons">
+                                <button href="" data-quantity="1" class="comprar-producto add_cart" rel="nofollow" data-id="<%= product.id %>">Comprar</button>
+                                <% if (locals.userLogged) { %>
+                                    <% if (locals.userLogged.roles_id === 1) { %>
+                                        <a href="/products/<%= product.id %>/productEditor">
+                                            <button class="comprar-producto" type="submit">Editar</button>
+                                        </a>
+                                    <% } %>
+                                <% } %>
+                            </div>
+                        </article>
                     <% }) %>
                 </div>
-            </section> 
-        </main>
-        <%- include('../partials/footer.ejs') %>
-    </body>
+            </section>
+        </div>
+        <a href="/products/productsCat" ><img class="publicidad" src="/images/resources/slider4.png"/></a>
+    </section>
+    </main>
+    <%- include('../partials/footer.ejs') %>
+</body>
 </html>

@@ -8,8 +8,8 @@
         <%- include('../partials/header.ejs') %>
         <main>
             <div class="contenedor-accesousuario">
-                <section class="ingreso-registro">
-                    <a href="/users" class="boton-ingreso">
+                <section class="registro">
+                    <a href="/users" id="linkRegistro" class="boton-ingreso selected">
                         <h4>Ingresá</h4>
                     </a>
                     <a class="boton-registro">
@@ -70,5 +70,16 @@
             </div>
         </main>
         <%- include('../partials/footer.ejs') %>
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                const linkRegistro = document.getElementById('linkRegistro');
+                const linkIngreso = document.getElementById('linkIngreso');
+        
+                linkRegistro.addEventListener('click', () => {
+                    linkRegistro.classList.add('selected');
+                    linkIngreso.classList.remove('selected');
+                });
+            });
+        </script>
     </body>
 </html>
