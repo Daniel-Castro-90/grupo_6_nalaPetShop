@@ -25,7 +25,7 @@ const usersController = {
                 return res.status(500).send('Role "Usuario" not found');
             }
 
-            let cloudinaryUrl = 'https://res.cloudinary.com/do3hvqxmd/image/upload/v1706138774/j0fladpejzgeebmtmprb.jpg'
+            let cloudinaryUrl = 'https://res.cloudinary.com/do3hvqxmd/image/upload/v1706640003/h1fdobfwlbmnrohtuvmc.png'
 
             if (req.file) {
               const cloudinaryResponse = await cloudinary.uploader.upload(req.file.path);

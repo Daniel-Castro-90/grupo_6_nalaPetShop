@@ -84,7 +84,7 @@ const productsController = {
                 where: { id: req.params.idProduct},
             });
     
-            return res.render('/');
+            res.redirect('/products');
         } catch (error) {
             console.error('Error al eliminar el producto:', error);
             res.status(500).render('Internal Server Error');
@@ -197,7 +197,7 @@ const productsController = {
             const products = await db.Product.findAll();
     
             // Obtener el término de búsqueda de la consulta
-            let search = req.query.busqueda ? req.query.busqueda.toLowerCase() : '';
+            let search = req.query.busqueda ? req.query.busqueda.toLowerCase().trim() : '';
             
             // Filtrar productos que coincidan con el término de búsqueda
             let productResults = products.filter(product => 

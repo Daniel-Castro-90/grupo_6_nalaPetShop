@@ -84,7 +84,8 @@
                     <p class="titulos"><%= product.name %></p>
                     <p class="card-text">Precio: $<%= product.price %></p>
                     <p class="card-text">Presentación: <%= product.package %> Kg</p>
-                        <button class="mobile-ver-producto">Ver Producto</button>
+                    <a href="/products/productDetail/<%= product.id %>">
+                        <button class="mobile-ver-producto">Ver Producto</button></a>
                   </div>
                   <br>
                   <% }); %>
@@ -118,7 +119,7 @@
                         <p class="card-text">Precio: $<%= product.price %></p>
                         <p class="card-text">Presentación: <%= product.package %> Kg</p>
                         <a href="/products/productDetail/<%= product.id %>">
-                            <button class="mobile-ver-producto">Ver Producto</button>
+                            <button class="mobile-ver-producto">Ver Producto</button></a>
                       </div>
                       <br>
                       <% }); %>                

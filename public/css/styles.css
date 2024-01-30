@@ -1295,7 +1295,7 @@ td.eye-column:hover {
     display: none;
 }
 
-@media (max-width: 479px) {
+@media (max-width: 425px) {
         .product {
             width: 100%;
             margin-right: 0;
@@ -1361,6 +1361,8 @@ td.eye-column:hover {
 
         .boton-headerlogin .carroresponsive,
         .boton-header .gatoresponsive,
+        .boton-search,
+        .buscador,
         .header-center,
         .header-right {
             display:none;
@@ -1514,7 +1516,8 @@ td.eye-column:hover {
         width: 150px;
     }
 
-    .boton-headerlogin .carroresponsive,
+    .boton-headerlogin .carroresponsive, 
+    .boton-header,
     .header-right {
         display:none;
     }
@@ -1938,4 +1941,13 @@ td.eye-column:hover {
 
 .product-description button:hover {
     background-color:#db710e;
+}
+
+
+@media (min-width: 1024px){
+    
+    .header-right,
+    .boton-header {
+        display: none;
+    }
 }

@@ -138,17 +138,23 @@ const apiController = {
                     return res.status(500).send('Role "Usuario" not found');
                 }
 
-                let cloudinaryUrl = 'https://res.cloudinary.com/do3hvqxmd/image/upload/v1706428366/seatech/x0fbxdxxopeuxpqmfn9n.jpg';
+                let cloudinaryUrl = 'https://res.cloudinary.com/do3hvqxmd/image/upload/v1706640003/h1fdobfwlbmnrohtuvmc.png';
         
                 if (req.file) {
                     const cloudinaryResponse = await cloudinary.uploader.upload(req.file.path);
                     cloudinaryUrl = cloudinaryResponse.secure_url;
+        
+                    try {
+                        fs.unlinkSync(req.file.path);
+                        console.log('Archivo local eliminado: ', req.file.path);
+                    } catch (unlinkError) {
+                        console.error('Error al eliminar el archivo local: ', unlinkError);
+                    }
                 }
         
                 const newUser = {
                     ...req.body,
                     image: cloudinaryUrl,
-                    roles_id: role.id
                 };
             
                 await db.User.create(newUser);
